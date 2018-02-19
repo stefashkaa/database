@@ -25,9 +25,11 @@ namespace Diploma.Services
         {
             foreach (var item in args)
             {
-                if (item.Text.Any(a => char.IsDigit(a)))
+                if ( item.Text.Count() > 50 || item.Text.Any(a => !char.IsLetter(a)))
                 {
-                    MessageBox.Show("Заполните поля 'фио' корректно!");
+                    MessageBox.Show(@"Поля 'ФИО' заполнены не корректно!
+ФИО должно состоять только из букв. Длина слов не превышает 50.", "Предупреждение",
+MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -37,9 +39,14 @@ namespace Diploma.Services
         public static bool IsValidMobile(TextBox textBox)
         {
             long res;
-            if (!long.TryParse(textBox.Text, out res))
+            if (!long.TryParse(textBox.Text, out res) ||
+                res <= 80000000000L ||
+                res >= 90000000000L)
             {
-                MessageBox.Show("Заполните поле 'мобильного телефона' корректно!");
+                MessageBox.Show(@"Заполните поле 'Мобильный телефон' корректно!
+Номер телефона должен содержать 11 цифр без пробелов
+и начинаться с '8'.", "Предупреждение",
+MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -47,9 +54,15 @@ namespace Diploma.Services
 
         public static bool IsValidEmail(TextBox textBox)
         {
-            if (textBox.Text.All(a => a != '@'))
+            if (!(textBox.Text.Contains("@") && (textBox.Text.Contains(".ru") || textBox.Text.Contains(".com")) ))
             {
-                MessageBox.Show("Заполните поле 'email' корректно!");
+                MessageBox.Show(@"Поле 'e-mail' заполнено не корректно!
+Используйте следующие домены:
+@yandex.ru
+@mail.ru
+@gmail.com
+@ssau.ru
+@list.ru", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -58,9 +71,11 @@ namespace Diploma.Services
         public static bool IsValidPrice(TextBox textBox)
         {
             int res;
-            if (!int.TryParse(textBox.Text, out res))
+            if (!int.TryParse(textBox.Text, out res) || res < 0 || res > 5000)
             {
-                MessageBox.Show("Заполните поле 'цены' корректно!");
+                MessageBox.Show(@"Поле 'Цена' заполнено не корректно!
+Можно использовать только целые числа, не превышающие 5000.", "Предупреждение",
+MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;

@@ -16,6 +16,11 @@ namespace Diploma.Services
 
         static DatabaseService()
         {
+            //for tests
+            //if (File.Exists(dbFileName))
+            //{
+            //    File.Delete(dbFileName);
+            //}
             openConnection();
             createTablesIfNotExists();
         }
@@ -99,7 +104,15 @@ namespace Diploma.Services
             }
             catch (SQLiteException e)
             {
-                MessageBox.Show(e.Message);
+                if (e.Message.ToLower().Contains("unique"))
+                {
+                    MessageBox.Show("Такая сущность уже содержится в базе данных!", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
 

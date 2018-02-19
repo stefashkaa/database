@@ -36,7 +36,7 @@ namespace Diploma.View
                     (string)row.Cells[1].Value,
                     (string)row.Cells[2].Value,
                     (string)row.Cells[3].Value,
-                    (int)row.Cells[4].Value,
+                    (long)row.Cells[4].Value,
                     (string)row.Cells[5].Value
                 );
             }
@@ -45,7 +45,7 @@ namespace Diploma.View
                 lClient = new LClient(
                     (string)row.Cells[0].Value,
                     (string)row.Cells[1].Value,
-                    (int)row.Cells[2].Value,
+                    (long)row.Cells[2].Value,
                     (string)row.Cells[3].Value
                 );
             }
