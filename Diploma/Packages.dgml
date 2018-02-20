@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="Diploma" Label="Diploma" Category="Project" />
+    <Node Id="CreativeWorkshop" Label="CreativeWorkshop" Category="Project" />
     <Node Id="EntityFramework 6.0.0" Label="EntityFramework 6.0.0" Category="Package" />
     <Node Id="System.Data.SQLite 1.0.106.0" Label="System.Data.SQLite 1.0.106.0" Category="Package" />
     <Node Id="System.Data.SQLite.Core 1.0.106.0" Label="System.Data.SQLite.Core 1.0.106.0" Category="Package" />
@@ -27,7 +27,7 @@
     <Link Source="System.Data.SQLite.EF6 1.0.106.0" Target="EntityFramework 6.0.0" Category="Package Dependency" />
     <Link Source="System.Data.SQLite.EF6 1.0.106.0" Target="EntityFramework 6.0.0" Category="Package Dependency" />
     <Link Source="System.Data.SQLite.EF6 1.0.106.0" Target="EntityFramework 6.0.0" Category="Package Dependency" />
-    <Link Source="Diploma" Target="System.Data.SQLite 1.0.106.0" Category="Installed Package" />
+    <Link Source="CreativeWorkshop" Target="System.Data.SQLite 1.0.106.0" Category="Installed Package" />
   </Links>
   <Categories>
     <Category Id="Project" />
