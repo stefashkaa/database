@@ -54,7 +54,17 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         public static bool IsValidEmail(TextBox textBox)
         {
-            if (!(textBox.Text.Contains("@") && (textBox.Text.Contains(".ru") || textBox.Text.Contains(".com")) ))
+            bool flag;
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(textBox.Text);
+                flag = addr.Address == textBox.Text;
+            }
+            catch
+            {
+                flag = false;
+            }
+            if (!flag)
             {
                 MessageBox.Show(@"Поле 'e-mail' заполнено не корректно!
 Используйте следующие домены:
@@ -63,9 +73,8 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
 @gmail.com
 @ssau.ru
 @list.ru", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
             }
-            return true;
+            return flag;
         }
 
         public static bool IsValidPrice(TextBox textBox)
