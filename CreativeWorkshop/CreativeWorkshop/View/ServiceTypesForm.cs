@@ -95,21 +95,5 @@ namespace CreativeWorkshop.View
                 }
             }
         }
-
-        private List<ServiceType> GetTypes()
-        {
-            List<ServiceType> types = new List<ServiceType>();
-            using (var read = DatabaseService.Select(DbConstants.ServiceTypes.title))
-            {
-                while (read.Read())
-                {
-                    types.Add(new ServiceType(
-                        (string)read.GetValue(read.GetOrdinal(DbConstants.ServiceTypes.name)),
-                        (int)read.GetValue(read.GetOrdinal(DbConstants.ServiceTypes.price)))
-                    );
-                }
-            }
-            return types;
-        }
     }
 }

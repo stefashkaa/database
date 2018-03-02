@@ -83,8 +83,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\LClient.cs" />
-    <Compile Include="Model\PClient.cs" />
+    <Compile Include="Controller\ClientController.cs" />
+    <Compile Include="Controller\EmployeeController.cs" />
+    <Compile Include="Controller\ServiceTypeController.cs" />
+    <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ServiceType.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\DbConstants.cs" />

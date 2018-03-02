@@ -16,5 +16,10 @@
             Position = pos;
             Mobile = mobile;
         }
+
+        public string GetShortName()
+        {
+            return $"{Surname} {Name[0]}. {Patronymic[0]}.";
+        }
     }
 }

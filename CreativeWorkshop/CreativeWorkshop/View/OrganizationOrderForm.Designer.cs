@@ -47,12 +47,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.send_btn = new System.Windows.Forms.Button();
-            this.servicePanel = new System.Windows.Forms.Panel();
             this.row1 = new System.Windows.Forms.Panel();
             this.addService = new System.Windows.Forms.Button();
+            this.servicePanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.count1)).BeginInit();
-            this.servicePanel.SuspendLayout();
             this.row1.SuspendLayout();
+            this.servicePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // save_btn
@@ -132,6 +132,7 @@
             this.legal_rb.TabIndex = 25;
             this.legal_rb.Text = "Юридическое лицо";
             this.legal_rb.UseVisualStyleBackColor = true;
+            this.legal_rb.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
             // phys_rb
             // 
@@ -145,6 +146,7 @@
             this.phys_rb.TabStop = true;
             this.phys_rb.Text = "Физическое лицо";
             this.phys_rb.UseVisualStyleBackColor = true;
+            this.phys_rb.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
             // service_txt1
             // 
@@ -254,17 +256,7 @@
             this.send_btn.TabIndex = 44;
             this.send_btn.Text = "Оформить заказ";
             this.send_btn.UseVisualStyleBackColor = true;
-            this.send_btn.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // servicePanel
-            // 
-            this.servicePanel.AutoScroll = true;
-            this.servicePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.servicePanel.Controls.Add(this.row1);
-            this.servicePanel.Location = new System.Drawing.Point(12, 85);
-            this.servicePanel.Name = "servicePanel";
-            this.servicePanel.Size = new System.Drawing.Size(550, 194);
-            this.servicePanel.TabIndex = 45;
+            this.send_btn.Click += new System.EventHandler(this.contract_Click);
             // 
             // row1
             // 
@@ -290,13 +282,23 @@
             this.addService.UseVisualStyleBackColor = true;
             this.addService.Click += new System.EventHandler(this.addService_Click);
             // 
+            // servicePanel
+            // 
+            this.servicePanel.AutoScroll = true;
+            this.servicePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.servicePanel.Controls.Add(this.row1);
+            this.servicePanel.Location = new System.Drawing.Point(12, 85);
+            this.servicePanel.Name = "servicePanel";
+            this.servicePanel.Size = new System.Drawing.Size(550, 194);
+            this.servicePanel.TabIndex = 45;
+            // 
             // OrganizationOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 470);
-            this.Controls.Add(this.addService);
             this.Controls.Add(this.servicePanel);
+            this.Controls.Add(this.addService);
             this.Controls.Add(this.send_btn);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label11);
@@ -315,9 +317,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Формирование заказа";
             ((System.ComponentModel.ISupportInitialize)(this.count1)).EndInit();
-            this.servicePanel.ResumeLayout(false);
             this.row1.ResumeLayout(false);
             this.row1.PerformLayout();
+            this.servicePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,8 +346,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button send_btn;
-        private System.Windows.Forms.Panel servicePanel;
         private System.Windows.Forms.Panel row1;
         private System.Windows.Forms.Button addService;
+        private System.Windows.Forms.FlowLayoutPanel servicePanel;
     }
 }

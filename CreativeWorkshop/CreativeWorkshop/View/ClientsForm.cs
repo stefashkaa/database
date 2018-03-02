@@ -184,43 +184,5 @@ namespace CreativeWorkshop.View
                 }
             }
         }
-
-        private List<PClient> GetPClients()
-        {
-            List<PClient> clients = new List<PClient>();
-            using (var read = DatabaseService.Select(DbConstants.PClients.title))
-            {
-                while (read.Read())
-                {
-                    clients.Add(new PClient(
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.surname)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.name)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.patronymic)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.address)),
-                     (long)read.GetValue(read.GetOrdinal(DbConstants.PClients.mobile)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.email)))
-                     );
-                }
-            }
-            return clients;
-        }
-
-        private List<LClient> GetLClients()
-        {
-            List<LClient> clients = new List<LClient>();
-            using (var read = DatabaseService.Select(DbConstants.LClients.title))
-            {
-                while (read.Read())
-                {
-                    clients.Add(new LClient(
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.name)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.address)),
-                     (long)read.GetValue(read.GetOrdinal(DbConstants.PClients.mobile)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.email)))
-                     );
-                }
-            }
-            return clients;
-        }
     }
 }
