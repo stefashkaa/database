@@ -24,7 +24,7 @@ namespace CreativeWorkshop.View
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DatabaseService.CloseConnection();
+            //DatabaseService.CloseConnection();
         }
 
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)

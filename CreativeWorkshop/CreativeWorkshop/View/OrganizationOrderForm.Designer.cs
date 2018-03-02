@@ -37,28 +37,22 @@
             this.label4 = new System.Windows.Forms.Label();
             this.legal_rb = new System.Windows.Forms.RadioButton();
             this.phys_rb = new System.Windows.Forms.RadioButton();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.service_txt1 = new System.Windows.Forms.ComboBox();
+            this.serviceName1 = new System.Windows.Forms.Label();
+            this.countName1 = new System.Windows.Forms.Label();
             this.count1 = new System.Windows.Forms.NumericUpDown();
-            this.count1txt = new System.Windows.Forms.Label();
-            this.type1 = new System.Windows.Forms.ComboBox();
-            this.type1txt = new System.Windows.Forms.Label();
-            this.count2 = new System.Windows.Forms.NumericUpDown();
-            this.count2txt = new System.Windows.Forms.Label();
-            this.type2 = new System.Windows.Forms.ComboBox();
-            this.type2txt = new System.Windows.Forms.Label();
-            this.plus1 = new System.Windows.Forms.Button();
-            this.plus2 = new System.Windows.Forms.Button();
+            this.deleteService1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.send_btn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.servicePanel = new System.Windows.Forms.Panel();
+            this.row1 = new System.Windows.Forms.Panel();
+            this.addService = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.count1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.count2)).BeginInit();
+            this.servicePanel.SuspendLayout();
+            this.row1.SuspendLayout();
             this.SuspendLayout();
             // 
             // save_btn
@@ -152,146 +146,63 @@
             this.phys_rb.Text = "Физическое лицо";
             this.phys_rb.UseVisualStyleBackColor = true;
             // 
-            // comboBox5
+            // service_txt1
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(178, 103);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(117, 27);
-            this.comboBox5.TabIndex = 27;
+            this.service_txt1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.service_txt1.FormattingEnabled = true;
+            this.service_txt1.Location = new System.Drawing.Point(169, 12);
+            this.service_txt1.Name = "service_txt1";
+            this.service_txt1.Size = new System.Drawing.Size(117, 27);
+            this.service_txt1.TabIndex = 27;
             // 
-            // label2
+            // serviceName1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 106);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 19);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Название вида услуги:";
+            this.serviceName1.AutoSize = true;
+            this.serviceName1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.serviceName1.Location = new System.Drawing.Point(3, 15);
+            this.serviceName1.Name = "serviceName1";
+            this.serviceName1.Size = new System.Drawing.Size(160, 19);
+            this.serviceName1.TabIndex = 26;
+            this.serviceName1.Text = "Название вида услуги:";
             // 
-            // label5
+            // countName1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(314, 106);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 19);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Количество:";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown1.Location = new System.Drawing.Point(412, 104);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(66, 26);
-            this.numericUpDown1.TabIndex = 29;
+            this.countName1.AutoSize = true;
+            this.countName1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countName1.Location = new System.Drawing.Point(305, 15);
+            this.countName1.Name = "countName1";
+            this.countName1.Size = new System.Drawing.Size(92, 19);
+            this.countName1.TabIndex = 28;
+            this.countName1.Text = "Количество:";
             // 
             // count1
             // 
             this.count1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.count1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.count1.Location = new System.Drawing.Point(412, 143);
+            this.count1.Location = new System.Drawing.Point(403, 13);
+            this.count1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.count1.Name = "count1";
             this.count1.Size = new System.Drawing.Size(66, 26);
-            this.count1.TabIndex = 33;
+            this.count1.TabIndex = 29;
+            this.count1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // count1txt
+            // deleteService1
             // 
-            this.count1txt.AutoSize = true;
-            this.count1txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.count1txt.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.count1txt.Location = new System.Drawing.Point(314, 145);
-            this.count1txt.Name = "count1txt";
-            this.count1txt.Size = new System.Drawing.Size(92, 19);
-            this.count1txt.TabIndex = 32;
-            this.count1txt.Text = "Количество:";
-            // 
-            // type1
-            // 
-            this.type1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.type1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.type1.FormattingEnabled = true;
-            this.type1.Location = new System.Drawing.Point(178, 142);
-            this.type1.Name = "type1";
-            this.type1.Size = new System.Drawing.Size(117, 27);
-            this.type1.TabIndex = 31;
-            // 
-            // type1txt
-            // 
-            this.type1txt.AutoSize = true;
-            this.type1txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.type1txt.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.type1txt.Location = new System.Drawing.Point(12, 145);
-            this.type1txt.Name = "type1txt";
-            this.type1txt.Size = new System.Drawing.Size(160, 19);
-            this.type1txt.TabIndex = 30;
-            this.type1txt.Text = "Название вида услуги:";
-            // 
-            // count2
-            // 
-            this.count2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.count2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.count2.Location = new System.Drawing.Point(412, 185);
-            this.count2.Name = "count2";
-            this.count2.Size = new System.Drawing.Size(66, 26);
-            this.count2.TabIndex = 37;
-            // 
-            // count2txt
-            // 
-            this.count2txt.AutoSize = true;
-            this.count2txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.count2txt.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.count2txt.Location = new System.Drawing.Point(314, 187);
-            this.count2txt.Name = "count2txt";
-            this.count2txt.Size = new System.Drawing.Size(92, 19);
-            this.count2txt.TabIndex = 36;
-            this.count2txt.Text = "Количество:";
-            // 
-            // type2
-            // 
-            this.type2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.type2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.type2.FormattingEnabled = true;
-            this.type2.Location = new System.Drawing.Point(178, 184);
-            this.type2.Name = "type2";
-            this.type2.Size = new System.Drawing.Size(117, 27);
-            this.type2.TabIndex = 35;
-            // 
-            // type2txt
-            // 
-            this.type2txt.AutoSize = true;
-            this.type2txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.type2txt.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.type2txt.Location = new System.Drawing.Point(12, 187);
-            this.type2txt.Name = "type2txt";
-            this.type2txt.Size = new System.Drawing.Size(160, 19);
-            this.type2txt.TabIndex = 34;
-            this.type2txt.Text = "Название вида услуги:";
-            // 
-            // plus1
-            // 
-            this.plus1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.plus1.Location = new System.Drawing.Point(506, 141);
-            this.plus1.Name = "plus1";
-            this.plus1.Size = new System.Drawing.Size(43, 27);
-            this.plus1.TabIndex = 38;
-            this.plus1.Text = "+";
-            this.plus1.UseVisualStyleBackColor = true;
-            this.plus1.Click += new System.EventHandler(this.plus1_Click);
-            // 
-            // plus2
-            // 
-            this.plus2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.plus2.Location = new System.Drawing.Point(506, 183);
-            this.plus2.Name = "plus2";
-            this.plus2.Size = new System.Drawing.Size(43, 27);
-            this.plus2.TabIndex = 39;
-            this.plus2.Text = "+";
-            this.plus2.UseVisualStyleBackColor = true;
-            this.plus2.Click += new System.EventHandler(this.plus2_Click);
+            this.deleteService1.Enabled = false;
+            this.deleteService1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteService1.Location = new System.Drawing.Point(480, 12);
+            this.deleteService1.Name = "deleteService1";
+            this.deleteService1.Size = new System.Drawing.Size(48, 27);
+            this.deleteService1.TabIndex = 38;
+            this.deleteService1.Text = "-";
+            this.deleteService1.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -345,30 +256,52 @@
             this.send_btn.UseVisualStyleBackColor = true;
             this.send_btn.Click += new System.EventHandler(this.button1_Click);
             // 
+            // servicePanel
+            // 
+            this.servicePanel.AutoScroll = true;
+            this.servicePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.servicePanel.Controls.Add(this.row1);
+            this.servicePanel.Location = new System.Drawing.Point(12, 85);
+            this.servicePanel.Name = "servicePanel";
+            this.servicePanel.Size = new System.Drawing.Size(550, 194);
+            this.servicePanel.TabIndex = 45;
+            // 
+            // row1
+            // 
+            this.row1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.row1.Controls.Add(this.serviceName1);
+            this.row1.Controls.Add(this.deleteService1);
+            this.row1.Controls.Add(this.service_txt1);
+            this.row1.Controls.Add(this.count1);
+            this.row1.Controls.Add(this.countName1);
+            this.row1.Location = new System.Drawing.Point(3, 3);
+            this.row1.Name = "row1";
+            this.row1.Size = new System.Drawing.Size(540, 50);
+            this.row1.TabIndex = 0;
+            // 
+            // addService
+            // 
+            this.addService.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addService.Location = new System.Drawing.Point(568, 85);
+            this.addService.Name = "addService";
+            this.addService.Size = new System.Drawing.Size(34, 194);
+            this.addService.TabIndex = 39;
+            this.addService.Text = "+";
+            this.addService.UseVisualStyleBackColor = true;
+            this.addService.Click += new System.EventHandler(this.addService_Click);
+            // 
             // OrganizationOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 470);
+            this.Controls.Add(this.addService);
+            this.Controls.Add(this.servicePanel);
             this.Controls.Add(this.send_btn);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.plus2);
-            this.Controls.Add(this.plus1);
-            this.Controls.Add(this.count2);
-            this.Controls.Add(this.count2txt);
-            this.Controls.Add(this.type2);
-            this.Controls.Add(this.type2txt);
-            this.Controls.Add(this.count1);
-            this.Controls.Add(this.count1txt);
-            this.Controls.Add(this.type1);
-            this.Controls.Add(this.type1txt);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.legal_rb);
             this.Controls.Add(this.phys_rb);
             this.Controls.Add(this.clientId_txt);
@@ -381,9 +314,10 @@
             this.Name = "OrganizationOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Формирование заказа";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.count1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.count2)).EndInit();
+            this.servicePanel.ResumeLayout(false);
+            this.row1.ResumeLayout(false);
+            this.row1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,24 +334,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton legal_rb;
         private System.Windows.Forms.RadioButton phys_rb;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox service_txt1;
+        private System.Windows.Forms.Label serviceName1;
+        private System.Windows.Forms.Label countName1;
         private System.Windows.Forms.NumericUpDown count1;
-        private System.Windows.Forms.Label count1txt;
-        private System.Windows.Forms.ComboBox type1;
-        private System.Windows.Forms.Label type1txt;
-        private System.Windows.Forms.NumericUpDown count2;
-        private System.Windows.Forms.Label count2txt;
-        private System.Windows.Forms.ComboBox type2;
-        private System.Windows.Forms.Label type2txt;
-        private System.Windows.Forms.Button plus1;
-        private System.Windows.Forms.Button plus2;
+        private System.Windows.Forms.Button deleteService1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button send_btn;
+        private System.Windows.Forms.Panel servicePanel;
+        private System.Windows.Forms.Panel row1;
+        private System.Windows.Forms.Button addService;
     }
 }

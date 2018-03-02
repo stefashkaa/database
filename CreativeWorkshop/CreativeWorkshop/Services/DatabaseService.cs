@@ -31,7 +31,7 @@ namespace CreativeWorkshop.Services
             {
                 SQLiteConnection.CreateFile(dbFileName);
             }
-            connection.ConnectionString = "Data Source = " + dbFileName;
+            connection.ConnectionString = $"Data Source = {dbFileName}";
             connection.Open();
         }
 
@@ -42,6 +42,8 @@ namespace CreativeWorkshop.Services
             CreateTable(DbConstants.LClients.Create);
             CreateTable(DbConstants.ServiceTypes.Create);
         }
+
+        public static void Init() { /*for creating database*/ }
 
         public static void CreateTable(string commandText)
         {
@@ -82,12 +84,27 @@ namespace CreativeWorkshop.Services
 
         public static SQLiteDataReader Select(string title)
         {
+            var command = select(title);
+            return command.ExecuteReader();
+        }
+
+        public static SQLiteDataReader Where(string title, string condition)
+        {
+            var command = select(title, condition);
+            return command.ExecuteReader();
+        }
+
+        private static SQLiteCommand select(string title, string condition = null)
+        {
             var command = new SQLiteCommand(connection)
             {
-                CommandText = @"SELECT * FROM " + title,
+                CommandText = $@"SELECT * FROM {title}",
                 CommandType = CommandType.Text
             };
-            return command.ExecuteReader();
+            command.CommandText = (condition == null)
+                ? command.CommandText
+                : $@"{command.CommandText} {condition}";
+            return command;
         }
 
         public static void Execute(string commandText, List<SQLiteParameter> parameters)
