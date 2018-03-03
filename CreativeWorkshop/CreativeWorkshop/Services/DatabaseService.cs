@@ -82,6 +82,26 @@ namespace CreativeWorkshop.Services
             return ++id;
         }
 
+        public static int GetIdByName(string title, string nameExpression, List<SQLiteParameter> parameters)
+        {
+            var command = select(title, DbConstants.id, $"WHERE {nameExpression}");
+            try
+            {
+                using (var read = ExecuteAndReturn(command.CommandText, parameters))
+                {
+                    while (read.Read())
+                    {
+                        return read.GetInt32(0);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            return 0;
+        }
+
         public static SQLiteDataReader Select(string title)
         {
             var command = select(title);
@@ -90,15 +110,15 @@ namespace CreativeWorkshop.Services
 
         public static SQLiteDataReader Where(string title, string condition)
         {
-            var command = select(title, condition);
+            var command = select(title, null, condition);
             return command.ExecuteReader();
         }
 
-        private static SQLiteCommand select(string title, string condition = null)
+        private static SQLiteCommand select(string title, string what = null, string condition = null)
         {
             var command = new SQLiteCommand(connection)
             {
-                CommandText = $@"SELECT * FROM {title}",
+                CommandText = $@"SELECT {what ?? "*"} FROM {title}",
                 CommandType = CommandType.Text
             };
             command.CommandText = (condition == null)
@@ -130,6 +150,33 @@ namespace CreativeWorkshop.Services
                 {
                     MessageBox.Show(e.Message);
                 }
+            }
+        }
+
+        public static SQLiteDataReader ExecuteAndReturn(string commandText, List<SQLiteParameter> parameters)
+        {
+            try
+            {
+                var command = new SQLiteCommand(connection)
+                {
+                    CommandText = commandText,
+                    CommandType = CommandType.Text
+                };
+                command.Parameters.AddRange(parameters.ToArray());
+                return command.ExecuteReader();
+            }
+            catch (SQLiteException e)
+            {
+                if (e.Message.ToLower().Contains("unique"))
+                {
+                    MessageBox.Show("Такая сущность уже содержится в базе данных!", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(e.Message);
+                }
+                return null;
             }
         }
 

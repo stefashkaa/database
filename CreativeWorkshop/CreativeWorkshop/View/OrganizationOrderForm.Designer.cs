@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.save_btn = new System.Windows.Forms.Button();
+            this.close_btn = new System.Windows.Forms.Button();
             this.employeeId_txt = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,31 +42,35 @@
             this.countName1 = new System.Windows.Forms.Label();
             this.count1 = new System.Windows.Forms.NumericUpDown();
             this.deleteService1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.firstSum_txt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeLast = new System.Windows.Forms.DateTimePicker();
             this.send_btn = new System.Windows.Forms.Button();
             this.row1 = new System.Windows.Forms.Panel();
             this.addService = new System.Windows.Forms.Button();
             this.servicePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.rub_txt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.count1)).BeginInit();
             this.row1.SuspendLayout();
             this.servicePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // save_btn
+            // close_btn
             // 
-            this.save_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.save_btn.Location = new System.Drawing.Point(399, 426);
-            this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(203, 32);
-            this.save_btn.TabIndex = 19;
-            this.save_btn.Text = "Сохранить";
-            this.save_btn.UseVisualStyleBackColor = true;
+            this.close_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.close_btn.Location = new System.Drawing.Point(399, 426);
+            this.close_btn.Name = "close_btn";
+            this.close_btn.Size = new System.Drawing.Size(203, 32);
+            this.close_btn.TabIndex = 19;
+            this.close_btn.Text = "Закрыть";
+            this.close_btn.UseVisualStyleBackColor = true;
+            this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
             // 
             // employeeId_txt
             // 
+            this.employeeId_txt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.employeeId_txt.DropDownWidth = 200;
             this.employeeId_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.employeeId_txt.FormattingEnabled = true;
             this.employeeId_txt.Location = new System.Drawing.Point(103, 19);
@@ -105,6 +109,8 @@
             // 
             // clientId_txt
             // 
+            this.clientId_txt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.clientId_txt.DropDownWidth = 200;
             this.clientId_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.clientId_txt.FormattingEnabled = true;
             this.clientId_txt.Location = new System.Drawing.Point(302, 19);
@@ -150,6 +156,8 @@
             // 
             // service_txt1
             // 
+            this.service_txt1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.service_txt1.DropDownWidth = 200;
             this.service_txt1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.service_txt1.FormattingEnabled = true;
             this.service_txt1.Location = new System.Drawing.Point(169, 12);
@@ -206,16 +214,17 @@
             this.deleteService1.Text = "-";
             this.deleteService1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // firstSum_txt
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.textBox1.Location = new System.Drawing.Point(188, 285);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(108, 26);
-            this.textBox1.TabIndex = 40;
-            this.textBox1.Text = "5555 руб.";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.firstSum_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firstSum_txt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.firstSum_txt.Location = new System.Drawing.Point(188, 285);
+            this.firstSum_txt.MaxLength = 10;
+            this.firstSum_txt.Name = "firstSum_txt";
+            this.firstSum_txt.Size = new System.Drawing.Size(108, 26);
+            this.firstSum_txt.TabIndex = 40;
+            this.firstSum_txt.Text = "0";
+            this.firstSum_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label10
             // 
@@ -237,19 +246,19 @@
             this.label11.TabIndex = 42;
             this.label11.Text = "Срок исполнения:";
             // 
-            // dateTimePicker1
+            // dateTimeLast
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(188, 377);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(166, 26);
-            this.dateTimePicker1.TabIndex = 43;
+            this.dateTimeLast.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimeLast.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimeLast.Location = new System.Drawing.Point(188, 377);
+            this.dateTimeLast.Name = "dateTimeLast";
+            this.dateTimeLast.Size = new System.Drawing.Size(166, 26);
+            this.dateTimeLast.TabIndex = 43;
             // 
             // send_btn
             // 
             this.send_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.send_btn.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.send_btn.ForeColor = System.Drawing.SystemColors.WindowText;
             this.send_btn.Location = new System.Drawing.Point(188, 426);
             this.send_btn.Name = "send_btn";
             this.send_btn.Size = new System.Drawing.Size(205, 32);
@@ -262,10 +271,10 @@
             // 
             this.row1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.row1.Controls.Add(this.serviceName1);
-            this.row1.Controls.Add(this.deleteService1);
             this.row1.Controls.Add(this.service_txt1);
-            this.row1.Controls.Add(this.count1);
             this.row1.Controls.Add(this.countName1);
+            this.row1.Controls.Add(this.count1);
+            this.row1.Controls.Add(this.deleteService1);
             this.row1.Location = new System.Drawing.Point(3, 3);
             this.row1.Name = "row1";
             this.row1.Size = new System.Drawing.Size(540, 50);
@@ -292,24 +301,35 @@
             this.servicePanel.Size = new System.Drawing.Size(550, 194);
             this.servicePanel.TabIndex = 45;
             // 
+            // rub_txt
+            // 
+            this.rub_txt.AutoSize = true;
+            this.rub_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rub_txt.Location = new System.Drawing.Point(302, 288);
+            this.rub_txt.Name = "rub_txt";
+            this.rub_txt.Size = new System.Drawing.Size(36, 19);
+            this.rub_txt.TabIndex = 46;
+            this.rub_txt.Text = "руб.";
+            // 
             // OrganizationOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 470);
+            this.Controls.Add(this.rub_txt);
             this.Controls.Add(this.servicePanel);
             this.Controls.Add(this.addService);
             this.Controls.Add(this.send_btn);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimeLast);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.firstSum_txt);
             this.Controls.Add(this.legal_rb);
             this.Controls.Add(this.phys_rb);
             this.Controls.Add(this.clientId_txt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimeFirst);
-            this.Controls.Add(this.save_btn);
+            this.Controls.Add(this.close_btn);
             this.Controls.Add(this.employeeId_txt);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -327,7 +347,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button save_btn;
+        private System.Windows.Forms.Button close_btn;
         private System.Windows.Forms.ComboBox employeeId_txt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
@@ -341,13 +361,14 @@
         private System.Windows.Forms.Label countName1;
         private System.Windows.Forms.NumericUpDown count1;
         private System.Windows.Forms.Button deleteService1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox firstSum_txt;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimeLast;
         private System.Windows.Forms.Button send_btn;
         private System.Windows.Forms.Panel row1;
         private System.Windows.Forms.Button addService;
         private System.Windows.Forms.FlowLayoutPanel servicePanel;
+        private System.Windows.Forms.Label rub_txt;
     }
 }

@@ -1,12 +1,9 @@
 ﻿using CreativeWorkshop.Controller;
 using CreativeWorkshop.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace CreativeWorkshop.View
@@ -36,12 +33,54 @@ namespace CreativeWorkshop.View
 
         private void contract_Click(object sender, EventArgs e)
         {
-            //new ContractForm().ShowDialog();
+            var employee = EmployeeController.GetAllEmployees().First(em => em.GetShortName() == employeeId_txt.Text);
+            var client = getClient();
+            var sum = getSum();
+            if (employee == null || client == null || sum <= 0)
+            {
+                MessageBox.Show(@"Невозможно оформить заказ!
+Не заполнены одно или несколько полей", "Предупреждение",
+MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!long.TryParse(firstSum_txt.Text, out long firstPay) || firstPay < 0 || firstPay > sum)
+            {
+                MessageBox.Show(@"Поле 'первоначальный взнос' введено не корректно!
+Первоначальный взнос должен быть меньше итоговой суммы", "Предупреждение",
+MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            new ContractForm(employee, client, sum, firstPay, dateTimeFirst, dateTimeLast).ShowDialog();
+        }
+
+        private long getSum()
+        {
+            long sum = 0;
+            var types = ServiceTypeController.GetAllTypes();
+            foreach (var row in servicePanel.Controls.Cast<Panel>())
+            {
+                sum += (types.First(t => t.Name == (row.Controls[1] as ComboBox)?.SelectedItem.ToString()).Price *
+                    Convert.ToInt64((row.Controls[3] as NumericUpDown)?.Value)); 
+            }
+            return sum;
         }
 
         private void addService_Click(object sender, EventArgs e)
         {
             createRow();
+        }
+
+        private Client getClient()
+        {
+            if (phys_rb.Checked)
+            {
+                return ClientController.GetAllPClients().First(p => p.GetShortName() == clientId_txt.Text);
+            }
+            else
+            {
+                return ClientController.GetAllLClients().First(l => l.Name == clientId_txt.Text);
+            }
         }
 
         private void createRow()
@@ -52,18 +91,19 @@ namespace CreativeWorkshop.View
             var labelName = new Label() { AutoSize = true, Font = font, Location = new Point(3, 15),
                 Name = $"serviceName{i}", Text = "Название вида услуги:" };
 
-            var delete = new Button() { Font = font, Location = new Point(480, 12), Name = $"deleteService{i}",
-                Size = new Size(48, 27), Text = "-", UseVisualStyleBackColor = true };
-            delete.Click += minus_Click;
-
-            var name = new ComboBox() { Font = font, Location = new Point(169, 12), Name = $"service_txt{i}", Size = new Size(117, 27) };
+            var name = new ComboBox() { Font = font, Location = new Point(169, 12), Name = $"service_txt{i}",
+                Size = new Size(117, 27), DropDownWidth = 200, DropDownStyle = ComboBoxStyle.DropDownList };
             AddItems<ServiceType>(name);
+
+            var countLabel = new Label() { AutoSize = true, Font = font, Location = new Point(305, 15),
+                Name = $"countName{i}", Text = "Количество:" };
 
             var count = new NumericUpDown() { Font = font, Location = new Point(403, 13), Name = $"count{i}",
                 Size = new Size(66, 26), Minimum = 1, Maximum = 100 };
 
-            var countLabel = new Label() { AutoSize = true, Font = font, Location = new Point(305, 15),
-                Name = $"countName{i}", Text = "Количество:" };
+            var delete = new Button() { Font = font, Location = new Point(480, 12), Name = $"deleteService{i}",
+                Size = new Size(48, 27), Text = "-", UseVisualStyleBackColor = true };
+            delete.Click += minus_Click;
 
             currentRow.Controls.AddRange(new Control[] { labelName, name, countLabel, count, delete });
             servicePanel.Controls.Add(currentRow);
@@ -131,6 +171,11 @@ namespace CreativeWorkshop.View
         private void rb_CheckedChanged(object sender, EventArgs e)
         {
             AddClients();
+        }
+
+        private void close_btn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

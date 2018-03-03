@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.label10 = new System.Windows.Forms.Label();
-            this.id_txt = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.save_btn = new System.Windows.Forms.Button();
-            this.orderId_txt = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.sum_txt = new System.Windows.Forms.TextBox();
             this.cancel_btn = new System.Windows.Forms.Button();
+            this.rub_txt = new System.Windows.Forms.Label();
+            this.orderId = new System.Windows.Forms.TextBox();
+            this.contractId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label10
@@ -49,15 +50,6 @@
             this.label10.Size = new System.Drawing.Size(142, 19);
             this.label10.TabIndex = 48;
             this.label10.Text = "Дата выдачи заказа:";
-            // 
-            // id_txt
-            // 
-            this.id_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.id_txt.FormattingEnabled = true;
-            this.id_txt.Location = new System.Drawing.Point(344, 12);
-            this.id_txt.Name = "id_txt";
-            this.id_txt.Size = new System.Drawing.Size(117, 27);
-            this.id_txt.TabIndex = 47;
             // 
             // label4
             // 
@@ -87,15 +79,7 @@
             this.save_btn.TabIndex = 44;
             this.save_btn.Text = "Сохранить";
             this.save_btn.UseVisualStyleBackColor = true;
-            // 
-            // orderId_txt
-            // 
-            this.orderId_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.orderId_txt.FormattingEnabled = true;
-            this.orderId_txt.Location = new System.Drawing.Point(101, 12);
-            this.orderId_txt.Name = "orderId_txt";
-            this.orderId_txt.Size = new System.Drawing.Size(117, 27);
-            this.orderId_txt.TabIndex = 43;
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
             // label1
             // 
@@ -120,13 +104,14 @@
             // sum_txt
             // 
             this.sum_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sum_txt.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.sum_txt.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.sum_txt.Location = new System.Drawing.Point(101, 64);
             this.sum_txt.Name = "sum_txt";
+            this.sum_txt.ReadOnly = true;
             this.sum_txt.Size = new System.Drawing.Size(117, 26);
             this.sum_txt.TabIndex = 50;
-            this.sum_txt.Text = "5555 руб.";
-            this.sum_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.sum_txt.Text = "0";
+            this.sum_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cancel_btn
             // 
@@ -137,21 +122,55 @@
             this.cancel_btn.TabIndex = 51;
             this.cancel_btn.Text = "Отмена";
             this.cancel_btn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
+            // 
+            // rub_txt
+            // 
+            this.rub_txt.AutoSize = true;
+            this.rub_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rub_txt.Location = new System.Drawing.Point(224, 67);
+            this.rub_txt.Name = "rub_txt";
+            this.rub_txt.Size = new System.Drawing.Size(36, 19);
+            this.rub_txt.TabIndex = 52;
+            this.rub_txt.Text = "руб.";
+            // 
+            // orderId
+            // 
+            this.orderId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orderId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.orderId.Location = new System.Drawing.Point(101, 12);
+            this.orderId.Name = "orderId";
+            this.orderId.ReadOnly = true;
+            this.orderId.Size = new System.Drawing.Size(117, 26);
+            this.orderId.TabIndex = 53;
+            this.orderId.Text = "0";
+            // 
+            // contractId
+            // 
+            this.contractId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contractId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.contractId.Location = new System.Drawing.Point(344, 12);
+            this.contractId.Name = "contractId";
+            this.contractId.ReadOnly = true;
+            this.contractId.Size = new System.Drawing.Size(117, 26);
+            this.contractId.TabIndex = 54;
+            this.contractId.Text = "0";
             // 
             // ContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 275);
+            this.Controls.Add(this.contractId);
+            this.Controls.Add(this.orderId);
+            this.Controls.Add(this.rub_txt);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.sum_txt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.id_txt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTime);
             this.Controls.Add(this.save_btn);
-            this.Controls.Add(this.orderId_txt);
             this.Controls.Add(this.label1);
             this.Name = "ContractForm";
             this.Text = "Договор";
@@ -163,14 +182,15 @@
         #endregion
 
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox id_txt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTime;
         private System.Windows.Forms.Button save_btn;
-        private System.Windows.Forms.ComboBox orderId_txt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox sum_txt;
         private System.Windows.Forms.Button cancel_btn;
+        private System.Windows.Forms.Label rub_txt;
+        private System.Windows.Forms.TextBox orderId;
+        private System.Windows.Forms.TextBox contractId;
     }
 }
