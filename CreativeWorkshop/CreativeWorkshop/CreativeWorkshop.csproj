@@ -91,6 +91,12 @@
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\DbConstants.cs" />
     <Compile Include="Services\Utils.cs" />
+    <Compile Include="View\AuthForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AuthForm.Designer.cs">
+      <DependentUpon>AuthForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ClientsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     <Compile Include="View\ServiceTypesForm.Designer.cs">
       <DependentUpon>ServiceTypesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AuthForm.resx">
+      <DependentUpon>AuthForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ClientsForm.resx">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </EmbeddedResource>

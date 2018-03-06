@@ -17,7 +17,7 @@ namespace CreativeWorkshop
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ApplicationExit += Application_ApplicationExit;
             DatabaseService.Init();
-            Application.Run(new MainForm());
+            Application.Run(new AuthForm());
         }
 
         private static void Application_ApplicationExit(object sender, EventArgs e)
