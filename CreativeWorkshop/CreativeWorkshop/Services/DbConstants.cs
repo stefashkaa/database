@@ -3,6 +3,27 @@
     public static class DbConstants
     {
         public static readonly string id = "id";
+
+        public class Authorization
+        {
+            public static readonly string title = "authorization";
+            public static readonly string username = "username";
+            public static readonly string password = "password";
+            public static readonly string role = "role";
+            public static readonly string Create = @"CREATE TABLE IF NOT EXISTS authorization ( 
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+username char(30) NOT NULL, 
+password char(30) NOT NULL, 
+role INTEGER NOT NULL, 
+CONSTRAINT name_unique UNIQUE(username));";
+            public static readonly string Insert = @"INSERT INTO authorization( 
+username, password, role) 
+VALUES(@username , @password , @role)";
+            public static readonly string Delete = @"DELETE FROM authorization WHERE username = @username";
+            public static readonly string Update = @"UPDATE authorization set username = @username, 
+password = @password, role = @role WHERE username = @username1";
+        }
+
         public class Employees
         {
             public static readonly string title = "employees";

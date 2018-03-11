@@ -12,8 +12,22 @@ namespace CreativeWorkshop.View
         public ServiceTypesForm()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
             serviceTypesView.MultiSelect = false;
             serviceTypesView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            var user = AuthForm.User;
+            if (user?.Role != Role.Unknown)
+            {
+                var isDesigner = user.Role == Role.Designer;
+                addServiceType.Enabled = !isDesigner;
+                editServiceType.Enabled = !isDesigner;
+                deleteServiceType.Enabled = !isDesigner;
+            }
         }
 
         private void addType_Click(object sender, EventArgs e)

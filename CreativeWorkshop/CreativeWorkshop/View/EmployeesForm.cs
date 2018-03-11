@@ -1,5 +1,7 @@
 ﻿using CreativeWorkshop.Controller;
+using CreativeWorkshop.Model;
 using CreativeWorkshop.Services;
+using CreativeWorkshop.View;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -12,8 +14,22 @@ namespace CreativeWorkshop
         public EmployeesForm()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
             employeesView.MultiSelect = false;
             employeesView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            var user = AuthForm.User;
+            if (user?.Role != Role.Unknown)
+            {
+                var isDesigner = user.Role == Role.Designer;
+                addEmployee.Enabled = !isDesigner;
+                editEmployee.Enabled = !isDesigner;
+                deleteEmployee.Enabled = !isDesigner;
+            }
         }
 
         private void Employees_Load(object sender, EventArgs e)

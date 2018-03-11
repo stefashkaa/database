@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using CreativeWorkshop.Controller;
+using CreativeWorkshop.Model;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CreativeWorkshop.View
 {
     public partial class AuthForm : Form
     {
+        public static User User = null;
+
         public AuthForm()
         {
             InitializeComponent();
@@ -58,7 +56,32 @@ namespace CreativeWorkshop.View
 
         private void logon_btn_Click(object sender, EventArgs e)
         {
+            var userName = userName_txt.Text;
+            var password = password_txt.Text;
+            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password) ||
+               userName == "Имя пользователя" || password == "Пароль")
+            {
+                MessageBox.Show("Заполните все поля!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var users = UserController.GetAllUsers();
 
+            var currentUser = users.FirstOrDefault(u => u.Name == userName && u.Password == password);
+            if (currentUser == null)
+            {
+                MessageBox.Show(@"Нет такого пользователя, либо был введен не верный пароль! 
+Повторите ввод.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            User = currentUser;
+            Visible = false;
+            var form = new MainForm();
+            form.ShowDialog();
+            if (form.Logoff)
+            {
+                Visible = true;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CreativeWorkshop.Services;
+﻿using CreativeWorkshop.Model;
+using CreativeWorkshop.Services;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -7,9 +8,25 @@ namespace CreativeWorkshop.View
 {
     public partial class MainForm : Form
     {
+        public bool Logoff { get; set; } = false;
+
         public MainForm()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
+            var user = AuthForm.User;
+            if (user?.Role != Role.Unknown)
+            {
+                auth_txt.Text = user.Name;
+                var isDesigner = user.Role == Role.Designer;
+                workWithClientsToolStripMenuItem.Enabled = !isDesigner;
+                queresToolStripMenuItem.Enabled = !isDesigner;
+                reportsToolStripMenuItem.Enabled = !isDesigner;
+            }
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -24,7 +41,7 @@ namespace CreativeWorkshop.View
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //DatabaseService.CloseConnection();
+            Logoff = true;
         }
 
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)

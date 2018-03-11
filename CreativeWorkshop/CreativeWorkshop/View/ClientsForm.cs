@@ -14,10 +14,24 @@ namespace CreativeWorkshop.View
         public ClientsForm()
         {
             InitializeComponent();
+            init();
+        }
+
+        private void init()
+        {
             phisView.MultiSelect = false;
             phisView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             legalView.MultiSelect = false;
             legalView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            var user = AuthForm.User;
+            if (user?.Role != Role.Unknown)
+            {
+                var isDesigner = user.Role == Role.Designer;
+                addClient.Enabled = !isDesigner;
+                editClient.Enabled = !isDesigner;
+                deleteClient.Enabled = !isDesigner;
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

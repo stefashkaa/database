@@ -48,6 +48,8 @@
             this.view_btn = new System.Windows.Forms.Button();
             this.close_btn = new System.Windows.Forms.Button();
             this.dateTime = new System.Windows.Forms.DateTimePicker();
+            this.labelAuth = new System.Windows.Forms.Label();
+            this.auth_txt = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -207,7 +209,7 @@
             this.close_btn.Name = "close_btn";
             this.close_btn.Size = new System.Drawing.Size(235, 32);
             this.close_btn.TabIndex = 4;
-            this.close_btn.Text = "Закрыть";
+            this.close_btn.Text = "Выход";
             this.close_btn.UseVisualStyleBackColor = true;
             this.close_btn.Click += new System.EventHandler(this.close_Click);
             // 
@@ -219,11 +221,32 @@
             this.dateTime.Size = new System.Drawing.Size(140, 20);
             this.dateTime.TabIndex = 5;
             // 
+            // labelAuth
+            // 
+            this.labelAuth.AutoSize = true;
+            this.labelAuth.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelAuth.Location = new System.Drawing.Point(12, 131);
+            this.labelAuth.Name = "labelAuth";
+            this.labelAuth.Size = new System.Drawing.Size(110, 19);
+            this.labelAuth.TabIndex = 6;
+            this.labelAuth.Text = "Вы вошли как: ";
+            // 
+            // auth_txt
+            // 
+            this.auth_txt.AutoSize = true;
+            this.auth_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.auth_txt.Location = new System.Drawing.Point(128, 131);
+            this.auth_txt.Name = "auth_txt";
+            this.auth_txt.Size = new System.Drawing.Size(0, 19);
+            this.auth_txt.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 257);
+            this.Controls.Add(this.auth_txt);
+            this.Controls.Add(this.labelAuth);
             this.Controls.Add(this.dateTime);
             this.Controls.Add(this.close_btn);
             this.Controls.Add(this.view_btn);
@@ -263,5 +286,7 @@
         private System.Windows.Forms.Button view_btn;
         private System.Windows.Forms.Button close_btn;
         private System.Windows.Forms.DateTimePicker dateTime;
+        private System.Windows.Forms.Label labelAuth;
+        private System.Windows.Forms.Label auth_txt;
     }
 }

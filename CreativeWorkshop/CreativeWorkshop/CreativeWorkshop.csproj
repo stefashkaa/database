@@ -86,8 +86,10 @@
     <Compile Include="Controller\ClientController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\ServiceTypeController.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ServiceType.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\DbConstants.cs" />
     <Compile Include="Services\Utils.cs" />

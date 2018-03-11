@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CreativeWorkshop.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -17,12 +18,34 @@ namespace CreativeWorkshop.Services
         static DatabaseService()
         {
             //for tests
-            //if (File.Exists(dbFileName))
-            //{
-            //    File.Delete(dbFileName);
-            //}
+            if (File.Exists(dbFileName))
+            {
+                File.Delete(dbFileName);
+            }
             openConnection();
             createTablesIfNotExists();
+            insertUsersIntoTable(new User("1", "1", Role.Director), 
+                                 new User("2", "2", Role.Designer),
+                                 new User("director", "pass", Role.Director),
+                                 new User("designer1", "pass", Role.Designer));
+        }
+
+        private static void insertUsersIntoTable(params User[] users)
+        {
+            if (GetNextId(DbConstants.Authorization.title) == 1)
+            {
+                foreach (var user in users)
+                {
+                    var parameters = new List<SQLiteParameter>()
+                    {
+                        new SQLiteParameter($"@{DbConstants.Authorization.username}", user.Name),
+                        new SQLiteParameter($"@{DbConstants.Authorization.password}", user.Password),
+                        new SQLiteParameter($"@{DbConstants.Authorization.role}", (int)user.Role)
+                    };
+                    Execute(DbConstants.Authorization.Insert, parameters);
+                }
+                
+            }
         }
 
         private static void openConnection()
@@ -38,6 +61,7 @@ namespace CreativeWorkshop.Services
         private static void createTablesIfNotExists()
         {
             CreateTable(DbConstants.Employees.Create);
+            CreateTable(DbConstants.Authorization.Create);
             CreateTable(DbConstants.PClients.Create);
             CreateTable(DbConstants.LClients.Create);
             CreateTable(DbConstants.ServiceTypes.Create);
