@@ -18,10 +18,10 @@ namespace CreativeWorkshop.Services
         static DatabaseService()
         {
             //for tests
-            if (File.Exists(dbFileName))
-            {
-                File.Delete(dbFileName);
-            }
+            //if (File.Exists(dbFileName))
+            //{
+            //    File.Delete(dbFileName);
+            //}
             openConnection();
             createTablesIfNotExists();
             insertUsersIntoTable(new User("1", "1", Role.Director), 
