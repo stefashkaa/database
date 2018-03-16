@@ -17,9 +17,9 @@ namespace CreativeWorkshop.Controller
                      (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.surname)),
                      (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.name)),
                      (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.patronymic)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.address)),
-                     (long)read.GetValue(read.GetOrdinal(DbConstants.PClients.mobile)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.email)))
+                     (string)read.GetValue(read.GetOrdinal(DbConstants.Clients.address)),
+                     (long)read.GetValue(read.GetOrdinal(DbConstants.Clients.mobile)),
+                     (string)read.GetValue(read.GetOrdinal(DbConstants.Clients.email)))
                      );
                 }
             }
@@ -35,9 +35,9 @@ namespace CreativeWorkshop.Controller
                 {
                     clients.Add(new LClient(
                      (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.name)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.address)),
-                     (long)read.GetValue(read.GetOrdinal(DbConstants.PClients.mobile)),
-                     (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.email)))
+                     (string)read.GetValue(read.GetOrdinal(DbConstants.Clients.address)),
+                     (long)read.GetValue(read.GetOrdinal(DbConstants.Clients.mobile)),
+                     (string)read.GetValue(read.GetOrdinal(DbConstants.Clients.email)))
                      );
                 }
             }

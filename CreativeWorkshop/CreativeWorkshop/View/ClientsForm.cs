@@ -68,9 +68,9 @@ namespace CreativeWorkshop.View
                     new SQLiteParameter($"@{DbConstants.PClients.surname}", phys.Surname),
                     new SQLiteParameter($"@{DbConstants.PClients.name}", phys.Name),
                     new SQLiteParameter($"@{DbConstants.PClients.patronymic}", phys.Patronymic),
-                    new SQLiteParameter($"@{DbConstants.PClients.address}", phys.Address),
-                    new SQLiteParameter($"@{DbConstants.PClients.mobile}", phys.Mobile),
-                    new SQLiteParameter($"@{DbConstants.PClients.email}", phys.Email)
+                    new SQLiteParameter($"@{DbConstants.Clients.address}", phys.Address),
+                    new SQLiteParameter($"@{DbConstants.Clients.mobile}", phys.Mobile),
+                    new SQLiteParameter($"@{DbConstants.Clients.email}", phys.Email)
                 };
                 DatabaseService.Execute(DbConstants.PClients.Insert, parameters);
             }
@@ -80,9 +80,9 @@ namespace CreativeWorkshop.View
                 var parameters = new List<SQLiteParameter>()
                 {
                     new SQLiteParameter($"@{DbConstants.LClients.name}", legal.Name),
-                    new SQLiteParameter($"@{DbConstants.LClients.address}", legal.Address),
-                    new SQLiteParameter($"@{DbConstants.LClients.mobile}", legal.Mobile),
-                    new SQLiteParameter($"@{DbConstants.LClients.email}", legal.Email)
+                    new SQLiteParameter($"@{DbConstants.Clients.address}", legal.Address),
+                    new SQLiteParameter($"@{DbConstants.Clients.mobile}", legal.Mobile),
+                    new SQLiteParameter($"@{DbConstants.Clients.email}", legal.Email)
                 };
                 DatabaseService.Execute(DbConstants.LClients.Insert, parameters);
             }
@@ -138,9 +138,9 @@ namespace CreativeWorkshop.View
                 parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.surname}", phys.Surname));
                 parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}", phys.Name));
                 parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.patronymic}", phys.Patronymic));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.address}", phys.Address));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.mobile}", phys.Mobile));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.email}", phys.Email));
+                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.address}", phys.Address));
+                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.mobile}", phys.Mobile));
+                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.email}", phys.Email));
                 parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.surname}1", tmp.Cells[0].Value));
                 parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}1", tmp.Cells[1].Value));
                 parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.patronymic}1", tmp.Cells[2].Value));
@@ -150,9 +150,9 @@ namespace CreativeWorkshop.View
             {
                 var legal = editForm.lClient;
                 parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}", legal.Name));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.address}", legal.Address));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.mobile}", legal.Mobile));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.email}", legal.Email));
+                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.address}", legal.Address));
+                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.mobile}", legal.Mobile));
+                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.email}", legal.Email));
                 parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}1", tmp.Cells[0].Value));
                 DatabaseService.Execute(DbConstants.LClients.Update, parameters);
             }
@@ -177,9 +177,9 @@ namespace CreativeWorkshop.View
                             read.GetValue(read.GetOrdinal(DbConstants.PClients.surname)),
                             read.GetValue(read.GetOrdinal(DbConstants.PClients.name)),
                             read.GetValue(read.GetOrdinal(DbConstants.PClients.patronymic)),
-                            read.GetValue(read.GetOrdinal(DbConstants.PClients.address)),
-                            read.GetValue(read.GetOrdinal(DbConstants.PClients.mobile)),
-                            read.GetValue(read.GetOrdinal(DbConstants.PClients.email))
+                            read.GetValue(read.GetOrdinal(DbConstants.Clients.address)),
+                            read.GetValue(read.GetOrdinal(DbConstants.Clients.mobile)),
+                            read.GetValue(read.GetOrdinal(DbConstants.Clients.email))
                         });
                     }
                 }
@@ -190,9 +190,9 @@ namespace CreativeWorkshop.View
                     {
                         legalView.Rows.Add(new object[] {
                             read.GetValue(read.GetOrdinal(DbConstants.LClients.name)),
-                            read.GetValue(read.GetOrdinal(DbConstants.LClients.address)),
-                            read.GetValue(read.GetOrdinal(DbConstants.LClients.mobile)),
-                            read.GetValue(read.GetOrdinal(DbConstants.LClients.email))
+                            read.GetValue(read.GetOrdinal(DbConstants.Clients.address)),
+                            read.GetValue(read.GetOrdinal(DbConstants.Clients.mobile)),
+                            read.GetValue(read.GetOrdinal(DbConstants.Clients.email))
                         });
                     }
                 }

@@ -88,6 +88,8 @@
     <Compile Include="Controller\ServiceTypeController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\Contract.cs" />
+    <Compile Include="Model\Order.cs" />
     <Compile Include="Model\ServiceType.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Services\DatabaseService.cs" />

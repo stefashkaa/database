@@ -18,10 +18,10 @@ namespace CreativeWorkshop.Services
         static DatabaseService()
         {
             //for tests
-            //if (File.Exists(dbFileName))
-            //{
-            //    File.Delete(dbFileName);
-            //}
+            if (File.Exists(dbFileName))
+            {
+                File.Delete(dbFileName);
+            }
             openConnection();
             createTablesIfNotExists();
             insertUsersIntoTable(new User("1", "1", Role.Director), 
@@ -62,6 +62,7 @@ namespace CreativeWorkshop.Services
         {
             CreateTable(DbConstants.Employees.Create);
             CreateTable(DbConstants.Authorization.Create);
+            CreateTable(DbConstants.Clients.Create);
             CreateTable(DbConstants.PClients.Create);
             CreateTable(DbConstants.LClients.Create);
             CreateTable(DbConstants.ServiceTypes.Create);
@@ -140,14 +141,19 @@ namespace CreativeWorkshop.Services
 
         private static SQLiteCommand select(string title, string what = null, string condition = null)
         {
-            var command = new SQLiteCommand(connection)
+            var command = new SQLiteCommand(connection) { CommandType = CommandType.Text };
+            var text = "";
+            if (title == DbConstants.LClients.title || title == DbConstants.PClients.title)
             {
-                CommandText = $@"SELECT {what ?? "*"} FROM {title}",
-                CommandType = CommandType.Text
-            };
+                text = $@"SELECT {what ?? "*"} FROM {title} b INNER JOIN clients c ON b.client_id = c.id";
+            }
+            else
+            {
+                text = $@"SELECT {what ?? "*"} FROM {title}";
+            }
             command.CommandText = (condition == null)
-                ? command.CommandText
-                : $@"{command.CommandText} {condition}";
+                ? text
+                : $@"{text} {condition}";
             return command;
         }
 

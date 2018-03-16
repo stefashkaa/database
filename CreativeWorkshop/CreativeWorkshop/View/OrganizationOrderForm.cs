@@ -33,7 +33,7 @@ namespace CreativeWorkshop.View
 
         private void contract_Click(object sender, EventArgs e)
         {
-            var employee = EmployeeController.GetAllEmployees().First(em => em.GetShortName() == employeeId_txt.Text);
+            var employee = EmployeeController.GetAllEmployees().FirstOrDefault(em => em.GetShortName() == employeeId_txt.Text);
             var client = getClient();
             var sum = getSum();
             if (employee == null || client == null || sum <= 0)
@@ -58,6 +58,10 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
         {
             long sum = 0;
             var types = ServiceTypeController.GetAllTypes();
+            if (types.Count == 0)
+            {
+                return 0;
+            }
             foreach (var row in servicePanel.Controls.Cast<Panel>())
             {
                 sum += (types.First(t => t.Name == (row.Controls[1] as ComboBox)?.SelectedItem.ToString()).Price *
@@ -75,11 +79,11 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
         {
             if (phys_rb.Checked)
             {
-                return ClientController.GetAllPClients().First(p => p.GetShortName() == clientId_txt.Text);
+                return ClientController.GetAllPClients().FirstOrDefault(p => p.GetShortName() == clientId_txt.Text);
             }
             else
             {
-                return ClientController.GetAllLClients().First(l => l.Name == clientId_txt.Text);
+                return ClientController.GetAllLClients().FirstOrDefault(l => l.Name == clientId_txt.Text);
             }
         }
 

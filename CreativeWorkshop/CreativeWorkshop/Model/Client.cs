@@ -1,11 +1,10 @@
 ﻿namespace CreativeWorkshop.Model
 {
-    public interface Client
+    public class Client
     {
-        string Name { get; set; }
-        string Address { get; set; }
-        long Mobile { get; set; }
-        string Email { get; set; }
+        public string Address { get; set; }
+        public long Mobile { get; set; }
+        public string Email { get; set; }
     }
 
     public class PClient : Client
@@ -13,9 +12,6 @@
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
-        public string Address { get; set; }
-        public long Mobile { get; set; }
-        public string Email { get; set; }
 
         public PClient(string s, string n, string p, string address, long mobile, string email)
         {
@@ -36,9 +32,6 @@
     public class LClient : Client
     {
         public string Name { get; set; }
-        public string Address { get; set; }
-        public long Mobile { get; set; }
-        public string Email { get; set; }
 
         public LClient(string n, string a, long m, string e)
         {

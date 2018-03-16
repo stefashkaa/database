@@ -61,7 +61,7 @@ namespace CreativeWorkshop.View
             if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password) ||
                userName == "Имя пользователя" || password == "Пароль")
             {
-                MessageBox.Show("Заполните все поля!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Заполните все поля!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             var users = UserController.GetAllUsers();
@@ -70,7 +70,7 @@ namespace CreativeWorkshop.View
             if (currentUser == null)
             {
                 MessageBox.Show(@"Нет такого пользователя, либо был введен не верный пароль! 
-Повторите ввод.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+Повторите ввод.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
