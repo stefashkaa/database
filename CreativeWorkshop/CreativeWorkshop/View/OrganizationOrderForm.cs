@@ -15,7 +15,6 @@ namespace CreativeWorkshop.View
         {
             InitializeComponent();
             AddItems<ServiceType>(service_txt1);
-            AddItems<Employee>(employeeId_txt);
             AddClients();
         }
 
@@ -33,10 +32,9 @@ namespace CreativeWorkshop.View
 
         private void contract_Click(object sender, EventArgs e)
         {
-            var employee = EmployeeController.GetAllEmployees().FirstOrDefault(em => em.GetShortName() == employeeId_txt.Text);
             var client = getClient();
             var sum = getSum();
-            if (employee == null || client == null || sum <= 0)
+            if (client == null || sum <= 0)
             {
                 MessageBox.Show(@"Невозможно оформить заказ!
 Не заполнены одно или несколько полей", "Предупреждение",
@@ -51,7 +49,12 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            new ContractForm(employee, client, sum, firstPay, dateTimeFirst, dateTimeLast).ShowDialog();
+            new ContractForm(
+                new Purchase() {Client = client,
+                                FirstDate = dateTimeFirst.Value,
+                                FirstSum = firstPay,
+                                LastDate = dateTimeLast.Value,
+                                Status = Status.Unfilled}).ShowDialog();
         }
 
         private long getSum()

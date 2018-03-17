@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.close_btn = new System.Windows.Forms.Button();
-            this.employeeId_txt = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.dateTimeFirst = new System.Windows.Forms.DateTimePicker();
             this.clientId_txt = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,17 +65,6 @@
             this.close_btn.UseVisualStyleBackColor = true;
             this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
             // 
-            // employeeId_txt
-            // 
-            this.employeeId_txt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.employeeId_txt.DropDownWidth = 200;
-            this.employeeId_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.employeeId_txt.FormattingEnabled = true;
-            this.employeeId_txt.Location = new System.Drawing.Point(103, 19);
-            this.employeeId_txt.Name = "employeeId_txt";
-            this.employeeId_txt.Size = new System.Drawing.Size(117, 27);
-            this.employeeId_txt.TabIndex = 16;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -87,16 +74,6 @@
             this.label3.Size = new System.Drawing.Size(170, 19);
             this.label3.TabIndex = 14;
             this.label3.Text = "Первоначальный взнос:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 19);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Сотрудник:";
             // 
             // dateTimeFirst
             // 
@@ -113,7 +90,7 @@
             this.clientId_txt.DropDownWidth = 200;
             this.clientId_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.clientId_txt.FormattingEnabled = true;
-            this.clientId_txt.Location = new System.Drawing.Point(302, 19);
+            this.clientId_txt.Location = new System.Drawing.Point(81, 20);
             this.clientId_txt.Name = "clientId_txt";
             this.clientId_txt.Size = new System.Drawing.Size(117, 27);
             this.clientId_txt.TabIndex = 23;
@@ -122,7 +99,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(233, 22);
+            this.label4.Location = new System.Drawing.Point(12, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 19);
             this.label4.TabIndex = 22;
@@ -330,9 +307,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimeFirst);
             this.Controls.Add(this.close_btn);
-            this.Controls.Add(this.employeeId_txt);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
             this.Name = "OrganizationOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Формирование заказа";
@@ -348,9 +323,7 @@
         #endregion
 
         private System.Windows.Forms.Button close_btn;
-        private System.Windows.Forms.ComboBox employeeId_txt;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimeFirst;
         private System.Windows.Forms.ComboBox clientId_txt;
         private System.Windows.Forms.Label label4;

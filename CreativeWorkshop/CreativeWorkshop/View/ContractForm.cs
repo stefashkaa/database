@@ -15,27 +15,22 @@ namespace CreativeWorkshop.View
     public partial class ContractForm : Form
     {
         private static int i = 1;
-        private Employee employee;
         private Client client;
         private long sum;
         private long firstPay;
         private DateTimePicker first;
         private DateTimePicker last;
+        private Purchase purchase;
         public ContractForm()
         {
             InitializeComponent();
         }
 
-        public ContractForm(Employee employee, Client client, long sum, long firstPay, DateTimePicker dateTimeFirst, DateTimePicker dateTimeLast) : this()
+        public ContractForm(Purchase p) : this()
         {
-            this.employee = employee;
-            this.client = client;
-            this.sum = sum;
-            this.firstPay = firstPay;
-            this.first = dateTimeFirst;
-            this.last = dateTimeLast;
+            this.purchase = p;
             sum_txt.Text = sum.ToString();
-            orderId.Text = (++i).ToString();//for tests
+            orderId.Text = DatabaseService.GetNextId(DbConstants.Purchase.title).ToString();
             var pClient = client as PClient;
             var lClient = client as LClient;
             contractId.Text = pClient != null

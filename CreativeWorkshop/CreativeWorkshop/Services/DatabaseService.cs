@@ -18,10 +18,10 @@ namespace CreativeWorkshop.Services
         static DatabaseService()
         {
             //for tests
-            if (File.Exists(dbFileName))
-            {
-                File.Delete(dbFileName);
-            }
+            //if (File.Exists(dbFileName))
+            //{
+            //    File.Delete(dbFileName);
+            //}
             openConnection();
             createTablesIfNotExists();
             insertUsersIntoTable(new User("1", "1", Role.Director), 
@@ -66,6 +66,8 @@ namespace CreativeWorkshop.Services
             CreateTable(DbConstants.PClients.Create);
             CreateTable(DbConstants.LClients.Create);
             CreateTable(DbConstants.ServiceTypes.Create);
+            CreateTable(DbConstants.Purchase.Create);
+            CreateTable(DbConstants.Contract.Create);
         }
 
         public static void Init() { /*for creating database*/ }
@@ -143,7 +145,7 @@ namespace CreativeWorkshop.Services
         {
             var command = new SQLiteCommand(connection) { CommandType = CommandType.Text };
             var text = "";
-            if (title == DbConstants.LClients.title || title == DbConstants.PClients.title)
+            if ((title == DbConstants.LClients.title || title == DbConstants.PClients.title) && (what == null && condition == null) )
             {
                 text = $@"SELECT {what ?? "*"} FROM {title} b INNER JOIN clients c ON b.client_id = c.id";
             }

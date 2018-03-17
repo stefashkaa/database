@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CreativeWorkshop.Model
 {
-    public class Order
+    public class Purchase
     {
         public int Id { get; set; }
-        public Employee Employee { get; set; }
         public Client Client { get; set; }
         public long FirstSum { get; set; }
         public DateTime FirstDate { get; set; }

@@ -139,16 +139,16 @@ VALUES(@name , @price)";
 price = @price WHERE name = @name1";
         }
 
-        public class Order
+        public class Purchase
         {
-            public static readonly string title = "order";
+            public static readonly string title = "purchase";
             public static readonly string employeeId = "employee_id";
             public static readonly string clientId = "client_id";
             public static readonly string firstSum = "first_sum";
             public static readonly string firstDate = "first_date";
             public static readonly string lastDate = "last_date";
             public static readonly string status = "status";
-            public static readonly string Create = @"CREATE TABLE IF NOT EXISTS order ( 
+            public static readonly string Create = @"CREATE TABLE IF NOT EXISTS purchase ( 
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
 employee_id INTEGER NOT NULL, 
 client_id INTEGER NOT NULL, 
@@ -156,12 +156,35 @@ first_sum INTEGER NOT NULL,
 first_date INTEGER NOT NULL, 
 last_date INTEGER NOT NULL, 
 status INTEGER NOT NULL, 
-FOREIGN KEY(client_id) REFERENCES clients(id), 
-FOREIGN KEY(employee_id) REFERENCES employee(id));";
-            public static readonly string Insert = @"INSERT INTO service_types( 
+FOREIGN KEY(employee_id) REFERENCES employees(id), 
+FOREIGN KEY(client_id) REFERENCES clients(id));";
+            public static readonly string Insert = @"INSERT INTO purchase( 
 employee_id, client_id, first_sum, first_date, last_date, status) 
 VALUES(@employee_id , @client_id, @first_sum, @first_date, @last_date, @status)";
-            public static readonly string Delete = @"DELETE FROM order WHERE id = @id";
+            public static readonly string Delete = @"DELETE FROM purchase WHERE 
+employee_id = @employee_id AND client_id = @client_id;";
+        }
+
+        public class Contract
+        {
+            public static readonly string title = "contract";
+            public static readonly string employeeId = "employee_id";
+            public static readonly string clientId = "client_id";
+            public static readonly string firstSum = "first_sum";
+            public static readonly string firstDate = "first_date";
+            public static readonly string lastDate = "last_date";
+            public static readonly string status = "status";
+            public static readonly string Create = @"CREATE TABLE IF NOT EXISTS contract ( 
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+summa INTEGER NOT NULL, 
+delivery_date INTEGER NOT NULL, 
+purchase_id INTEGER NOT NULL, 
+FOREIGN KEY(purchase_id) REFERENCES purchase(id));";
+            public static readonly string Insert = @"INSERT INTO contract( 
+summa, delivery_date, purchase_id) 
+VALUES(@summa , @delivery_date, @purchase_id)";
+            public static readonly string Delete = @"DELETE FROM contract WHERE 
+purchase_id = @purchase_id;";
         }
     }
 }
