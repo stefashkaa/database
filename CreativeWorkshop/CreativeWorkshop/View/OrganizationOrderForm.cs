@@ -54,7 +54,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 FirstDate = dateTimeFirst.Value,
                                 FirstSum = firstPay,
                                 LastDate = dateTimeLast.Value,
-                                Status = Status.Unfilled}).ShowDialog();
+                                Status = Status.Unfilled}, sum).ShowDialog();
         }
 
         private long getSum()

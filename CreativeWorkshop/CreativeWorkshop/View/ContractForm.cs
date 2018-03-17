@@ -15,24 +15,21 @@ namespace CreativeWorkshop.View
     public partial class ContractForm : Form
     {
         private static int i = 1;
-        private Client client;
         private long sum;
-        private long firstPay;
-        private DateTimePicker first;
-        private DateTimePicker last;
         private Purchase purchase;
         public ContractForm()
         {
             InitializeComponent();
         }
 
-        public ContractForm(Purchase p) : this()
+        public ContractForm(Purchase p, long sum) : this()
         {
+            this.sum = sum;
             this.purchase = p;
             sum_txt.Text = sum.ToString();
             orderId.Text = DatabaseService.GetNextId(DbConstants.Purchase.title).ToString();
-            var pClient = client as PClient;
-            var lClient = client as LClient;
+            var pClient = p.Client as PClient;
+            var lClient = p.Client as LClient;
             contractId.Text = pClient != null
                 ? "PH" + DatabaseService.GetIdByName(DbConstants.PClients.title, $"surname = @surname AND name = @name AND patronymic = @patronymic",
                 new List<SQLiteParameter>()
