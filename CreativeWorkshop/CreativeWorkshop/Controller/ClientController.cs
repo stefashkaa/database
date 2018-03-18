@@ -8,7 +8,7 @@ namespace CreativeWorkshop.Controller
     {
         public static List<PClient> GetAllPClients()
         {
-            List<PClient> clients = new List<PClient>();
+            var clients = new List<PClient>();
             using (var read = DatabaseService.Select(DbConstants.PClients.title))
             {
                 while (read.Read())
@@ -28,7 +28,7 @@ namespace CreativeWorkshop.Controller
 
         public static List<LClient> GetAllLClients()
         {
-            List<LClient> clients = new List<LClient>();
+            var clients = new List<LClient>();
             using (var read = DatabaseService.Select(DbConstants.LClients.title))
             {
                 while (read.Read())

@@ -1,5 +1,4 @@
 ﻿using CreativeWorkshop.Model;
-using CreativeWorkshop.Services;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -51,7 +50,7 @@ namespace CreativeWorkshop.View
 
         private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new EmployeesForm().ShowDialog();
+            new ContractsForm().ShowDialog();
         }
 
         private void typeServicesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,6 +81,11 @@ namespace CreativeWorkshop.View
         private void statisticReportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new StatisticReportsForm().ShowDialog();
+        }
+
+        private void contractsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ContractsForm().ShowDialog();
         }
     }
 }

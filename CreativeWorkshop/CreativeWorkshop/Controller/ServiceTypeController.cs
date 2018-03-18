@@ -9,7 +9,7 @@ namespace CreativeWorkshop.Controller
     {
         public static List<ServiceType> GetAllTypes()
         {
-            List<ServiceType> types = new List<ServiceType>();
+            var types = new List<ServiceType>();
             using (var read = DatabaseService.Select(DbConstants.ServiceTypes.title))
             {
                 while (read.Read())

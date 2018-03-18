@@ -17,11 +17,12 @@ namespace CreativeWorkshop.Services
 
         static DatabaseService()
         {
-            //for tests
+            #region For tests; in release mod comment these lines!
             //if (File.Exists(dbFileName))
             //{
             //    File.Delete(dbFileName);
             //}
+            #endregion
             openConnection();
             createTablesIfNotExists();
             insertUsersIntoTable(new User("1", "1", Role.Director), 
@@ -109,9 +110,9 @@ namespace CreativeWorkshop.Services
             return ++id;
         }
 
-        public static int GetIdByName(string title, string nameExpression, List<SQLiteParameter> parameters)
+        public static int GetIdByName(string title, string nameExpression, List<SQLiteParameter> parameters, string id = "id")
         {
-            var command = select(title, DbConstants.id, $"WHERE {nameExpression}");
+            var command = select(title, id, $"WHERE {nameExpression}");
             try
             {
                 using (var read = ExecuteAndReturn(command.CommandText, parameters))
@@ -145,7 +146,7 @@ namespace CreativeWorkshop.Services
         {
             var command = new SQLiteCommand(connection) { CommandType = CommandType.Text };
             var text = "";
-            if ((title == DbConstants.LClients.title || title == DbConstants.PClients.title) && (what == null && condition == null) )
+            if ((title == DbConstants.LClients.title || title == DbConstants.PClients.title) && (condition == null) )
             {
                 text = $@"SELECT {what ?? "*"} FROM {title} b INNER JOIN clients c ON b.client_id = c.id";
             }

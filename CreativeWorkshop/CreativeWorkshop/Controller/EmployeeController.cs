@@ -7,7 +7,7 @@ namespace CreativeWorkshop.Controller
     {
         public static List<Employee> GetAllEmployees()
         {
-            List<Employee> employees = new List<Employee>();
+            var employees = new List<Employee>();
             using (var read = DatabaseService.Select(DbConstants.Employees.title))
             {
                 while (read.Read())

@@ -49,12 +49,9 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            new ContractForm(
-                new Purchase() {Client = client,
-                                FirstDate = dateTimeFirst.Value,
-                                FirstSum = firstPay,
-                                LastDate = dateTimeLast.Value,
-                                Status = Status.Unfilled}, sum).ShowDialog();
+            new CreateContractForm(
+                new Purchase(client, firstPay, dateTimeFirst.Value, dateTimeLast.Value, Status.Unfilled), 
+                sum).ShowDialog();
         }
 
         private long getSum()

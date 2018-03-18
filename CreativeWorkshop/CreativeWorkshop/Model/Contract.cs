@@ -13,8 +13,9 @@ namespace CreativeWorkshop.Model
         public long Sum { get; set; }
         public int OrderId { get; set; }
 
-        public Contract(DateTime date, long sum, int orderId)
+        public Contract(string id, DateTime date, long sum, int orderId)
         {
+            Id = id;
             Date = date;
             Sum = sum;
             OrderId = orderId;
@@ -28,6 +29,21 @@ namespace CreativeWorkshop.Model
         public int GetNumId()
         {
             return IsPhClient() ? Convert.ToInt32(Id.Remove(0, 2)) : Convert.ToInt32(Id.Remove(0, 1));
+        }
+
+        public long GetDate()
+        {
+            return Date.Ticks;
+        }
+
+        public static DateTime ToDate(long ticks)
+        {
+            return new DateTime(ticks);
+        }
+
+        public static string ToDateString(long ticks)
+        {
+            return ToDate(ticks).ToShortDateString();
         }
     }
 }

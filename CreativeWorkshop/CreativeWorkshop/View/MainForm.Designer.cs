@@ -50,6 +50,7 @@
             this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.labelAuth = new System.Windows.Forms.Label();
             this.auth_txt = new System.Windows.Forms.Label();
+            this.договорыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,8 @@
             this.dictionariesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientsToolStripMenuItem,
             this.employeesToolStripMenuItem,
-            this.typeServicesToolStripMenuItem});
+            this.typeServicesToolStripMenuItem,
+            this.договорыToolStripMenuItem});
             this.dictionariesToolStripMenuItem.Name = "dictionariesToolStripMenuItem";
             this.dictionariesToolStripMenuItem.Size = new System.Drawing.Size(114, 23);
             this.dictionariesToolStripMenuItem.Text = "Справочники";
@@ -240,6 +242,13 @@
             this.auth_txt.Size = new System.Drawing.Size(0, 19);
             this.auth_txt.TabIndex = 7;
             // 
+            // договорыToolStripMenuItem
+            // 
+            this.договорыToolStripMenuItem.Name = "договорыToolStripMenuItem";
+            this.договорыToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.договорыToolStripMenuItem.Text = "Договоры";
+            this.договорыToolStripMenuItem.Click += new System.EventHandler(this.contractsToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +297,6 @@
         private System.Windows.Forms.DateTimePicker dateTime;
         private System.Windows.Forms.Label labelAuth;
         private System.Windows.Forms.Label auth_txt;
+        private System.Windows.Forms.ToolStripMenuItem договорыToolStripMenuItem;
     }
 }

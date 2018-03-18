@@ -9,7 +9,7 @@ namespace CreativeWorkshop.Controller
     {
         public static List<User> GetAllUsers()
         {
-            List<User> users = new List<User>();
+            var users = new List<User>();
             using (var read = DatabaseService.Select(DbConstants.Authorization.title))
             {
                 while (read.Read())

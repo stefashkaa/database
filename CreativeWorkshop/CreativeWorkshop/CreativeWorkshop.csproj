@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ClientController.cs" />
+    <Compile Include="Controller\ContractController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\ServiceTypeController.cs" />
     <Compile Include="Controller\UserController.cs" />
@@ -107,11 +108,17 @@
     <Compile Include="View\ClientsForm.Designer.cs">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ContractForm.cs">
+    <Compile Include="View\ContractsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ContractForm.Designer.cs">
-      <DependentUpon>ContractForm.cs</DependentUpon>
+    <Compile Include="View\ContractsForm.Designer.cs">
+      <DependentUpon>ContractsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreateContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CreateContractForm.Designer.cs">
+      <DependentUpon>CreateContractForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\EditClientsForm.cs">
       <SubType>Form</SubType>
@@ -212,8 +219,11 @@
     <EmbeddedResource Include="View\ClientsForm.resx">
       <DependentUpon>ClientsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ContractForm.resx">
-      <DependentUpon>ContractForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\ContractsForm.resx">
+      <DependentUpon>ContractsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CreateContractForm.resx">
+      <DependentUpon>CreateContractForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditClientsForm.resx">
       <DependentUpon>EditClientsForm.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace CreativeWorkshop.View
 {
-    partial class ContractForm
+    partial class CreateContractForm
     {
         /// <summary>
         /// Required designer variable.
