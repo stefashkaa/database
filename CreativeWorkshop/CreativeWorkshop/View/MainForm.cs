@@ -23,8 +23,9 @@ namespace CreativeWorkshop.View
                 auth_txt.Text = user.Name;
                 var isDesigner = user.Role == Role.Designer;
                 workWithClientsToolStripMenuItem.Enabled = !isDesigner;
-                queresToolStripMenuItem.Enabled = !isDesigner;
-                reportsToolStripMenuItem.Enabled = !isDesigner;
+                employeeListToolStripMenuItem.Enabled = !isDesigner;
+                serviceListToolStripMenuItem.Enabled = !isDesigner;
+                statisticReportsToolStripMenuItem.Enabled = !isDesigner;
             }
         }
 
@@ -50,7 +51,7 @@ namespace CreativeWorkshop.View
 
         private void employeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ContractsForm().ShowDialog();
+            new EmployeesForm().ShowDialog();
         }
 
         private void typeServicesToolStripMenuItem_Click(object sender, EventArgs e)
