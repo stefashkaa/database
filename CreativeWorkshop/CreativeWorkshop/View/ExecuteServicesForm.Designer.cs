@@ -33,10 +33,10 @@
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeesList = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.id_txt = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.close_btn = new System.Windows.Forms.Button();
             this.run_btn = new System.Windows.Forms.Button();
+            this.contractId_txt = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.executeView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,16 +81,6 @@
             this.employeesList.Name = "employeesList";
             this.employeesList.Width = 200;
             // 
-            // id_txt
-            // 
-            this.id_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.id_txt.FormattingEnabled = true;
-            this.id_txt.Location = new System.Drawing.Point(120, 13);
-            this.id_txt.Margin = new System.Windows.Forms.Padding(4);
-            this.id_txt.Name = "id_txt";
-            this.id_txt.Size = new System.Drawing.Size(174, 27);
-            this.id_txt.TabIndex = 8;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -123,14 +113,26 @@
             this.run_btn.Text = "Выполнить";
             this.run_btn.UseVisualStyleBackColor = true;
             // 
+            // contractId_txt
+            // 
+            this.contractId_txt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.contractId_txt.DropDownWidth = 200;
+            this.contractId_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contractId_txt.FormattingEnabled = true;
+            this.contractId_txt.Location = new System.Drawing.Point(119, 13);
+            this.contractId_txt.Name = "contractId_txt";
+            this.contractId_txt.Size = new System.Drawing.Size(117, 27);
+            this.contractId_txt.TabIndex = 56;
+            this.contractId_txt.SelectedIndexChanged += new System.EventHandler(this.contractId_txt_SelectedIndexChanged);
+            // 
             // ExecuteServicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 371);
+            this.Controls.Add(this.contractId_txt);
             this.Controls.Add(this.close_btn);
             this.Controls.Add(this.run_btn);
-            this.Controls.Add(this.id_txt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.executeView);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -147,7 +149,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView executeView;
-        private System.Windows.Forms.ComboBox id_txt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button close_btn;
         private System.Windows.Forms.Button run_btn;
@@ -155,5 +156,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewComboBoxColumn employeesList;
+        private System.Windows.Forms.ComboBox contractId_txt;
     }
 }

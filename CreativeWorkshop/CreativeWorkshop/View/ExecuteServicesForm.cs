@@ -16,6 +16,7 @@ namespace CreativeWorkshop.View
         public ExecuteServicesForm()
         {
             InitializeComponent();
+            AddContracts();
             employeesList.DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton;
             executeView.AllowUserToAddRows = false;
             addEmployeesList(employeesList);
@@ -58,6 +59,30 @@ namespace CreativeWorkshop.View
         private void close_btn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddContracts()
+        {
+            if (contractId_txt == null)
+            {
+                return;
+            }
+            contractId_txt.Items.Clear();
+
+            foreach (var contract in ContractController.GetAllContracts())
+            {
+                contractId_txt.Items.Add(contract.Id);
+            }
+
+            if (contractId_txt.Items.Count != 0)
+            {
+                contractId_txt.SelectedIndex = 0;
+            }
+        }
+
+        private void contractId_txt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ViewData();
         }
     }
 }

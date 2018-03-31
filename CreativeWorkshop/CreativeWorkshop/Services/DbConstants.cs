@@ -161,7 +161,7 @@ FOREIGN KEY(client_id) REFERENCES clients(id));";
 client_id, first_sum, first_date, last_date, status) 
 VALUES(@client_id, @first_sum, @first_date, @last_date, @status)";
             public static readonly string Delete = @"DELETE FROM purchase WHERE 
-client_id = @client_id;";
+id = @id;";
         }
 
         public class Contract
@@ -180,7 +180,7 @@ FOREIGN KEY(purchase_id) REFERENCES purchase(id));";
 id, summa, delivery_date, purchase_id) 
 VALUES(@id, @summa , @delivery_date, @purchase_id)";
             public static readonly string Delete = @"DELETE FROM contract WHERE 
-purchase_id = @purchase_id;";
+id = @id;";
         }
     }
 }

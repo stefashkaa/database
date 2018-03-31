@@ -94,6 +94,7 @@
             this.deleteContract.TabIndex = 4;
             this.deleteContract.Text = "Удалить";
             this.deleteContract.UseVisualStyleBackColor = true;
+            this.deleteContract.Click += new System.EventHandler(this.deleteContract_Click);
             // 
             // closeButton
             // 
