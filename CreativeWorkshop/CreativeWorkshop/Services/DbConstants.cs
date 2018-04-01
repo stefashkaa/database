@@ -182,5 +182,31 @@ VALUES(@id, @summa , @delivery_date, @purchase_id)";
             public static readonly string Delete = @"DELETE FROM contract WHERE 
 id = @id;";
         }
+
+        public class Service
+        {
+            public static readonly string title = "service";
+            public static readonly string purchaseId = "purchase_id";
+            public static readonly string serviceTypeName = "type_name";
+            public static readonly string employeeId = "employee_id";
+            public static readonly string count = "count";
+
+            public static readonly string Create = @"CREATE TABLE IF NOT EXISTS service ( 
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+purchase_id INTEGER NOT NULL, 
+type_name char(30) NOT NULL, 
+count INTEGER NOT NULL, 
+employee_id INTEGER, 
+FOREIGN KEY(purchase_id) REFERENCES purchase(id), 
+FOREIGN KEY(type_name) REFERENCES service_types(id), 
+FOREIGN KEY(employee_id) REFERENCES employees(id));";
+            public static readonly string Insert = @"INSERT INTO service( 
+purchase_id, type_name, count) 
+VALUES(@purchase_id , @type_name, @count)";
+            public static readonly string Delete = @"DELETE FROM service WHERE 
+purchase_id = @purchase_id;";
+            public static readonly string UpdateEmployee = @"UPDATE service set employee_id = @employee_id WHERE 
+purchase_id = @purchase_id1;";
+        }
     }
 }

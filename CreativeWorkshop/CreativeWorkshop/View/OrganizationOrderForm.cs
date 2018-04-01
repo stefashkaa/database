@@ -1,6 +1,7 @@
 ﻿using CreativeWorkshop.Controller;
 using CreativeWorkshop.Model;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace CreativeWorkshop.View
         private void contract_Click(object sender, EventArgs e)
         {
             var client = getClient();
-            var sum = getSum();
+            var sum = getSumForSelectedServices(out List<ServiceType> selectedTypes, out List<int> selectedCount);
             if (client == null || sum <= 0)
             {
                 MessageBox.Show(@"Невозможно оформить заказ!
@@ -50,12 +51,16 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             new CreateContractForm(
-                new Purchase(client, firstPay, dateTimeFirst.Value, dateTimeLast.Value, Status.Unfilled), 
-                sum).ShowDialog();
+                new Purchase(client, firstPay, dateTimeFirst.Value, dateTimeLast.Value, Status.Unfilled),
+                sum,
+                selectedTypes,
+                selectedCount).ShowDialog();
         }
 
-        private long getSum()
+        private long getSumForSelectedServices(out List<ServiceType> selectedServices, out List<int> selectedCount)
         {
+            selectedServices = new List<ServiceType>();
+            selectedCount = new List<int>();
             long sum = 0;
             var types = ServiceTypeController.GetAllTypes();
             if (types.Count == 0)
@@ -64,8 +69,11 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             foreach (var row in servicePanel.Controls.Cast<Panel>())
             {
-                sum += (types.First(t => t.Name == (row.Controls[1] as ComboBox)?.SelectedItem.ToString()).Price *
-                    Convert.ToInt64((row.Controls[3] as NumericUpDown)?.Value)); 
+                var selectedService = types.First(t => t.Name == (row.Controls[1] as ComboBox)?.SelectedItem.ToString());
+                var count = Convert.ToInt32((row.Controls[3] as NumericUpDown)?.Value);
+                sum += (selectedService.Price * count);
+                selectedServices.Add(selectedService);
+                selectedCount.Add(count);
             }
             return sum;
         }

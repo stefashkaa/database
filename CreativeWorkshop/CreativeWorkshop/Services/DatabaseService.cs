@@ -69,6 +69,7 @@ namespace CreativeWorkshop.Services
             CreateTable(DbConstants.ServiceTypes.Create);
             CreateTable(DbConstants.Purchase.Create);
             CreateTable(DbConstants.Contract.Create);
+            CreateTable(DbConstants.Service.Create);
         }
 
         public static void Init() { /*for creating database*/ }
@@ -138,7 +139,7 @@ namespace CreativeWorkshop.Services
 
         public static SQLiteDataReader Where(string title, string condition)
         {
-            var command = select(title, null, condition);
+            var command = select(title, null, $"WHERE {condition}");
             return command.ExecuteReader();
         }
 

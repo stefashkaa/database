@@ -16,16 +16,20 @@ namespace CreativeWorkshop.View
     {
         private long sum;
         private Purchase purchase;
+        private List<ServiceType> selectedServiceTypes;
+        private List<int> selectedCount;
         private bool isPhys;
         public CreateContractForm()
         {
             InitializeComponent();
         }
 
-        public CreateContractForm(Purchase p, long sum) : this()
+        public CreateContractForm(Purchase p, long sum, List<ServiceType> selectedServiceTypes, List<int> selectedCount) : this()
         {
             this.sum = sum;
             this.purchase = p;
+            this.selectedServiceTypes = selectedServiceTypes;
+            this.selectedCount = selectedCount;
             sum_txt.Text = sum.ToString();
             orderId.Text = DatabaseService.GetNextId(DbConstants.Purchase.title).ToString();
             var pClient = p.Client as PClient;
@@ -51,13 +55,14 @@ namespace CreativeWorkshop.View
         private void save_btn_Click(object sender, EventArgs e)
         {
             saveNewPurchase();
-            saveNewContract();
+            saveNewContract(out int purchase_id);
+            saveServices(purchase_id);
             this.Close();
         }
 
-        private void saveNewContract()
+        private void saveNewContract(out int purchaseId)
         {
-            int purchaseId = DatabaseService.GetNextId(DbConstants.Purchase.title) - 1;
+            purchaseId = DatabaseService.GetNextId(DbConstants.Purchase.title) - 1;
             if (purchaseId <= 0)
             {
                 MessageBox.Show("Заказ не был сохранен!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -112,6 +117,28 @@ namespace CreativeWorkshop.View
             catch (Exception)
             {
                 MessageBox.Show("Невозможно сохранить заказ!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void saveServices(int purchase_id)
+        {
+            try
+            {
+                for(int i = 0; i < selectedServiceTypes.Count(); i++)
+                {
+                    var parameters = new List<SQLiteParameter>()
+                    {
+                        new SQLiteParameter($"@{DbConstants.Service.purchaseId}", purchase_id),
+                        new SQLiteParameter($"@{DbConstants.Service.serviceTypeName}", selectedServiceTypes[i].Name),
+                        new SQLiteParameter($"@{DbConstants.Service.count}", selectedCount[i])
+                    };
+                    DatabaseService.Execute(DbConstants.Service.Insert, parameters);
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Невозможно сохранить услуги!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

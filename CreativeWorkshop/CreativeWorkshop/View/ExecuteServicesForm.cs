@@ -1,4 +1,5 @@
 ﻿using CreativeWorkshop.Controller;
+using CreativeWorkshop.Model;
 using CreativeWorkshop.Services;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,11 @@ namespace CreativeWorkshop.View
 {
     public partial class ExecuteServicesForm : Form
     {
+        private List<Contract> contracts;
+
         public ExecuteServicesForm()
         {
+            contracts = ContractController.GetAllContracts();
             InitializeComponent();
             AddContracts();
             employeesList.DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton;
@@ -41,19 +45,17 @@ namespace CreativeWorkshop.View
 
         private void ViewData()
         {
+            var contract = contracts.First(c => c.Id == contractId_txt.SelectedItem.ToString());
+
             executeView.Rows.Clear();
-            using (var read = DatabaseService.Select(DbConstants.Employees.title))
+            foreach(var service in ServiceController.GetServices(contract.OrderId))
             {
-                while (read.Read())
-                {
-                    executeView.Rows.Add(new object[] {
-                        "coding",//read.GetValue(read.GetOrdinal(DbConstants.Employees.surname)),
-                        "123",//read.GetValue(read.GetOrdinal(DbConstants.Employees.name)),
-                        1000000//lead.GetValue(read.GetOrdinal(DbConstants.Employees.patronymic))
-                        //combobox
-                    });
-                }
-            }
+                executeView.Rows.Add(new object[] {
+                    service.Name,
+                    service.Count,
+                    //combobox
+                });
+        }
         }
 
         private void close_btn_Click(object sender, EventArgs e)
@@ -69,7 +71,7 @@ namespace CreativeWorkshop.View
             }
             contractId_txt.Items.Clear();
 
-            foreach (var contract in ContractController.GetAllContracts())
+            foreach (var contract in contracts)
             {
                 contractId_txt.Items.Add(contract.Id);
             }
