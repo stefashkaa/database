@@ -162,6 +162,8 @@ client_id, first_sum, first_date, last_date, status)
 VALUES(@client_id, @first_sum, @first_date, @last_date, @status)";
             public static readonly string Delete = @"DELETE FROM purchase WHERE 
 id = @id;";
+            public static readonly string UpdateStatus = @"UPDATE purchase set status = @status WHERE 
+id = @id1;";
         }
 
         public class Contract

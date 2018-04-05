@@ -46,12 +46,35 @@ namespace CreativeWorkshop.View
             {
                 while (read.Read())
                 {
+                    int purchaseId = Convert.ToInt32(read.GetValue(read.GetOrdinal(DbConstants.Contract.purchaseId)));
                     contractsView.Rows.Add(new object[] {
                         read.GetValue(read.GetOrdinal(DbConstants.id)),
-                        read.GetValue(read.GetOrdinal(DbConstants.Contract.purchaseId)),
+                        purchaseId,
                         read.GetValue(read.GetOrdinal(DbConstants.Contract.summa)),
-                        Contract.ToDateString((long)read.GetValue(read.GetOrdinal(DbConstants.Contract.deliveryDate)))
+                        Contract.ToDateString((long)read.GetValue(read.GetOrdinal(DbConstants.Contract.deliveryDate))),
+                        getStatus(purchaseId)
                     });
+                }
+            }
+        }
+
+        private string getStatus(int id)
+        {
+            using (var read = DatabaseService.Where(DbConstants.Purchase.title, $"id = {id}"))
+            {
+                Status status = Status.Unfilled;
+                while (read.Read())
+                {
+                    status = (Status)Convert.ToInt32(read.GetValue(read.GetOrdinal(DbConstants.Purchase.status)));
+                }
+                switch (status)
+                {
+                    case Status.Unfilled:
+                        return "Не выполнен";
+                    case Status.Filled:
+                        return "Выполнен";
+                    default:
+                        return "Не выполнен";
                 }
             }
         }
@@ -79,6 +102,28 @@ namespace CreativeWorkshop.View
                 new SQLiteParameter($"@{DbConstants.id}", tmp.Cells[0].Value),
             };
             DatabaseService.Execute(DbConstants.Contract.Delete, parameters2);
+            ViewData();
+        }
+
+        private void execute_btn_Click(object sender, EventArgs e)
+        {
+            var tmp = contractsView.SelectedRows.Count != 0 ? contractsView.SelectedRows[0] : null;
+            if (tmp == null || tmp.Index == contractsView.Rows.Count - 1)
+            {
+                MessageBox.Show("Ничего не выбрано!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (tmp.Cells[4].Value.ToString() == "Выполнен")
+            {
+                MessageBox.Show("Данный заказ уже выполнен!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            var parameters = new List<SQLiteParameter>()
+            {
+                new SQLiteParameter($"@{DbConstants.Purchase.status}", Status.Filled),
+                new SQLiteParameter($"@{DbConstants.id}1", tmp.Cells[1].Value.ToString())
+            };
+            DatabaseService.Execute(DbConstants.Purchase.UpdateStatus, parameters);
             ViewData();
         }
     }
