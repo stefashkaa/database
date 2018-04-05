@@ -206,7 +206,7 @@ VALUES(@purchase_id , @type_name, @count)";
             public static readonly string Delete = @"DELETE FROM service WHERE 
 purchase_id = @purchase_id;";
             public static readonly string UpdateEmployee = @"UPDATE service set employee_id = @employee_id WHERE 
-purchase_id = @purchase_id1;";
+purchase_id = @purchase_id1 AND type_name = @type_name1;";
         }
     }
 }

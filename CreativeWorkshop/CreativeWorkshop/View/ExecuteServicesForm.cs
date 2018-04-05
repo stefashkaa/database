@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,20 @@ namespace CreativeWorkshop.View
     public partial class ExecuteServicesForm : Form
     {
         private List<Contract> contracts;
+        private Contract selectedContract;
+        private List<Employee> employees;
 
         public ExecuteServicesForm()
         {
             contracts = ContractController.GetAllContracts();
+            employees = EmployeeController.GetAllEmployees();
+            selectedContract = contracts.First();
             InitializeComponent();
             AddContracts();
-            employeesList.DisplayStyle = DataGridViewComboBoxDisplayStyle.DropDownButton;
+            employeesList.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
             executeView.AllowUserToAddRows = false;
+            executeView.MultiSelect = false;
+            executeView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             addEmployeesList(employeesList);
             ViewData();
         }
@@ -35,8 +42,6 @@ namespace CreativeWorkshop.View
                 return;
             }
             comboBox.Items.Clear();
-            var employees = EmployeeController.GetAllEmployees();
-            comboBox.MaxDropDownItems = 2;
             foreach (var employee in employees)
             {
                 comboBox.Items.Add(employee.GetShortName());
@@ -45,17 +50,61 @@ namespace CreativeWorkshop.View
 
         private void ViewData()
         {
-            var contract = contracts.First(c => c.Id == contractId_txt.SelectedItem.ToString());
-
             executeView.Rows.Clear();
-            foreach(var service in ServiceController.GetServices(contract.OrderId))
+            int rowIndex = 0;
+            foreach(var service in ServiceController.GetServices(selectedContract.OrderId))
             {
                 executeView.Rows.Add(new object[] {
                     service.Name,
                     service.Count,
                     //combobox
                 });
+                setEmployeeName(executeView.Rows[rowIndex], service.EmployeeId);
+                rowIndex++;
+            }
         }
+
+        private void setEmployeeName(DataGridViewRow selected, int id)
+        {
+            var cell = selected.Cells[2] as DataGridViewComboBoxCell;
+            if (cell == null || id == -1)
+            {
+                return;
+            }
+            cell.Value = getNameById(id);
+        }
+
+        private string getNameById(int id)
+        {
+            Employee emp = null;
+            using (var read = DatabaseService.Where(DbConstants.Employees.title, $"id = {id}"))
+            {
+                while (read.Read())
+                {
+                    emp = new Employee(
+                        (string)read.GetValue(read.GetOrdinal(DbConstants.Employees.surname)),
+                        (string)read.GetValue(read.GetOrdinal(DbConstants.Employees.name)),
+                        (string)read.GetValue(read.GetOrdinal(DbConstants.Employees.patronymic)),
+                        (string)read.GetValue(read.GetOrdinal(DbConstants.Employees.position)),
+                        Convert.ToInt64(read.GetValue(read.GetOrdinal(DbConstants.Employees.mobile)))
+                    );
+                }
+            }
+            return emp?.GetShortName();
+        }
+
+        private int getIdByName(string shortName)
+        {
+            var employee = employees.First(e => e.GetShortName() == shortName);
+            int id = DatabaseService.GetIdByName(DbConstants.Employees.title,
+                $"surname = @surname AND name = @name AND patronymic = @patronymic",
+                new List<SQLiteParameter>()
+                {
+                    new SQLiteParameter($"@{DbConstants.Employees.surname}", employee.Surname),
+                    new SQLiteParameter($"@{DbConstants.Employees.name}", employee.Name),
+                    new SQLiteParameter($"@{DbConstants.Employees.patronymic}", employee.Patronymic)
+                });
+            return id;
         }
 
         private void close_btn_Click(object sender, EventArgs e)
@@ -84,7 +133,35 @@ namespace CreativeWorkshop.View
 
         private void contractId_txt_SelectedIndexChanged(object sender, EventArgs e)
         {
+            selectedContract = contracts.First(c => c.Id == contractId_txt.SelectedItem.ToString());
             ViewData();
+        }
+
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < executeView.Rows.Count; i++)
+                {
+                    var cell = executeView.Rows[i].Cells[2] as DataGridViewComboBoxCell;
+                    if (cell?.Value == null)
+                    {
+                        break;
+                    }
+                    var parameters = new List<SQLiteParameter>()
+                    {
+                        new SQLiteParameter($"@{DbConstants.Service.employeeId}", getIdByName(cell.Value.ToString())),
+                        new SQLiteParameter($"@{DbConstants.Service.purchaseId}1", selectedContract.OrderId),
+                        new SQLiteParameter($"@{DbConstants.Service.serviceTypeName}1", executeView.Rows[i].Cells[0].Value.ToString())
+                    };
+                    DatabaseService.Execute(DbConstants.Service.UpdateEmployee, parameters);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Невозможно сохранить данные!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            this.Close();
         }
     }
 }
