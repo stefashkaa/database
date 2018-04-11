@@ -3,12 +3,8 @@ using CreativeWorkshop.Model;
 using CreativeWorkshop.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SQLite;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace CreativeWorkshop.View
@@ -146,7 +142,7 @@ namespace CreativeWorkshop.View
                     var cell = executeView.Rows[i].Cells[2] as DataGridViewComboBoxCell;
                     if (cell?.Value == null)
                     {
-                        break;
+                        continue;
                     }
                     var parameters = new List<SQLiteParameter>()
                     {

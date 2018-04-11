@@ -34,10 +34,10 @@ password = @password, role = @role WHERE username = @username1";
             public static readonly string mobile = "mobile";
             public static readonly string Create = @"CREATE TABLE IF NOT EXISTS employees ( 
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
-surname char(100) NOT NULL, 
-name char(100) NOT NULL, 
-patronymic char(100) NOT NULL, 
-position char(100) NOT NULL, 
+surname char(30) NOT NULL, 
+name char(30) NOT NULL, 
+patronymic char(30) NOT NULL, 
+position char(30) NOT NULL, 
 mobile integer NOT NULL, 
 CONSTRAINT name_unique UNIQUE(surname, name, patronymic));";
             public static readonly string Insert = @"INSERT INTO employees( 
@@ -59,9 +59,9 @@ AND name = @name1 AND patronymic = @patronymic1";
             public static readonly string email = "email";
             public static readonly string Create = @"CREATE TABLE IF NOT EXISTS clients ( 
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
-address char(100) NOT NULL, 
+address char(255) NOT NULL, 
 mobile INTEGER NOT NULL, 
-email char(100) NOT NULL);";
+email char(255) NOT NULL);";
         }
 
         public class PClients
@@ -74,9 +74,9 @@ email char(100) NOT NULL);";
 
             public static readonly string Create = @"CREATE TABLE IF NOT EXISTS phys_clients ( 
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
-surname char(100) NOT NULL, 
-name char(100) NOT NULL, 
-patronymic char(100) NOT NULL, 
+surname char(30) NOT NULL, 
+name char(30) NOT NULL, 
+patronymic char(30) NOT NULL, 
 client_id INTEGER NOT NULL, 
 FOREIGN KEY(client_id) REFERENCES clients(id), 
 CONSTRAINT name_unique UNIQUE(surname, name, patronymic));";
@@ -106,7 +106,7 @@ AND name = @name1 AND patronymic = @patronymic1";
 
             public static readonly string Create = @"CREATE TABLE IF NOT EXISTS legal_clients ( 
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
-name char(100) NOT NULL, 
+name char(30) NOT NULL, 
 client_id INTEGER NOT NULL, 
 FOREIGN KEY(client_id) REFERENCES clients(id), 
 CONSTRAINT name_unique UNIQUE(name));";
@@ -129,10 +129,8 @@ UPDATE legal_clients set name = @name WHERE name = @name1";
             public static readonly string name = "name";
             public static readonly string price = "price";
             public static readonly string Create = @"CREATE TABLE IF NOT EXISTS service_types ( 
-id INTEGER PRIMARY KEY AUTOINCREMENT, 
-name char(100) NOT NULL, 
-price INTEGER NOT NULL, 
-CONSTRAINT name_unique UNIQUE(name));";
+name char(50) PRIMARY KEY, 
+price INTEGER NOT NULL);";
             public static readonly string Insert = @"INSERT INTO service_types( 
 name, price) 
 VALUES(@name , @price)";
@@ -196,7 +194,7 @@ id = @id;";
             public static readonly string Create = @"CREATE TABLE IF NOT EXISTS service ( 
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
 purchase_id INTEGER NOT NULL, 
-type_name char(30) NOT NULL, 
+type_name char(50) NOT NULL, 
 count INTEGER NOT NULL, 
 employee_id INTEGER, 
 FOREIGN KEY(purchase_id) REFERENCES purchase(id), 

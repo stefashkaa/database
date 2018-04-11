@@ -95,6 +95,12 @@
     <Compile Include="Model\Service.cs" />
     <Compile Include="Model\ServiceType.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="View\ServicesWithoutExecutorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ServicesWithoutExecutorForm.Designer.cs">
+      <DependentUpon>ServicesWithoutExecutorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\DbConstants.cs" />
     <Compile Include="Services\Utils.cs" />
@@ -158,11 +164,23 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\NotExecutePurchasesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NotExecutePurchasesForm.Designer.cs">
+      <DependentUpon>NotExecutePurchasesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\OrganizationOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\OrganizationOrderForm.Designer.cs">
       <DependentUpon>OrganizationOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PurchaseEmployeesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PurchaseEmployeesForm.Designer.cs">
+      <DependentUpon>PurchaseEmployeesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Reports\ReportViewer.cs">
       <SubType>Form</SubType>
@@ -196,6 +214,12 @@
     </Compile>
     <Compile Include="View\SeatingMapForm.Designer.cs">
       <DependentUpon>SeatingMapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SelectContractForm.Designer.cs">
+      <DependentUpon>SelectContractForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\StatisticReportsForm.cs">
       <SubType>Form</SubType>
@@ -245,8 +269,14 @@
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\NotExecutePurchasesForm.resx">
+      <DependentUpon>NotExecutePurchasesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\OrganizationOrderForm.resx">
       <DependentUpon>OrganizationOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PurchaseEmployeesForm.resx">
+      <DependentUpon>PurchaseEmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Reports\ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
@@ -273,6 +303,12 @@
     </Compile>
     <EmbeddedResource Include="View\SeatingMapForm.resx">
       <DependentUpon>SeatingMapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SelectContractForm.resx">
+      <DependentUpon>SelectContractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ServicesWithoutExecutorForm.resx">
+      <DependentUpon>ServicesWithoutExecutorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\StatisticReportsForm.resx">
       <DependentUpon>StatisticReportsForm.cs</DependentUpon>

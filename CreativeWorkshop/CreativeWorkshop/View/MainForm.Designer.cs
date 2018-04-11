@@ -33,6 +33,7 @@
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.typeServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.договорыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workWithClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.organizationOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.executeServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,6 @@
             this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.labelAuth = new System.Windows.Forms.Label();
             this.auth_txt = new System.Windows.Forms.Label();
-            this.договорыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,6 +101,13 @@
             this.typeServicesToolStripMenuItem.Text = "Виды услуг";
             this.typeServicesToolStripMenuItem.Click += new System.EventHandler(this.typeServicesToolStripMenuItem_Click);
             // 
+            // договорыToolStripMenuItem
+            // 
+            this.договорыToolStripMenuItem.Name = "договорыToolStripMenuItem";
+            this.договорыToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.договорыToolStripMenuItem.Text = "Договоры";
+            this.договорыToolStripMenuItem.Click += new System.EventHandler(this.contractsToolStripMenuItem_Click);
+            // 
             // workWithClientsToolStripMenuItem
             // 
             this.workWithClientsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -137,20 +144,23 @@
             // employeeListToolStripMenuItem
             // 
             this.employeeListToolStripMenuItem.Name = "employeeListToolStripMenuItem";
-            this.employeeListToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
+            this.employeeListToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.employeeListToolStripMenuItem.Text = "Список сотрудников";
+            this.employeeListToolStripMenuItem.Click += new System.EventHandler(this.employeeListToolStripMenuItem_Click);
             // 
             // notExecuteOrdersToolStripMenuItem
             // 
             this.notExecuteOrdersToolStripMenuItem.Name = "notExecuteOrdersToolStripMenuItem";
-            this.notExecuteOrdersToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
+            this.notExecuteOrdersToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.notExecuteOrdersToolStripMenuItem.Text = "Невыполненные заказы";
+            this.notExecuteOrdersToolStripMenuItem.Click += new System.EventHandler(this.notExecuteOrdersToolStripMenuItem_Click);
             // 
             // serviceListToolStripMenuItem
             // 
             this.serviceListToolStripMenuItem.Name = "serviceListToolStripMenuItem";
-            this.serviceListToolStripMenuItem.Size = new System.Drawing.Size(240, 24);
-            this.serviceListToolStripMenuItem.Text = "Список услуг";
+            this.serviceListToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+            this.serviceListToolStripMenuItem.Text = "Услуги без исполнителя";
+            this.serviceListToolStripMenuItem.Click += new System.EventHandler(this.servicesWithoutExecutorToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -241,13 +251,6 @@
             this.auth_txt.Name = "auth_txt";
             this.auth_txt.Size = new System.Drawing.Size(0, 19);
             this.auth_txt.TabIndex = 7;
-            // 
-            // договорыToolStripMenuItem
-            // 
-            this.договорыToolStripMenuItem.Name = "договорыToolStripMenuItem";
-            this.договорыToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
-            this.договорыToolStripMenuItem.Text = "Договоры";
-            this.договорыToolStripMenuItem.Click += new System.EventHandler(this.contractsToolStripMenuItem_Click);
             // 
             // MainForm
             // 

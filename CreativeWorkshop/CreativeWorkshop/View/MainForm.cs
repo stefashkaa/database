@@ -88,5 +88,25 @@ namespace CreativeWorkshop.View
         {
             new ContractsForm().ShowDialog();
         }
+
+        private void employeeListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectContractForm = new SelectContractForm();
+            selectContractForm.ShowDialog();
+            if (selectContractForm.Contract != null)
+            {
+                new PurchaseEmployeesForm(selectContractForm.Contract).ShowDialog();
+            }
+        }
+
+        private void notExecuteOrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new NotExecutePurchasesForm().ShowDialog();
+        }
+
+        private void servicesWithoutExecutorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ServicesWithoutExecutorForm().ShowDialog();
+        }
     }
 }

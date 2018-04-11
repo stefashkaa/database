@@ -35,8 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.close_btn = new System.Windows.Forms.Button();
             this.contractId_txt = new System.Windows.Forms.ComboBox();
-            this.clientName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.save_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.executeView)).BeginInit();
             this.SuspendLayout();
@@ -109,26 +107,6 @@
             this.contractId_txt.TabIndex = 56;
             this.contractId_txt.SelectedIndexChanged += new System.EventHandler(this.contractId_txt_SelectedIndexChanged);
             // 
-            // clientName
-            // 
-            this.clientName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clientName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.clientName.Location = new System.Drawing.Point(439, 13);
-            this.clientName.Name = "clientName";
-            this.clientName.ReadOnly = true;
-            this.clientName.Size = new System.Drawing.Size(117, 26);
-            this.clientName.TabIndex = 58;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(370, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 19);
-            this.label2.TabIndex = 57;
-            this.label2.Text = "Клиент:";
-            // 
             // save_btn
             // 
             this.save_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -146,8 +124,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 371);
             this.Controls.Add(this.save_btn);
-            this.Controls.Add(this.clientName);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.contractId_txt);
             this.Controls.Add(this.close_btn);
             this.Controls.Add(this.label1);
@@ -172,8 +148,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn surnameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn employeesList;
-        private System.Windows.Forms.TextBox clientName;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button save_btn;
     }
 }
