@@ -28,43 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userName_txt = new System.Windows.Forms.TextBox();
-            this.password_txt = new System.Windows.Forms.TextBox();
-            this.logon_btn = new System.Windows.Forms.Button();
+            this.userNameText = new System.Windows.Forms.TextBox();
+            this.passwordText = new System.Windows.Forms.TextBox();
+            this.logonButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // userName_txt
+            // userNameText
             // 
-            this.userName_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.userName_txt.Location = new System.Drawing.Point(65, 62);
-            this.userName_txt.MaxLength = 30;
-            this.userName_txt.Name = "userName_txt";
-            this.userName_txt.Size = new System.Drawing.Size(153, 26);
-            this.userName_txt.TabIndex = 0;
-            this.userName_txt.Text = "Имя пользователя";
-            this.userName_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.userNameText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userNameText.Location = new System.Drawing.Point(65, 62);
+            this.userNameText.MaxLength = 30;
+            this.userNameText.Name = "userNameText";
+            this.userNameText.Size = new System.Drawing.Size(153, 26);
+            this.userNameText.TabIndex = 0;
+            this.userNameText.Text = "Имя пользователя";
+            this.userNameText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // password_txt
+            // passwordText
             // 
-            this.password_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.password_txt.Location = new System.Drawing.Point(65, 106);
-            this.password_txt.MaxLength = 30;
-            this.password_txt.Name = "password_txt";
-            this.password_txt.Size = new System.Drawing.Size(153, 26);
-            this.password_txt.TabIndex = 1;
-            this.password_txt.Text = "Пароль";
-            this.password_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.passwordText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordText.Location = new System.Drawing.Point(65, 106);
+            this.passwordText.MaxLength = 30;
+            this.passwordText.Name = "passwordText";
+            this.passwordText.Size = new System.Drawing.Size(153, 26);
+            this.passwordText.TabIndex = 1;
+            this.passwordText.Text = "Пароль";
+            this.passwordText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // logon_btn
+            // logonButton
             // 
-            this.logon_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.logon_btn.Location = new System.Drawing.Point(65, 152);
-            this.logon_btn.Name = "logon_btn";
-            this.logon_btn.Size = new System.Drawing.Size(153, 26);
-            this.logon_btn.TabIndex = 2;
-            this.logon_btn.Text = "Войти";
-            this.logon_btn.UseVisualStyleBackColor = true;
-            this.logon_btn.Click += new System.EventHandler(this.logon_btn_Click);
+            this.logonButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.logonButton.Location = new System.Drawing.Point(65, 152);
+            this.logonButton.Name = "logonButton";
+            this.logonButton.Size = new System.Drawing.Size(153, 26);
+            this.logonButton.TabIndex = 2;
+            this.logonButton.Text = "Войти";
+            this.logonButton.UseVisualStyleBackColor = true;
+            this.logonButton.Click += new System.EventHandler(this.logonButton_Click);
             // 
             // AuthForm
             // 
@@ -72,9 +72,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.logon_btn);
-            this.Controls.Add(this.password_txt);
-            this.Controls.Add(this.userName_txt);
+            this.Controls.Add(this.logonButton);
+            this.Controls.Add(this.passwordText);
+            this.Controls.Add(this.userNameText);
             this.MaximizeBox = false;
             this.Name = "AuthForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -86,8 +86,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox userName_txt;
-        private System.Windows.Forms.TextBox password_txt;
-        private System.Windows.Forms.Button logon_btn;
+        private System.Windows.Forms.TextBox userNameText;
+        private System.Windows.Forms.TextBox passwordText;
+        private System.Windows.Forms.Button logonButton;
     }
 }

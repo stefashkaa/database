@@ -28,126 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.surname_text = new System.Windows.Forms.TextBox();
-            this.name_text = new System.Windows.Forms.TextBox();
-            this.patronymic_text = new System.Windows.Forms.TextBox();
-            this.position_text = new System.Windows.Forms.TextBox();
-            this.mobile_text = new System.Windows.Forms.TextBox();
-            this.cancel_btn = new System.Windows.Forms.Button();
-            this.save_btn = new System.Windows.Forms.Button();
+            this.surnameLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.patronymicLabel = new System.Windows.Forms.Label();
+            this.positionLabel = new System.Windows.Forms.Label();
+            this.mobileLabel = new System.Windows.Forms.Label();
+            this.surnameText = new System.Windows.Forms.TextBox();
+            this.nameText = new System.Windows.Forms.TextBox();
+            this.patronymicText = new System.Windows.Forms.TextBox();
+            this.positionText = new System.Windows.Forms.TextBox();
+            this.mobileText = new System.Windows.Forms.TextBox();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // surnameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Фамилия";
+            this.surnameLabel.AutoSize = true;
+            this.surnameLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.surnameLabel.Location = new System.Drawing.Point(12, 20);
+            this.surnameLabel.Name = "surnameLabel";
+            this.surnameLabel.Size = new System.Drawing.Size(82, 21);
+            this.surnameLabel.TabIndex = 0;
+            this.surnameLabel.Text = "Фамилия";
             // 
-            // label2
+            // nameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 21);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Имя";
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameLabel.Location = new System.Drawing.Point(12, 54);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(44, 21);
+            this.nameLabel.TabIndex = 1;
+            this.nameLabel.Text = "Имя";
             // 
-            // label3
+            // patronymicLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 21);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Отчество";
+            this.patronymicLabel.AutoSize = true;
+            this.patronymicLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.patronymicLabel.Location = new System.Drawing.Point(12, 86);
+            this.patronymicLabel.Name = "patronymicLabel";
+            this.patronymicLabel.Size = new System.Drawing.Size(86, 21);
+            this.patronymicLabel.TabIndex = 2;
+            this.patronymicLabel.Text = "Отчество";
             // 
-            // label4
+            // positionLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(12, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 21);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Должность";
+            this.positionLabel.AutoSize = true;
+            this.positionLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.positionLabel.Location = new System.Drawing.Point(12, 120);
+            this.positionLabel.Name = "positionLabel";
+            this.positionLabel.Size = new System.Drawing.Size(101, 21);
+            this.positionLabel.TabIndex = 3;
+            this.positionLabel.Text = "Должность";
             // 
-            // label5
+            // mobileLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(12, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 21);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Телефон";
+            this.mobileLabel.AutoSize = true;
+            this.mobileLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mobileLabel.Location = new System.Drawing.Point(12, 155);
+            this.mobileLabel.Name = "mobileLabel";
+            this.mobileLabel.Size = new System.Drawing.Size(78, 21);
+            this.mobileLabel.TabIndex = 4;
+            this.mobileLabel.Text = "Телефон";
             // 
-            // surname_text
+            // surnameText
             // 
-            this.surname_text.Location = new System.Drawing.Point(123, 21);
-            this.surname_text.Name = "surname_text";
-            this.surname_text.Size = new System.Drawing.Size(412, 20);
-            this.surname_text.TabIndex = 6;
+            this.surnameText.Location = new System.Drawing.Point(123, 21);
+            this.surnameText.Name = "surnameText";
+            this.surnameText.Size = new System.Drawing.Size(412, 20);
+            this.surnameText.TabIndex = 6;
             // 
-            // name_text
+            // nameText
             // 
-            this.name_text.Location = new System.Drawing.Point(123, 56);
-            this.name_text.Name = "name_text";
-            this.name_text.Size = new System.Drawing.Size(412, 20);
-            this.name_text.TabIndex = 7;
+            this.nameText.Location = new System.Drawing.Point(123, 56);
+            this.nameText.Name = "nameText";
+            this.nameText.Size = new System.Drawing.Size(412, 20);
+            this.nameText.TabIndex = 7;
             // 
-            // patronymic_text
+            // patronymicText
             // 
-            this.patronymic_text.Location = new System.Drawing.Point(123, 88);
-            this.patronymic_text.Name = "patronymic_text";
-            this.patronymic_text.Size = new System.Drawing.Size(412, 20);
-            this.patronymic_text.TabIndex = 8;
+            this.patronymicText.Location = new System.Drawing.Point(123, 88);
+            this.patronymicText.Name = "patronymicText";
+            this.patronymicText.Size = new System.Drawing.Size(412, 20);
+            this.patronymicText.TabIndex = 8;
             // 
-            // position_text
+            // positionText
             // 
-            this.position_text.Location = new System.Drawing.Point(123, 122);
-            this.position_text.Name = "position_text";
-            this.position_text.Size = new System.Drawing.Size(412, 20);
-            this.position_text.TabIndex = 9;
+            this.positionText.Location = new System.Drawing.Point(123, 122);
+            this.positionText.Name = "positionText";
+            this.positionText.Size = new System.Drawing.Size(412, 20);
+            this.positionText.TabIndex = 9;
             // 
-            // mobile_text
+            // mobileText
             // 
-            this.mobile_text.Location = new System.Drawing.Point(123, 157);
-            this.mobile_text.Name = "mobile_text";
-            this.mobile_text.Size = new System.Drawing.Size(412, 20);
-            this.mobile_text.TabIndex = 10;
+            this.mobileText.Location = new System.Drawing.Point(123, 157);
+            this.mobileText.Name = "mobileText";
+            this.mobileText.Size = new System.Drawing.Size(412, 20);
+            this.mobileText.TabIndex = 10;
             // 
-            // cancel_btn
+            // cancelButton
             // 
-            this.cancel_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancel_btn.Location = new System.Drawing.Point(276, 199);
-            this.cancel_btn.Name = "cancel_btn";
-            this.cancel_btn.Size = new System.Drawing.Size(259, 32);
-            this.cancel_btn.TabIndex = 53;
-            this.cancel_btn.Text = "Отмена";
-            this.cancel_btn.UseVisualStyleBackColor = true;
-            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
+            this.cancelButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cancelButton.Location = new System.Drawing.Point(276, 199);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(259, 32);
+            this.cancelButton.TabIndex = 53;
+            this.cancelButton.Text = "Отмена";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // save_btn
+            // saveButton
             // 
-            this.save_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.save_btn.Location = new System.Drawing.Point(12, 199);
-            this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(258, 32);
-            this.save_btn.TabIndex = 52;
-            this.save_btn.Text = "Сохранить";
-            this.save_btn.UseVisualStyleBackColor = true;
-            this.save_btn.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveButton.Location = new System.Drawing.Point(12, 199);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(258, 32);
+            this.saveButton.TabIndex = 52;
+            this.saveButton.Text = "Сохранить";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // EditEmployeesForm
             // 
@@ -155,18 +155,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(547, 243);
-            this.Controls.Add(this.cancel_btn);
-            this.Controls.Add(this.save_btn);
-            this.Controls.Add(this.mobile_text);
-            this.Controls.Add(this.position_text);
-            this.Controls.Add(this.patronymic_text);
-            this.Controls.Add(this.name_text);
-            this.Controls.Add(this.surname_text);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.mobileText);
+            this.Controls.Add(this.positionText);
+            this.Controls.Add(this.patronymicText);
+            this.Controls.Add(this.nameText);
+            this.Controls.Add(this.surnameText);
+            this.Controls.Add(this.mobileLabel);
+            this.Controls.Add(this.positionLabel);
+            this.Controls.Add(this.patronymicLabel);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.surnameLabel);
             this.MaximizeBox = false;
             this.Name = "EditEmployeesForm";
             this.Load += new System.EventHandler(this.EditEmployeeForm_Load);
@@ -177,17 +177,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox surname_text;
-        private System.Windows.Forms.TextBox name_text;
-        private System.Windows.Forms.TextBox patronymic_text;
-        private System.Windows.Forms.TextBox position_text;
-        private System.Windows.Forms.TextBox mobile_text;
-        private System.Windows.Forms.Button cancel_btn;
-        private System.Windows.Forms.Button save_btn;
+        private System.Windows.Forms.Label surnameLabel;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.Label patronymicLabel;
+        private System.Windows.Forms.Label positionLabel;
+        private System.Windows.Forms.Label mobileLabel;
+        private System.Windows.Forms.TextBox surnameText;
+        private System.Windows.Forms.TextBox nameText;
+        private System.Windows.Forms.TextBox patronymicText;
+        private System.Windows.Forms.TextBox positionText;
+        private System.Windows.Forms.TextBox mobileText;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button saveButton;
     }
 }

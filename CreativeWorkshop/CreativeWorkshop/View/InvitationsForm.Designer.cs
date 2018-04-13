@@ -28,28 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.invitationText = new System.Windows.Forms.RichTextBox();
             this.overview_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listInv_btn = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.font = new System.Windows.Forms.ComboBox();
-            this.textSize = new System.Windows.Forms.ComboBox();
-            this.formatText = new System.Windows.Forms.ComboBox();
             this.save_btn = new System.Windows.Forms.Button();
+            this.fontButton = new System.Windows.Forms.Button();
+            this.contractId_txt = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.pageFormat = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Код договора:";
             // 
             // label2
             // 
@@ -105,48 +96,6 @@
             this.listInv_btn.UseVisualStyleBackColor = true;
             this.listInv_btn.Click += new System.EventHandler(this.listInv_btn_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(121, 20);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(117, 27);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // font
-            // 
-            this.font.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.font.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.font.FormattingEnabled = true;
-            this.font.Location = new System.Drawing.Point(286, 182);
-            this.font.Name = "font";
-            this.font.Size = new System.Drawing.Size(163, 27);
-            this.font.TabIndex = 7;
-            this.font.Text = "Шрифт";
-            // 
-            // textSize
-            // 
-            this.textSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textSize.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textSize.FormattingEnabled = true;
-            this.textSize.Location = new System.Drawing.Point(286, 226);
-            this.textSize.Name = "textSize";
-            this.textSize.Size = new System.Drawing.Size(163, 27);
-            this.textSize.TabIndex = 8;
-            this.textSize.Text = "Размер шрифта";
-            // 
-            // formatText
-            // 
-            this.formatText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.formatText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.formatText.FormattingEnabled = true;
-            this.formatText.Location = new System.Drawing.Point(286, 271);
-            this.formatText.Name = "formatText";
-            this.formatText.Size = new System.Drawing.Size(163, 27);
-            this.formatText.TabIndex = 9;
-            this.formatText.Text = "Формат";
-            // 
             // save_btn
             // 
             this.save_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -158,22 +107,77 @@
             this.save_btn.Text = "Сохранить как";
             this.save_btn.UseVisualStyleBackColor = true;
             // 
+            // fontButton
+            // 
+            this.fontButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fontButton.Location = new System.Drawing.Point(286, 175);
+            this.fontButton.Name = "fontButton";
+            this.fontButton.Size = new System.Drawing.Size(163, 32);
+            this.fontButton.TabIndex = 63;
+            this.fontButton.Text = "Шрифт";
+            this.fontButton.UseVisualStyleBackColor = true;
+            this.fontButton.Click += new System.EventHandler(this.fontButton_Click);
+            // 
+            // contractId_txt
+            // 
+            this.contractId_txt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.contractId_txt.DropDownWidth = 200;
+            this.contractId_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contractId_txt.FormattingEnabled = true;
+            this.contractId_txt.Location = new System.Drawing.Point(121, 18);
+            this.contractId_txt.Name = "contractId_txt";
+            this.contractId_txt.Size = new System.Drawing.Size(146, 27);
+            this.contractId_txt.TabIndex = 62;
+            this.contractId_txt.SelectedIndexChanged += new System.EventHandler(this.contractId_txt_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 19);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Код договора:";
+            // 
+            // pageFormat
+            // 
+            this.pageFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.pageFormat.DropDownWidth = 200;
+            this.pageFormat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pageFormat.FormattingEnabled = true;
+            this.pageFormat.Location = new System.Drawing.Point(286, 253);
+            this.pageFormat.Name = "pageFormat";
+            this.pageFormat.Size = new System.Drawing.Size(163, 27);
+            this.pageFormat.TabIndex = 64;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(301, 229);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 19);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Формат страницы:";
+            // 
             // InvitationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 378);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pageFormat);
+            this.Controls.Add(this.fontButton);
+            this.Controls.Add(this.contractId_txt);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.save_btn);
-            this.Controls.Add(this.formatText);
-            this.Controls.Add(this.textSize);
-            this.Controls.Add(this.font);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.listInv_btn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.overview_btn);
             this.Controls.Add(this.invitationText);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "InvitationsForm";
             this.Text = "Приглашения";
             this.ResumeLayout(false);
@@ -182,17 +186,17 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox invitationText;
         private System.Windows.Forms.Button overview_btn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button listInv_btn;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox font;
-        private System.Windows.Forms.ComboBox textSize;
-        private System.Windows.Forms.ComboBox formatText;
         private System.Windows.Forms.Button save_btn;
+        private System.Windows.Forms.Button fontButton;
+        private System.Windows.Forms.ComboBox contractId_txt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ComboBox pageFormat;
+        private System.Windows.Forms.Label label4;
     }
 }

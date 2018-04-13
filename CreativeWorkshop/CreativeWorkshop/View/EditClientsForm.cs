@@ -55,35 +55,35 @@ namespace CreativeWorkshop.View
         {
             if (isPhys)
             {
-                if (!Utils.IsNotEmptyTextInputs(psurname,pname,ppatronymic,paddress,pmobile,pemail) ||
-                    !Utils.IsValidFullName(psurname, pname, ppatronymic) ||
-                    !Utils.IsValidMobile(pmobile) ||
-                    !Utils.IsValidEmail(pemail))
+                if (!Utils.IsNotEmptyTextInputs(pSurname,pName,pPatronymic,pAddress,pMobile,pEmail) ||
+                    !Utils.IsValidFullName(pSurname, pName, pPatronymic) ||
+                    !Utils.IsValidMobile(pMobile) ||
+                    !Utils.IsValidEmail(pEmail))
                 {
                     return;
                 }
                 pClient = new PClient(
-                        psurname.Text,
-                        pname.Text,
-                        ppatronymic.Text,
-                        paddress.Text,
-                        Convert.ToInt64(pmobile.Text),
-                        pemail.Text
+                        pSurname.Text,
+                        pName.Text,
+                        pPatronymic.Text,
+                        pAddress.Text,
+                        Convert.ToInt64(pMobile.Text),
+                        pEmail.Text
                     );
             }
             else
             {
-                if (!Utils.IsNotEmptyTextInputs(lname,laddress,lmobile,lemail) ||
-                    !Utils.IsValidMobile(lmobile) ||
-                    !Utils.IsValidEmail(lemail))
+                if (!Utils.IsNotEmptyTextInputs(lName,lAddress,lMobile,lEmail) ||
+                    !Utils.IsValidMobile(lMobile) ||
+                    !Utils.IsValidEmail(lEmail))
                 {
                     return;
                 }
                 lClient = new LClient(
-                        lname.Text,
-                        laddress.Text,
-                        Convert.ToInt64(lmobile.Text),
-                        lemail.Text
+                        lName.Text,
+                        lAddress.Text,
+                        Convert.ToInt64(lMobile.Text),
+                        lEmail.Text
                     );
             }
             IsSaved = true;
@@ -96,24 +96,24 @@ namespace CreativeWorkshop.View
             {
                 if (pClient != null)
                 {
-                    psurname.Text = pClient.Surname;
-                    pname.Text = pClient.Name;
-                    ppatronymic.Text = pClient.Patronymic;
-                    paddress.Text = pClient.Address;
-                    pmobile.Text = pClient.Mobile.ToString();
-                    pemail.Text = pClient.Email;
+                    pSurname.Text = pClient.Surname;
+                    pName.Text = pClient.Name;
+                    pPatronymic.Text = pClient.Patronymic;
+                    pAddress.Text = pClient.Address;
+                    pMobile.Text = pClient.Mobile.ToString();
+                    pEmail.Text = pClient.Email;
                 }
                 else
                 {
-                    lname.Text = lClient.Name;
-                    laddress.Text = lClient.Address;
-                    lmobile.Text = lClient.Mobile.ToString();
-                    lemail.Text = lClient.Email;
+                    lName.Text = lClient.Name;
+                    lAddress.Text = lClient.Address;
+                    lMobile.Text = lClient.Mobile.ToString();
+                    lEmail.Text = lClient.Email;
                 }
             }
         }
 
-        private void cancel_btn_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             IsSaved = false;
             this.Close();

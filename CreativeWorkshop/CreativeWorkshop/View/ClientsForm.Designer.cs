@@ -38,8 +38,8 @@
             this.positionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mobileColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phys_rb = new System.Windows.Forms.RadioButton();
-            this.legal_rb = new System.Windows.Forms.RadioButton();
+            this.physRb = new System.Windows.Forms.RadioButton();
+            this.legalRb = new System.Windows.Forms.RadioButton();
             this.legalView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +53,7 @@
             // 
             this.editClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editClient.Location = new System.Drawing.Point(252, 353);
-            this.editClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editClient.Margin = new System.Windows.Forms.Padding(4);
             this.editClient.Name = "editClient";
             this.editClient.Size = new System.Drawing.Size(226, 32);
             this.editClient.TabIndex = 7;
@@ -65,7 +65,7 @@
             // 
             this.deleteClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteClient.Location = new System.Drawing.Point(486, 353);
-            this.deleteClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteClient.Margin = new System.Windows.Forms.Padding(4);
             this.deleteClient.Name = "deleteClient";
             this.deleteClient.Size = new System.Drawing.Size(226, 32);
             this.deleteClient.TabIndex = 6;
@@ -77,7 +77,7 @@
             // 
             this.addClient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addClient.Location = new System.Drawing.Point(18, 353);
-            this.addClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addClient.Margin = new System.Windows.Forms.Padding(4);
             this.addClient.Name = "addClient";
             this.addClient.Size = new System.Drawing.Size(226, 32);
             this.addClient.TabIndex = 5;
@@ -99,7 +99,7 @@
             this.mobileColumn,
             this.Column1});
             this.phisView.Location = new System.Drawing.Point(18, 18);
-            this.phisView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phisView.Margin = new System.Windows.Forms.Padding(4);
             this.phisView.MultiSelect = false;
             this.phisView.Name = "phisView";
             this.phisView.Size = new System.Drawing.Size(694, 327);
@@ -141,33 +141,33 @@
             this.Column1.HeaderText = "E-mail";
             this.Column1.Name = "Column1";
             // 
-            // phys_rb
+            // physRb
             // 
-            this.phys_rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.phys_rb.AutoSize = true;
-            this.phys_rb.Checked = true;
-            this.phys_rb.Location = new System.Drawing.Point(720, 18);
-            this.phys_rb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.phys_rb.Name = "phys_rb";
-            this.phys_rb.Size = new System.Drawing.Size(145, 23);
-            this.phys_rb.TabIndex = 8;
-            this.phys_rb.TabStop = true;
-            this.phys_rb.Text = "Физическое лицо";
-            this.phys_rb.UseVisualStyleBackColor = true;
-            this.phys_rb.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.physRb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.physRb.AutoSize = true;
+            this.physRb.Checked = true;
+            this.physRb.Location = new System.Drawing.Point(720, 18);
+            this.physRb.Margin = new System.Windows.Forms.Padding(4);
+            this.physRb.Name = "physRb";
+            this.physRb.Size = new System.Drawing.Size(145, 23);
+            this.physRb.TabIndex = 8;
+            this.physRb.TabStop = true;
+            this.physRb.Text = "Физическое лицо";
+            this.physRb.UseVisualStyleBackColor = true;
+            this.physRb.CheckedChanged += new System.EventHandler(this.phisRb_CheckedChanged);
             // 
-            // legal_rb
+            // legalRb
             // 
-            this.legal_rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.legal_rb.AutoSize = true;
-            this.legal_rb.Location = new System.Drawing.Point(720, 49);
-            this.legal_rb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.legal_rb.Name = "legal_rb";
-            this.legal_rb.Size = new System.Drawing.Size(158, 23);
-            this.legal_rb.TabIndex = 9;
-            this.legal_rb.Text = "Юридическое лицо";
-            this.legal_rb.UseVisualStyleBackColor = true;
-            this.legal_rb.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.legalRb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.legalRb.AutoSize = true;
+            this.legalRb.Location = new System.Drawing.Point(720, 49);
+            this.legalRb.Margin = new System.Windows.Forms.Padding(4);
+            this.legalRb.Name = "legalRb";
+            this.legalRb.Size = new System.Drawing.Size(158, 23);
+            this.legalRb.TabIndex = 9;
+            this.legalRb.Text = "Юридическое лицо";
+            this.legalRb.UseVisualStyleBackColor = true;
+            this.legalRb.CheckedChanged += new System.EventHandler(this.legalRb_CheckedChanged);
             // 
             // legalView
             // 
@@ -181,7 +181,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.legalView.Location = new System.Drawing.Point(18, 18);
-            this.legalView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.legalView.Margin = new System.Windows.Forms.Padding(4);
             this.legalView.MultiSelect = false;
             this.legalView.Name = "legalView";
             this.legalView.Size = new System.Drawing.Size(694, 327);
@@ -219,14 +219,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 401);
             this.Controls.Add(this.legalView);
-            this.Controls.Add(this.legal_rb);
-            this.Controls.Add(this.phys_rb);
+            this.Controls.Add(this.legalRb);
+            this.Controls.Add(this.physRb);
             this.Controls.Add(this.editClient);
             this.Controls.Add(this.deleteClient);
             this.Controls.Add(this.addClient);
             this.Controls.Add(this.phisView);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ClientsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Клиенты";
@@ -244,8 +244,8 @@
         private System.Windows.Forms.Button deleteClient;
         private System.Windows.Forms.Button addClient;
         private System.Windows.Forms.DataGridView phisView;
-        private System.Windows.Forms.RadioButton phys_rb;
-        private System.Windows.Forms.RadioButton legal_rb;
+        private System.Windows.Forms.RadioButton physRb;
+        private System.Windows.Forms.RadioButton legalRb;
         private System.Windows.Forms.DataGridView legalView;
         private System.Windows.Forms.DataGridViewTextBoxColumn surnameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;

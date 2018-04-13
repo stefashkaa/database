@@ -2,13 +2,7 @@
 using CreativeWorkshop.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CreativeWorkshop.View
@@ -36,10 +30,10 @@ namespace CreativeWorkshop.View
 
         private void Contracts_Load(object sender, EventArgs e)
         {
-            ViewData();
+            viewData();
         }
 
-        private void ViewData()
+        private void viewData()
         {
             contractsView.Rows.Clear();
             using (var read = DatabaseService.Select(DbConstants.Contract.title))
@@ -81,7 +75,7 @@ namespace CreativeWorkshop.View
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void deleteContract_Click(object sender, EventArgs e)
@@ -113,10 +107,10 @@ namespace CreativeWorkshop.View
                 new SQLiteParameter($"@{DbConstants.id}", tmp.Cells[0].Value),
             };
             DatabaseService.Execute(DbConstants.Contract.Delete, parameters2);
-            ViewData();
+            viewData();
         }
 
-        private void execute_btn_Click(object sender, EventArgs e)
+        private void executeButton_Click(object sender, EventArgs e)
         {
             var tmp = contractsView.SelectedRows.Count != 0 ? contractsView.SelectedRows[0] : null;
             if (tmp == null || tmp.Index == contractsView.Rows.Count - 1)
@@ -135,7 +129,7 @@ namespace CreativeWorkshop.View
                 new SQLiteParameter($"@{DbConstants.id}1", tmp.Cells[1].Value.ToString())
             };
             DatabaseService.Execute(DbConstants.Purchase.UpdateStatus, parameters);
-            ViewData();
+            viewData();
         }
     }
 }

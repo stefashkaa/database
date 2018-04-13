@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SQLite;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using CreativeWorkshop.Model;
 using CreativeWorkshop.Services;
@@ -30,7 +26,7 @@ namespace CreativeWorkshop.View
             this.purchase = p;
             this.selectedServiceTypes = selectedServiceTypes;
             this.selectedCount = selectedCount;
-            sum_txt.Text = sum.ToString();
+            sumText.Text = sum.ToString();
             orderId.Text = DatabaseService.GetNextId(DbConstants.Purchase.title).ToString();
             var pClient = p.Client as PClient;
             var lClient = p.Client as LClient;
@@ -47,12 +43,12 @@ namespace CreativeWorkshop.View
                 new List<SQLiteParameter>() { new SQLiteParameter($"@{DbConstants.LClients.name}", lClient.Name) });
         }
 
-        private void cancel_btn_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        private void save_btn_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             saveNewPurchase();
             saveNewContract(out int purchase_id);

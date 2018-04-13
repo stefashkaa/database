@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.contractsView = new System.Windows.Forms.DataGridView();
-            this.deleteContract = new System.Windows.Forms.Button();
-            this.closeButton = new System.Windows.Forms.Button();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.summaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.execute_btn = new System.Windows.Forms.Button();
+            this.deleteContract = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.executeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contractsView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,30 +58,6 @@
             this.contractsView.Name = "contractsView";
             this.contractsView.Size = new System.Drawing.Size(671, 223);
             this.contractsView.TabIndex = 3;
-            // 
-            // deleteContract
-            // 
-            this.deleteContract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteContract.Location = new System.Drawing.Point(241, 252);
-            this.deleteContract.Margin = new System.Windows.Forms.Padding(4);
-            this.deleteContract.Name = "deleteContract";
-            this.deleteContract.Size = new System.Drawing.Size(218, 34);
-            this.deleteContract.TabIndex = 4;
-            this.deleteContract.Text = "Удалить";
-            this.deleteContract.UseVisualStyleBackColor = true;
-            this.deleteContract.Click += new System.EventHandler(this.deleteContract_Click);
-            // 
-            // closeButton
-            // 
-            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.closeButton.Location = new System.Drawing.Point(467, 252);
-            this.closeButton.Margin = new System.Windows.Forms.Padding(4);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(218, 34);
-            this.closeButton.TabIndex = 5;
-            this.closeButton.Text = "Закрыть";
-            this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // idColumn
             // 
@@ -117,24 +93,48 @@
             this.purchaseStatus.Name = "purchaseStatus";
             this.purchaseStatus.Width = 125;
             // 
-            // execute_btn
+            // deleteContract
             // 
-            this.execute_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.execute_btn.Location = new System.Drawing.Point(15, 252);
-            this.execute_btn.Margin = new System.Windows.Forms.Padding(4);
-            this.execute_btn.Name = "execute_btn";
-            this.execute_btn.Size = new System.Drawing.Size(218, 34);
-            this.execute_btn.TabIndex = 6;
-            this.execute_btn.Text = "Выполнить";
-            this.execute_btn.UseVisualStyleBackColor = true;
-            this.execute_btn.Click += new System.EventHandler(this.execute_btn_Click);
+            this.deleteContract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteContract.Location = new System.Drawing.Point(241, 252);
+            this.deleteContract.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteContract.Name = "deleteContract";
+            this.deleteContract.Size = new System.Drawing.Size(218, 34);
+            this.deleteContract.TabIndex = 4;
+            this.deleteContract.Text = "Удалить";
+            this.deleteContract.UseVisualStyleBackColor = true;
+            this.deleteContract.Click += new System.EventHandler(this.deleteContract_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.closeButton.Location = new System.Drawing.Point(467, 252);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(218, 34);
+            this.closeButton.TabIndex = 5;
+            this.closeButton.Text = "Закрыть";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // executeButton
+            // 
+            this.executeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.executeButton.Location = new System.Drawing.Point(15, 252);
+            this.executeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.executeButton.Name = "executeButton";
+            this.executeButton.Size = new System.Drawing.Size(218, 34);
+            this.executeButton.TabIndex = 6;
+            this.executeButton.Text = "Выполнить";
+            this.executeButton.UseVisualStyleBackColor = true;
+            this.executeButton.Click += new System.EventHandler(this.executeButton_Click);
             // 
             // ContractsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 299);
-            this.Controls.Add(this.execute_btn);
+            this.Controls.Add(this.executeButton);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.deleteContract);
             this.Controls.Add(this.contractsView);
@@ -158,6 +158,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn summaColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn purchaseStatus;
-        private System.Windows.Forms.Button execute_btn;
+        private System.Windows.Forms.Button executeButton;
     }
 }

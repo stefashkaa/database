@@ -27,19 +27,19 @@ namespace CreativeWorkshop
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (!Utils.IsNotEmptyTextInputs(surname_text,name_text,patronymic_text,position_text,mobile_text) ||
-                !Utils.IsValidFullName(surname_text, name_text, patronymic_text) ||
-                !Utils.IsValidMobile(mobile_text))
+            if (!Utils.IsNotEmptyTextInputs(surnameText,nameText,patronymicText,positionText,mobileText) ||
+                !Utils.IsValidFullName(surnameText, nameText, patronymicText) ||
+                !Utils.IsValidMobile(mobileText))
             {
                 return;
             }
             IsSaved = true;
             Employee = new Employee(
-                    surname_text.Text,
-                    name_text.Text,
-                    patronymic_text.Text,
-                    position_text.Text,
-                    Convert.ToInt64(mobile_text.Text)
+                    surnameText.Text,
+                    nameText.Text,
+                    patronymicText.Text,
+                    positionText.Text,
+                    Convert.ToInt64(mobileText.Text)
                 );
             Close();
         }
@@ -48,15 +48,15 @@ namespace CreativeWorkshop
         {
             if (Employee != null && Text == "Редактировать")
             {
-                surname_text.Text = Employee.Surname;
-                name_text.Text = Employee.Name;
-                patronymic_text.Text = Employee.Patronymic;
-                position_text.Text = Employee.Position;
-                mobile_text.Text = Employee.Mobile.ToString();
+                surnameText.Text = Employee.Surname;
+                nameText.Text = Employee.Name;
+                patronymicText.Text = Employee.Patronymic;
+                positionText.Text = Employee.Position;
+                mobileText.Text = Employee.Mobile.ToString();
             }
         }
 
-        private void cancel_btn_Click(object sender, EventArgs e)
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             IsSaved = false;
             Close();

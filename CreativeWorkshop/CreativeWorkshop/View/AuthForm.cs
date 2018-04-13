@@ -13,51 +13,51 @@ namespace CreativeWorkshop.View
         public AuthForm()
         {
             InitializeComponent();
-            logon_btn.Select();
-            userName_txt.GotFocus += UserName_txt_GotFocus;
-            userName_txt.LostFocus += UserName_txt_LostFocus;
-            password_txt.GotFocus += Password_txt_GotFocus;
-            password_txt.LostFocus += Password_txt_LostFocus;
+            logonButton.Select();
+            userNameText.GotFocus += UserNameText_GotFocus;
+            userNameText.LostFocus += UserNameText_LostFocus;
+            passwordText.GotFocus += PasswordText_GotFocus;
+            passwordText.LostFocus += PasswordText_LostFocus;
         }
 
-        private void Password_txt_LostFocus(object sender, EventArgs e)
+        private void PasswordText_LostFocus(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(password_txt.Text))
+            if (String.IsNullOrWhiteSpace(passwordText.Text))
             {
-                password_txt.PasswordChar = '\0';
-                password_txt.Text = "Пароль";
+                passwordText.PasswordChar = '\0';
+                passwordText.Text = "Пароль";
             }
         }
 
-        private void Password_txt_GotFocus(object sender, EventArgs e)
+        private void PasswordText_GotFocus(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(password_txt.Text) || password_txt.Text.Equals("Пароль"))
+            if (String.IsNullOrWhiteSpace(passwordText.Text) || passwordText.Text.Equals("Пароль"))
             {
-                password_txt.Text = "";
-                password_txt.PasswordChar = '*';
+                passwordText.Text = "";
+                passwordText.PasswordChar = '*';
             }
         }
 
-        private void UserName_txt_LostFocus(object sender, EventArgs e)
+        private void UserNameText_LostFocus(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace(userName_txt.Text))
+            if (String.IsNullOrWhiteSpace(userNameText.Text))
             {
-                userName_txt.Text = "Имя пользователя";
+                userNameText.Text = "Имя пользователя";
             }
         }
 
-        private void UserName_txt_GotFocus(object sender, EventArgs e)
+        private void UserNameText_GotFocus(object sender, EventArgs e)
         {
-            if (userName_txt.Text.Equals("Имя пользователя"))
+            if (userNameText.Text.Equals("Имя пользователя"))
             {
-                userName_txt.Text = "";
+                userNameText.Text = "";
             }
         }
 
-        private void logon_btn_Click(object sender, EventArgs e)
+        private void logonButton_Click(object sender, EventArgs e)
         {
-            var userName = userName_txt.Text;
-            var password = password_txt.Text;
+            var userName = userNameText.Text;
+            var password = passwordText.Text;
             if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password) ||
                userName == "Имя пользователя" || password == "Пароль")
             {

@@ -34,20 +34,20 @@ namespace CreativeWorkshop.View
             }
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void phisRb_CheckedChanged(object sender, EventArgs e)
         {
             phisView.Visible = true;
             legalView.Visible = false;
             title = DbConstants.PClients.title;
-            ViewData();
+            viewData();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void legalRb_CheckedChanged(object sender, EventArgs e)
         {
             phisView.Visible = false;
             legalView.Visible = true;
             title = DbConstants.LClients.title;
-            ViewData();
+            viewData();
         }
 
         private void addClient_Click(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace CreativeWorkshop.View
                 };
                 DatabaseService.Execute(DbConstants.LClients.Insert, parameters);
             }
-            ViewData();
+            viewData();
         }
 
         private void deleteClient_Click(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace CreativeWorkshop.View
                 parameters.Add(new SQLiteParameter($"@{DbConstants.LClients.name}", tmp.Cells[0].Value));
                 DatabaseService.Execute(DbConstants.LClients.Delete, parameters);
             }
-            ViewData();
+            viewData();
         }
 
         private void editClient_Click(object sender, EventArgs e)
@@ -156,15 +156,15 @@ namespace CreativeWorkshop.View
                 parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}1", tmp.Cells[0].Value));
                 DatabaseService.Execute(DbConstants.LClients.Update, parameters);
             }
-            ViewData();
+            viewData();
         }
 
         private void ClientsForm_Load(object sender, EventArgs e)
         {
-            ViewData();
+            viewData();
         }
 
-        private void ViewData()
+        private void viewData()
         {
             using (var read = DatabaseService.Select(title))
             {
