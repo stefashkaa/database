@@ -1,13 +1,5 @@
 ﻿using CreativeWorkshop.Model;
 using CreativeWorkshop.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CreativeWorkshop.View
@@ -20,14 +12,20 @@ namespace CreativeWorkshop.View
         {
             this.contract = contract;
             InitializeComponent();
+            employeesView.MultiSelect = false;
+            employeesView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ViewData();
         }
 
         private void ViewData()
         {
             employeesView.Rows.Clear();
-            //TODO: create query
-            using (var read = DatabaseService.Select(DbConstants.Employees.title))
+            using (var read = DatabaseService.ExecuteAndReturn(
+$@"SELECT e.{DbConstants.Employees.surname}, e.{DbConstants.Employees.name}, e.{DbConstants.Employees.patronymic}, 
+e.{DbConstants.Employees.position}, e.{DbConstants.Employees.mobile} 
+FROM ({DbConstants.Service.title} s INNER JOIN {DbConstants.Employees.title} e 
+ON e.{DbConstants.id} = s.{DbConstants.Service.employeeId}) a 
+WHERE a.{DbConstants.Service.purchaseId} = {contract.OrderId};"))
             {
                 while (read.Read())
                 {

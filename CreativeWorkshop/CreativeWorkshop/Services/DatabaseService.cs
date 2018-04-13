@@ -161,7 +161,7 @@ namespace CreativeWorkshop.Services
             return command;
         }
 
-        public static void Execute(string commandText, List<SQLiteParameter> parameters)
+        public static void Execute(string commandText, List<SQLiteParameter> parameters = null)
         {
             try
             {
@@ -170,7 +170,10 @@ namespace CreativeWorkshop.Services
                     CommandText = commandText,
                     CommandType = CommandType.Text
                 };
-                command.Parameters.AddRange(parameters.ToArray());
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters.ToArray());
+                }
                 command.ExecuteNonQuery();
             }
             catch (SQLiteException e)
@@ -187,7 +190,7 @@ namespace CreativeWorkshop.Services
             }
         }
 
-        public static SQLiteDataReader ExecuteAndReturn(string commandText, List<SQLiteParameter> parameters)
+        public static SQLiteDataReader ExecuteAndReturn(string commandText, List<SQLiteParameter> parameters = null)
         {
             try
             {
@@ -196,7 +199,10 @@ namespace CreativeWorkshop.Services
                     CommandText = commandText,
                     CommandType = CommandType.Text
                 };
-                command.Parameters.AddRange(parameters.ToArray());
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters.ToArray());
+                }
                 return command.ExecuteReader();
             }
             catch (SQLiteException e)

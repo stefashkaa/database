@@ -25,10 +25,10 @@ namespace CreativeWorkshop.Services
         {
             foreach (var item in args)
             {
-                if ( item.Text.Count() > 50 || item.Text.Any(a => !char.IsLetter(a)))
+                if ( item.Text.Count() > 30 || item.Text.Any(a => !char.IsLetter(a)))
                 {
                     MessageBox.Show(@"Поля 'ФИО' заполнены не корректно!
-ФИО должно состоять только из букв. Длина слов не превышает 50.", "Предупреждение",
+ФИО должно состоять только из букв. Длина слов не превышает 30.", "Предупреждение",
 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
@@ -54,27 +54,34 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         public static bool IsValidEmail(TextBox textBox)
         {
-            bool flag;
+            bool flag = false;
             try
             {
                 var addr = new System.Net.Mail.MailAddress(textBox.Text);
                 flag = addr.Address == textBox.Text;
+                if (!flag) return false;
+                var arr = new string[] {"@yandex.ru", "@mail.ru", "@gmail.com", "@ssau.ru", "@list.ru"};
+                flag = arr.Any(e => textBox.Text.Contains(e));
+                return flag;
             }
             catch
             {
                 flag = false;
+                return flag;
             }
-            if (!flag)
+            finally
             {
-                MessageBox.Show(@"Поле 'e-mail' заполнено не корректно!
+                if (!flag)
+                {
+                    MessageBox.Show(@"Поле 'e-mail' заполнено не корректно!
 Используйте следующие домены:
 @yandex.ru
 @mail.ru
 @gmail.com
 @ssau.ru
 @list.ru", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            return flag;
         }
 
         public static bool IsValidPrice(TextBox textBox)
