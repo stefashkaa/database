@@ -92,6 +92,17 @@ namespace CreativeWorkshop.View
                 MessageBox.Show("Ничего не выбрано!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            var status = tmp.Cells[4].Value.ToString();
+            if (status.ToLower().Contains("не выполнен"))
+            {
+                var result = MessageBox.Show(@"Договор, который Вы хотите удалить, не выполнен.
+Желаете продолжить удаление?", "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
             var parameters1 = new List<SQLiteParameter>()
             {
                 new SQLiteParameter($"@{DbConstants.id}", tmp.Cells[1].Value),
