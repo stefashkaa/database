@@ -39,6 +39,10 @@
             this.suffixLabel = new System.Windows.Forms.Label();
             this.orderId = new System.Windows.Forms.TextBox();
             this.contractId = new System.Windows.Forms.TextBox();
+            this.selectFolder = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.fileNameText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dateLabel
@@ -156,11 +160,56 @@
             this.contractId.TabIndex = 54;
             this.contractId.Text = "0";
             // 
+            // selectFolder
+            // 
+            this.selectFolder.BackColor = System.Drawing.Color.Transparent;
+            this.selectFolder.BackgroundImage = global::CreativeWorkshop.Properties.Resources.folder;
+            this.selectFolder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.selectFolder.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.selectFolder.FlatAppearance.BorderSize = 0;
+            this.selectFolder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Cyan;
+            this.selectFolder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Cyan;
+            this.selectFolder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.selectFolder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.selectFolder.Location = new System.Drawing.Point(157, 176);
+            this.selectFolder.Name = "selectFolder";
+            this.selectFolder.Size = new System.Drawing.Size(33, 32);
+            this.selectFolder.TabIndex = 55;
+            this.selectFolder.UseVisualStyleBackColor = false;
+            this.selectFolder.Click += new System.EventHandler(this.selectFolder_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(13, 183);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 19);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Файл списка имен:";
+            // 
+            // fileNameText
+            // 
+            this.fileNameText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileNameText.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.fileNameText.Location = new System.Drawing.Point(196, 180);
+            this.fileNameText.Name = "fileNameText";
+            this.fileNameText.ReadOnly = true;
+            this.fileNameText.Size = new System.Drawing.Size(277, 26);
+            this.fileNameText.TabIndex = 57;
+            // 
             // CreateContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 275);
+            this.Controls.Add(this.fileNameText);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.selectFolder);
             this.Controls.Add(this.contractId);
             this.Controls.Add(this.orderId);
             this.Controls.Add(this.suffixLabel);
@@ -192,5 +241,9 @@
         private System.Windows.Forms.Label suffixLabel;
         private System.Windows.Forms.TextBox orderId;
         private System.Windows.Forms.TextBox contractId;
+        private System.Windows.Forms.Button selectFolder;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox fileNameText;
     }
 }

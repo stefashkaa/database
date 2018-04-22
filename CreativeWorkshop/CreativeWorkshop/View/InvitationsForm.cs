@@ -8,20 +8,24 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Word;
 
 namespace CreativeWorkshop.View
 {
     public partial class InvitationsForm : Form
     {
-        private Font font;
+        private System.Drawing.Font font;
         private List<Contract> contracts;
         private Contract selectedContract;
-
         public InvitationsForm()
         {
             InitializeComponent();
-            font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            font = new System.Drawing.Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             contracts = ContractController.GetAllContracts();
+            if (contracts?.Count == 0)
+            {
+                return;
+            }
             selectedContract = contracts.First();
             AddContracts();
         }

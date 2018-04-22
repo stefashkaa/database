@@ -28,30 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.id_txt = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.namesList = new System.Windows.Forms.CheckedListBox();
             this.ok_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // id_txt
-            // 
-            this.id_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.id_txt.FormattingEnabled = true;
-            this.id_txt.Location = new System.Drawing.Point(138, 17);
-            this.id_txt.Name = "id_txt";
-            this.id_txt.Size = new System.Drawing.Size(117, 27);
-            this.id_txt.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(21, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 19);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Код договора:";
             // 
             // namesList
             // 
@@ -67,9 +46,9 @@
             "Имя5",
             "Имя6",
             "Имя7"});
-            this.namesList.Location = new System.Drawing.Point(25, 61);
+            this.namesList.Location = new System.Drawing.Point(25, 19);
             this.namesList.Name = "namesList";
-            this.namesList.Size = new System.Drawing.Size(230, 256);
+            this.namesList.Size = new System.Drawing.Size(230, 298);
             this.namesList.TabIndex = 9;
             // 
             // ok_btn
@@ -92,19 +71,13 @@
             this.ClientSize = new System.Drawing.Size(284, 380);
             this.Controls.Add(this.ok_btn);
             this.Controls.Add(this.namesList);
-            this.Controls.Add(this.id_txt);
-            this.Controls.Add(this.label1);
             this.Name = "ListInvitationsForm";
             this.Text = "Список приглашенных";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox id_txt;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox namesList;
         private System.Windows.Forms.Button ok_btn;
     }

@@ -3,6 +3,7 @@
     public static class DbConstants
     {
         public static readonly string id = "id";
+        public static readonly string FK_ON = "PRAGMA foreign_keys = ON;";
 
         public class Authorization
         {
@@ -170,15 +171,17 @@ id = @id1;";
             public static readonly string summa = "summa";
             public static readonly string deliveryDate = "delivery_date";
             public static readonly string purchaseId = "purchase_id";
+            public static readonly string fileName = "file_name";
             public static readonly string Create = @"CREATE TABLE IF NOT EXISTS contract ( 
 id char(10) PRIMARY KEY, 
 summa INTEGER NOT NULL, 
 delivery_date INTEGER NOT NULL, 
 purchase_id INTEGER NOT NULL, 
+file_name char(255) NOT NULL, 
 FOREIGN KEY(purchase_id) REFERENCES purchase(id));";
             public static readonly string Insert = @"INSERT INTO contract( 
-id, summa, delivery_date, purchase_id) 
-VALUES(@id, @summa , @delivery_date, @purchase_id)";
+id, summa, delivery_date, purchase_id, file_name) 
+VALUES(@id, @summa , @delivery_date, @purchase_id, @file_name)";
             public static readonly string Delete = @"DELETE FROM contract WHERE 
 id = @id;";
         }
@@ -198,7 +201,7 @@ type_name char(50) NOT NULL,
 count INTEGER NOT NULL, 
 employee_id INTEGER, 
 FOREIGN KEY(purchase_id) REFERENCES purchase(id), 
-FOREIGN KEY(type_name) REFERENCES service_types(id), 
+FOREIGN KEY(type_name) REFERENCES service_types(name), 
 FOREIGN KEY(employee_id) REFERENCES employees(id));";
             public static readonly string Insert = @"INSERT INTO service( 
 purchase_id, type_name, count) 

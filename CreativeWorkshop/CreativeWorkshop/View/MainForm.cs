@@ -92,6 +92,10 @@ namespace CreativeWorkshop.View
         private void employeeListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var selectContractForm = new SelectContractForm();
+            if (selectContractForm.DontShow)
+            {
+                return;
+            }
             selectContractForm.ShowDialog();
             if (selectContractForm.Contract != null)
             {

@@ -20,7 +20,8 @@ namespace CreativeWorkshop.Controller
                             (string)read.GetValue(read.GetOrdinal(DbConstants.id)),
                             Contract.ToDate(Convert.ToInt64(read.GetValue(read.GetOrdinal(DbConstants.Contract.deliveryDate)))),
                             Convert.ToInt64(read.GetValue(read.GetOrdinal(DbConstants.Contract.summa))),
-                            Convert.ToInt32(read.GetValue(read.GetOrdinal(DbConstants.Contract.purchaseId)))
+                            Convert.ToInt32(read.GetValue(read.GetOrdinal(DbConstants.Contract.purchaseId))),
+                            (string)read.GetValue(read.GetOrdinal(DbConstants.Contract.fileName))
                         )
                     );
                 }

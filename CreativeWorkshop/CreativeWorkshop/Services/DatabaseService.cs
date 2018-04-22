@@ -24,11 +24,25 @@ namespace CreativeWorkshop.Services
             //}
             #endregion
             openConnection();
+            activateFK();
             createTablesIfNotExists();
             insertUsersIntoTable(new User("1", "1", Role.Director), 
                                  new User("2", "2", Role.Designer),
                                  new User("director", "pass", Role.Director),
                                  new User("designer1", "pass", Role.Designer));
+        }
+
+        private static void activateFK()
+        {
+            try
+            {
+                Execute(DbConstants.FK_ON);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("FK не включены по техническим причинам! Проверьте соединение с БД!", "Критическая ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private static void insertUsersIntoTable(params User[] users)
@@ -178,15 +192,7 @@ namespace CreativeWorkshop.Services
             }
             catch (SQLiteException e)
             {
-                if (e.Message.ToLower().Contains("unique"))
-                {
-                    MessageBox.Show("Такая сущность уже содержится в базе данных!", "Ошибка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show(e.Message);
-                }
+                Utils.CheckDbMessage(e);
             }
         }
 
@@ -207,15 +213,7 @@ namespace CreativeWorkshop.Services
             }
             catch (SQLiteException e)
             {
-                if (e.Message.ToLower().Contains("unique"))
-                {
-                    MessageBox.Show("Такая сущность уже содержится в базе данных!", "Ошибка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show(e.Message);
-                }
+                Utils.CheckDbMessage(e);
                 return null;
             }
         }

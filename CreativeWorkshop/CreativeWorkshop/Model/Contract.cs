@@ -12,13 +12,16 @@ namespace CreativeWorkshop.Model
         public DateTime Date { get; set; }
         public long Sum { get; set; }
         public int OrderId { get; set; }
+        public string FileName { get; set; }
 
-        public Contract(string id, DateTime date, long sum, int orderId)
+
+        public Contract(string id, DateTime date, long sum, int orderId, string fileName)
         {
             Id = id;
             Date = date;
             Sum = sum;
             OrderId = orderId;
+            FileName = fileName;
         }
 
         public bool IsPhClient()

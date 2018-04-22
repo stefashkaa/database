@@ -12,11 +12,17 @@ namespace CreativeWorkshop.View
         private List<Contract> contracts;
         private bool selected = false;
 
+        public bool DontShow { get; private set; } = false;
         public Contract Contract { get; private set; } = null;
 
         public SelectContractForm()
         {
             contracts = ContractController.GetAllContracts();
+            if (contracts?.Count == 0)
+            {
+                DontShow = true;
+                return;
+            }
             Contract = contracts.First();
             selected = false;
             InitializeComponent();

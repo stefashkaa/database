@@ -97,16 +97,21 @@ namespace CreativeWorkshop.View
                 }
             }
 
-            var parameters1 = new List<SQLiteParameter>()
-            {
-                new SQLiteParameter($"@{DbConstants.id}", tmp.Cells[1].Value),
-            };
-            DatabaseService.Execute(DbConstants.Purchase.Delete, parameters1);
-            var parameters2 = new List<SQLiteParameter>()
+            var parameters = new List<SQLiteParameter>()
             {
                 new SQLiteParameter($"@{DbConstants.id}", tmp.Cells[0].Value),
             };
-            DatabaseService.Execute(DbConstants.Contract.Delete, parameters2);
+            DatabaseService.Execute(DbConstants.Contract.Delete, parameters);
+            parameters = new List<SQLiteParameter>()
+            {
+                new SQLiteParameter($"@{DbConstants.Service.purchaseId}", tmp.Cells[1].Value),
+            };
+            DatabaseService.Execute(DbConstants.Service.Delete, parameters);
+            parameters = new List<SQLiteParameter>()
+            {
+                new SQLiteParameter($"@{DbConstants.id}", tmp.Cells[1].Value),
+            };
+            DatabaseService.Execute(DbConstants.Purchase.Delete, parameters);
             viewData();
         }
 

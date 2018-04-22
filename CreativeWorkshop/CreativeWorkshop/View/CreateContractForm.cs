@@ -50,6 +50,11 @@ namespace CreativeWorkshop.View
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(fileNameText.Text))
+            {
+                MessageBox.Show("Выберите файл клиента со списком приглашенных!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
             saveNewPurchase();
             saveNewContract(out int purchase_id);
             saveServices(purchase_id);
@@ -64,15 +69,16 @@ namespace CreativeWorkshop.View
                 MessageBox.Show("Заказ не был сохранен!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            var contract = new Contract(contractId.Text, dateTime.Value, sum, purchaseId);
+            var contract = new Contract(contractId.Text, dateTime.Value, sum, purchaseId, fileNameText.Text);
             try
             {
                 var parameters = new List<SQLiteParameter>()
                 {
-                    new SQLiteParameter($"@{DbConstants.id}", contractId.Text),
-                    new SQLiteParameter($"@{DbConstants.Contract.summa}", sum),
-                    new SQLiteParameter($"@{DbConstants.Contract.deliveryDate}", dateTime.Value.Ticks),
-                    new SQLiteParameter($"@{DbConstants.Contract.purchaseId}", purchaseId)
+                    new SQLiteParameter($"@{DbConstants.id}", contract.Id),
+                    new SQLiteParameter($"@{DbConstants.Contract.summa}", contract.Sum),
+                    new SQLiteParameter($"@{DbConstants.Contract.deliveryDate}", contract.Date.Ticks),
+                    new SQLiteParameter($"@{DbConstants.Contract.purchaseId}", contract.OrderId),
+                    new SQLiteParameter($"@{DbConstants.Contract.fileName}", contract.FileName)
                 };
                 DatabaseService.Execute(DbConstants.Contract.Insert, parameters);
             }
@@ -135,6 +141,14 @@ namespace CreativeWorkshop.View
             {
 
                 MessageBox.Show("Невозможно сохранить услуги!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void selectFolder_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                fileNameText.Text = openFileDialog1.FileName;
             }
         }
     }

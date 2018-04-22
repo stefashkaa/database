@@ -40,6 +40,8 @@
             this.contractId_txt = new System.Windows.Forms.ComboBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.font_btn = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // save_btn
@@ -51,6 +53,7 @@
             this.save_btn.TabIndex = 19;
             this.save_btn.Text = "Сохранить как";
             this.save_btn.UseVisualStyleBackColor = true;
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
             // listInv_btn
             // 
@@ -77,17 +80,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(26, 75);
+            this.label2.Location = new System.Drawing.Point(9, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 19);
+            this.label2.Size = new System.Drawing.Size(65, 19);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Текст:";
+            this.label2.Text = "Пример:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(26, 20);
+            this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 19);
             this.label1.TabIndex = 11;
@@ -95,42 +98,50 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(80, 76);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(83, 129);
             this.textBox1.TabIndex = 20;
-            this.textBox1.Text = "\r\n\r\n\r\n\r\nИмя";
+            this.textBox1.Text = "\r\n\r\n\r\n\r\n\r\nИмя";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.Location = new System.Drawing.Point(169, 76);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(83, 129);
             this.textBox2.TabIndex = 21;
-            this.textBox2.Text = "\r\n\r\n\r\n\r\nИмя";
+            this.textBox2.Text = "\r\n\r\n\r\n\r\n\r\nИмя";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.White;
             this.textBox3.Location = new System.Drawing.Point(80, 211);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(83, 129);
             this.textBox3.TabIndex = 22;
-            this.textBox3.Text = "\r\n\r\n\r\n\r\nИмя";
+            this.textBox3.Text = "\r\n\r\n\r\n\r\n\r\nИмя";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.Color.White;
             this.textBox4.Location = new System.Drawing.Point(169, 211);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(83, 129);
             this.textBox4.TabIndex = 23;
-            this.textBox4.Text = "\r\n\r\n\r\n\r\nИмя";
+            this.textBox4.Text = "\r\n\r\n\r\n\r\n\r\nИмя";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // contractId_txt
@@ -139,7 +150,7 @@
             this.contractId_txt.DropDownWidth = 200;
             this.contractId_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.contractId_txt.FormattingEnabled = true;
-            this.contractId_txt.Location = new System.Drawing.Point(135, 17);
+            this.contractId_txt.Location = new System.Drawing.Point(121, 17);
             this.contractId_txt.Name = "contractId_txt";
             this.contractId_txt.Size = new System.Drawing.Size(154, 27);
             this.contractId_txt.TabIndex = 59;
@@ -155,6 +166,10 @@
             this.font_btn.Text = "Шрифт";
             this.font_btn.UseVisualStyleBackColor = true;
             this.font_btn.Click += new System.EventHandler(this.fontButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // SeatingMapForm
             // 
@@ -193,5 +208,7 @@
         private System.Windows.Forms.ComboBox contractId_txt;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.Button font_btn;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -30,7 +30,6 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.invitationText = new System.Windows.Forms.RichTextBox();
-            this.overview_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listInv_btn = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
@@ -38,8 +37,7 @@
             this.contractId_txt = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
-            this.pageFormat = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.clientName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label2
@@ -62,23 +60,12 @@
             this.invitationText.TabIndex = 2;
             this.invitationText.Text = "";
             // 
-            // overview_btn
-            // 
-            this.overview_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.overview_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.overview_btn.Location = new System.Drawing.Point(286, 66);
-            this.overview_btn.Name = "overview_btn";
-            this.overview_btn.Size = new System.Drawing.Size(163, 32);
-            this.overview_btn.TabIndex = 3;
-            this.overview_btn.Text = "Обзор";
-            this.overview_btn.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(282, 106);
+            this.label3.Location = new System.Drawing.Point(282, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(167, 19);
             this.label3.TabIndex = 4;
@@ -88,7 +75,7 @@
             // 
             this.listInv_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.listInv_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listInv_btn.Location = new System.Drawing.Point(286, 128);
+            this.listInv_btn.Location = new System.Drawing.Point(286, 89);
             this.listInv_btn.Name = "listInv_btn";
             this.listInv_btn.Size = new System.Drawing.Size(163, 32);
             this.listInv_btn.TabIndex = 5;
@@ -110,7 +97,7 @@
             // fontButton
             // 
             this.fontButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fontButton.Location = new System.Drawing.Point(286, 175);
+            this.fontButton.Location = new System.Drawing.Point(286, 136);
             this.fontButton.Name = "fontButton";
             this.fontButton.Size = new System.Drawing.Size(163, 32);
             this.fontButton.TabIndex = 63;
@@ -126,7 +113,7 @@
             this.contractId_txt.FormattingEnabled = true;
             this.contractId_txt.Location = new System.Drawing.Point(121, 18);
             this.contractId_txt.Name = "contractId_txt";
-            this.contractId_txt.Size = new System.Drawing.Size(146, 27);
+            this.contractId_txt.Size = new System.Drawing.Size(95, 27);
             this.contractId_txt.TabIndex = 62;
             this.contractId_txt.SelectedIndexChanged += new System.EventHandler(this.contractId_txt_SelectedIndexChanged);
             // 
@@ -140,42 +127,28 @@
             this.label1.TabIndex = 61;
             this.label1.Text = "Код договора:";
             // 
-            // pageFormat
+            // clientName
             // 
-            this.pageFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.pageFormat.DropDownWidth = 200;
-            this.pageFormat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pageFormat.FormattingEnabled = true;
-            this.pageFormat.Location = new System.Drawing.Point(286, 253);
-            this.pageFormat.Name = "pageFormat";
-            this.pageFormat.Size = new System.Drawing.Size(163, 27);
-            this.pageFormat.TabIndex = 64;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(301, 229);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(136, 19);
-            this.label4.TabIndex = 65;
-            this.label4.Text = "Формат страницы:";
+            this.clientName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clientName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.clientName.Location = new System.Drawing.Point(222, 18);
+            this.clientName.Name = "clientName";
+            this.clientName.ReadOnly = true;
+            this.clientName.Size = new System.Drawing.Size(227, 26);
+            this.clientName.TabIndex = 64;
             // 
             // InvitationsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 378);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.pageFormat);
+            this.Controls.Add(this.clientName);
             this.Controls.Add(this.fontButton);
             this.Controls.Add(this.contractId_txt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.save_btn);
             this.Controls.Add(this.listInv_btn);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.overview_btn);
             this.Controls.Add(this.invitationText);
             this.Controls.Add(this.label2);
             this.Name = "InvitationsForm";
@@ -188,7 +161,6 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox invitationText;
-        private System.Windows.Forms.Button overview_btn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button listInv_btn;
         private System.Windows.Forms.Button save_btn;
@@ -196,7 +168,6 @@
         private System.Windows.Forms.ComboBox contractId_txt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FontDialog fontDialog1;
-        private System.Windows.Forms.ComboBox pageFormat;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox clientName;
     }
 }
