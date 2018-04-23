@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using CreativeWorkshop.Model;
@@ -146,6 +147,13 @@ namespace CreativeWorkshop.View
 
         private void selectFolder_Click(object sender, EventArgs e)
         {
+            var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            openFileDialog1.InitialDirectory = Path.Combine(projectPath, "Resources");
+            openFileDialog1.FileName = "NewDocument";
+            openFileDialog1.Filter = "docx files(*.docx)| *.docx|doc files (*.doc)|*.doc";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 fileNameText.Text = openFileDialog1.FileName;

@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using CreativeWorkshop.Services;
+using System.IO;
 
 namespace CreativeWorkshop.View
 {
@@ -17,13 +18,15 @@ namespace CreativeWorkshop.View
     {
         private System.Drawing.Font font;
         private List<Contract> contracts;
-        List<string> names;
+        private List<string> names;
+        private List<string> filterNames;
         private Contract selectedContract;
 
         public SeatingMapForm()
         {
             InitializeComponent();
             font = new System.Drawing.Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            changeFont();
             contracts = ContractController.GetAllContracts();
             if (contracts?.Count == 0)
             {
@@ -38,22 +41,33 @@ namespace CreativeWorkshop.View
         {
             selectedContract = contracts.First(c => c.Id == contractId_txt.SelectedItem.ToString());
             names = Utils.GetNames(selectedContract.FileName);
+            filterNames = names;
             makeExample();
         }
 
         private void makeExample()
         {
-            if (names?.Count == 0) return;
+            if (filterNames == null || filterNames?.Count == 0) return;
 
             for (int i = 1; i <= 4; i++)
             {
-                if (i <= names.Count)
+                if (i <= filterNames.Count)
                 {
-                    var txtBox = this.Controls["textBox" + i.ToString()] as TextBox;
+                    var txtBox = (this.Controls[$"A4_{i}"] as Panel).Controls[$"textBox{i}"] as TextBox;
+                    //var txtBox = this.Controls["textBox" + i.ToString()] as TextBox;
                     txtBox.TextAlign = HorizontalAlignment.Center;
                     
-                    txtBox.Text = $"\r\n\r\n\r\n\r\n\r\n{names[i - 1]}";
+                    txtBox.Text = $"\r\n\r\n\r\n\r\n\r\n{filterNames[i - 1]}";
                 }
+            }
+        }
+
+        private void changeFont()
+        {
+            for (int i = 1; i <= 4; i++)
+            {
+                var txtBox = (this.Controls[$"A4_{i}"] as Panel).Controls[$"textBox{i}"] as TextBox;
+                txtBox.Font = new System.Drawing.Font(font.Name, font.Size / 2, font.Style);
             }
         }
 
@@ -78,7 +92,16 @@ namespace CreativeWorkshop.View
 
         private void listInv_btn_Click(object sender, EventArgs e)
         {
-            new ListInvitationsForm().ShowDialog();
+            if ( names != null && names?.Count != 0)
+            {
+                var listInvitationsForm = new ListInvitationsForm(names, filterNames);
+                listInvitationsForm.ShowDialog();
+                if (listInvitationsForm.FilterNames != null)
+                {
+                    filterNames = listInvitationsForm.FilterNames;
+                    makeExample();
+                }
+            }
         }
 
         private void fontButton_Click(object sender, EventArgs e)
@@ -86,15 +109,22 @@ namespace CreativeWorkshop.View
             if (fontDialog1.ShowDialog() == DialogResult.OK)
             {
                 font = fontDialog1.Font;
+                changeFont();
             }
         }
 
         private void save_btn_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.DefaultExt = ".docx";
+            var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            saveFileDialog1.InitialDirectory = Path.Combine(projectPath, "Resources");
+            saveFileDialog1.FileName = $"SeatingMap{contractId_txt.Text}";
+            saveFileDialog1.Filter = "docx files(*.docx)| *.docx|doc files (*.doc)|*.doc";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.RestoreDirectory = true;
+
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Utils.SaveSeatingMap(saveFileDialog1.FileName, names, font);
+                Utils.SaveSeatingMap(saveFileDialog1.FileName, filterNames, font);
             }
         }
     }

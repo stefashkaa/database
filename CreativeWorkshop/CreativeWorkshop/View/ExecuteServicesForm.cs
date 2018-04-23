@@ -140,7 +140,7 @@ namespace CreativeWorkshop.View
                 for (int i = 0; i < executeView.Rows.Count; i++)
                 {
                     var cell = executeView.Rows[i].Cells[2] as DataGridViewComboBoxCell;
-                    if (cell?.Value == null)
+                    if (cell == null || cell?.Value == null)
                     {
                         continue;
                     }

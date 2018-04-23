@@ -18,7 +18,7 @@ namespace CreativeWorkshop.View
         private void init()
         {
             var user = AuthForm.User;
-            if (user?.Role != Role.Unknown)
+            if (user != null && user?.Role != Role.Unknown)
             {
                 auth_txt.Text = user.Name;
                 var isDesigner = user.Role == Role.Designer;

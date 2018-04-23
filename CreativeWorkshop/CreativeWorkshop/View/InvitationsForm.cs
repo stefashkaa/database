@@ -56,7 +56,7 @@ namespace CreativeWorkshop.View
 
         private void listInv_btn_Click(object sender, EventArgs e)
         {
-            new ListInvitationsForm().ShowDialog();
+            //new ListInvitationsForm().ShowDialog();
         }
 
         private void fontButton_Click(object sender, EventArgs e)

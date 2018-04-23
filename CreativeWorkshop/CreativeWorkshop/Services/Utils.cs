@@ -16,7 +16,7 @@ namespace CreativeWorkshop.Services
             {
                 if (string.IsNullOrWhiteSpace(item.Text))
                 {
-                    MessageBox.Show("Заполните поля!");
+                    MessageBox.Show("Заполните поля!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return false;
                 }
             }
@@ -31,7 +31,7 @@ namespace CreativeWorkshop.Services
                 {
                     MessageBox.Show(@"Поля 'ФИО' заполнены не корректно!
 ФИО должно состоять только из букв. Длина слов не превышает 30.", "Предупреждение",
-MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -40,15 +40,13 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         public static bool IsValidMobile(TextBox textBox)
         {
-            long res;
-            if (!long.TryParse(textBox.Text, out res) ||
+            if (!long.TryParse(textBox.Text, out long res) ||
                 res <= 80000000000L ||
                 res >= 90000000000L)
             {
                 MessageBox.Show(@"Заполните поле 'Мобильный телефон' корректно!
-Номер телефона должен содержать 11 цифр без пробелов
-и начинаться с '8'.", "Предупреждение",
-MessageBoxButtons.OK, MessageBoxIcon.Warning);
+Номер телефона должен содержать 11 цифр без пробелов\r\nи начинаться с '8'.", "Предупреждение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -75,25 +73,20 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
             {
                 if (!flag)
                 {
-                    MessageBox.Show(@"Поле 'e-mail' заполнено не корректно!
-Используйте следующие домены:
-@yandex.ru
-@mail.ru
-@gmail.com
-@ssau.ru
-@list.ru", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(@"Поле 'e-mail' заполнено не корректно!\r\nИспользуйте следующие домены:
+@yandex.ru\r\n@mail.ru\r\n@gmail.com\r\n@ssau.ru\r\n@list.ru", "Предупреждение",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
 
         public static bool IsValidPrice(TextBox textBox)
         {
-            int res;
-            if (!int.TryParse(textBox.Text, out res) || res < 0 || res > 5000)
+            if (!int.TryParse(textBox.Text, out int res) || res < 0 || res > 5000)
             {
                 MessageBox.Show(@"Поле 'Цена' заполнено не корректно!
 Можно использовать только целые числа, не превышающие 5000.", "Предупреждение",
-MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -109,45 +102,60 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (mess.Contains("foreign key"))
             {
-                MessageBox.Show(@"Выбранная запись не может быть удалена, 
-так как на нее ссылаются другие объекты!
-
+                MessageBox.Show(@"Выбранная запись не может быть удалена, \r\nтак как на нее ссылаются другие объекты!\r\n
 * для удаления записи необходимо удалить данные о ней из других таблиц", "Предупреждение",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show($@"Неизвестная ошибка! 
-
-Подробности ошибки:
-{e.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($@"Неизвестная ошибка!\r\n\r\nПодробности ошибки:\r\n{e.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public static Microsoft.Office.Interop.Word.Font ToWordFont(System.Drawing.Font font)
+        public static void ApplyFont(Microsoft.Office.Interop.Word.Font wFont, System.Drawing.Font font)
         {
-            var wordF = new Microsoft.Office.Interop.Word.Font();
-            wordF.Bold = Convert.ToInt32(font.Bold);
-            wordF.Italic = Convert.ToInt32(font.Italic);
-            wordF.Name = font.Name;
-            wordF.Size = font.Size;
-            return wordF;
+            try
+            {
+                wFont.Bold = Convert.ToInt32(font.Bold);
+                wFont.Italic = Convert.ToInt32(font.Italic);
+                wFont.StrikeThrough = Convert.ToInt32(font.Strikeout);
+                wFont.Size = font.Size;
+                wFont.Name = font.Name;
+                wFont.Underline = font.Underline ? WdUnderline.wdUnderlineSingle : WdUnderline.wdUnderlineNone;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Не удалось загрузить шрифт.\r\nДля решения проблемы будет применен шрифт по умолчанию.",
+                    "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                wFont.Name = "Times New Roman";
+            }
         }
 
         public static System.Drawing.Font ToFont(Microsoft.Office.Interop.Word.Font fontW)
         {
-            bool isBold = Convert.ToBoolean(fontW.Bold);
-            bool isItalic = Convert.ToBoolean(fontW.Italic);
-            bool isStrikeout = Convert.ToBoolean(fontW.StrikeThrough);
-            bool isUnderline = Convert.ToBoolean(fontW.Underline);
-            FontStyle style = 
-                (isBold) ? FontStyle.Bold :
-                (isItalic) ? FontStyle.Italic :
-                (isStrikeout) ? FontStyle.Strikeout :
-                (isUnderline) ? FontStyle.Underline :
-                FontStyle.Regular;
-            var font = new System.Drawing.Font(fontW.Name, fontW.Size, style, GraphicsUnit.Point, 204);
-            return font;
+            try
+            {
+                bool isBold = Convert.ToBoolean(fontW.Bold);
+                bool isItalic = Convert.ToBoolean(fontW.Italic);
+                bool isStrikeout = Convert.ToBoolean(fontW.StrikeThrough);
+                bool isUnderline = Convert.ToBoolean(fontW.Underline);
+
+                FontStyle style = FontStyle.Regular;
+
+                if (isBold) style = style | FontStyle.Bold;
+                if (isItalic) style = style | FontStyle.Italic;
+                if (isStrikeout) style = style | FontStyle.Strikeout;
+                if (isUnderline) style = style | FontStyle.Underline;
+
+                return new System.Drawing.Font(fontW.Name, fontW.Size, style, GraphicsUnit.Point, 204);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Не удалось загрузить шрифт.\r\nДля решения проблемы будет применен шрифт по умолчанию.",
+                    "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return new System.Drawing.Font("Times New Roman", 14, FontStyle.Regular);
+            }
         }
 
         public static void DeletePage(Document doc, int i)
@@ -158,50 +166,60 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         public static void SaveSeatingMap(string fileName, List<string> names, System.Drawing.Font font)
         {
-            var splittedNames = splitNames(names);
             var word = new Microsoft.Office.Interop.Word.Application();
             var doc = new Document();
-            object missing = System.Type.Missing;
-            doc = word.Documents.Add();
-            doc.PageSetup.LeftMargin = doc.PageSetup.RightMargin;
-            doc.PageSetup.BottomMargin = 5;
-            object oEndOfDoc = "\\endofdoc";
-            Range objRange;
-            Table tbl;
-            Paragraph objParagraph;
-            object objRangePara;
-
-            for (int i = 1; i <= splittedNames.Count; i++)
+            try
             {
-                objRange = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;
-                tbl = doc.Tables.Add(objRange, 3, 2, ref missing, ref missing);
+                var splittedNames = splitNames(names);
+                object missing = Type.Missing;
+                doc = word.Documents.Add();
+                doc.PageSetup.LeftMargin = doc.PageSetup.RightMargin;
+                doc.PageSetup.BottomMargin = 5;
+                object oEndOfDoc = "\\endofdoc";
+                Range objRange;
+                Table tbl;
+                Paragraph objParagraph;
+                object objRangePara;
 
-                tbl.Range.Font.Size = font.Size;
-                tbl.Range.Font.Name = font.Name;
-                tbl.Rows.Height = 240;
-                tbl.Columns.DistributeWidth();
-                int index = 0;
-                tbl.Cell(1, 1).Range.Text = "";
-                tbl.Cell(1, 2).Range.Text = "";
-
-                for (int j = 2; j <= 3; j++)
+                for (int i = 1; i <= splittedNames.Count; i++)
                 {
-                    for (int k = 1; k <= 2; k++)
-                    {
-                        if (index >= splittedNames[i - 1].Count) break;
+                    objRange = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;
+                    tbl = doc.Tables.Add(objRange, 3, 2, ref missing, ref missing);
 
-                        tbl.Cell(j, k).Range.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-                        tbl.Cell(j, k).Range.Text = splittedNames[i - 1][index];
-                        index++;
+                    ApplyFont(tbl.Range.Font, font);
+                    tbl.Rows.Height = 240;
+                    tbl.Columns.DistributeWidth();
+                    int index = 0;
+                    tbl.Cell(1, 1).Range.Text = "";
+                    tbl.Cell(1, 2).Range.Text = "";
+
+                    for (int j = 2; j <= 3; j++)
+                    {
+                        for (int k = 1; k <= 2; k++)
+                        {
+                            if (index >= splittedNames[i - 1].Count) break;
+
+                            tbl.Cell(j, k).Range.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+                            tbl.Cell(j, k).Range.Text = splittedNames[i - 1][index];
+                            index++;
+                        }
                     }
+                    objRangePara = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;
+                    objParagraph = doc.Content.Paragraphs.Add(ref objRangePara);
+                    objParagraph.Range.Text = Environment.NewLine;
                 }
-                objRangePara = doc.Bookmarks.get_Item(ref oEndOfDoc).Range;
-                objParagraph = doc.Content.Paragraphs.Add(ref objRangePara);
-                objParagraph.Range.Text = Environment.NewLine;
+                doc.SaveAs2(fileName);
             }
-            doc.SaveAs2(fileName);
-            ((_Document)doc).Close();
-            ((_Application)word).Quit();
+            catch (Exception e)
+            {
+                MessageBox.Show($"Не удалось сохранить файл!\r\n\r\nДетали ошики:{e.Message}",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                ((_Document)doc).Close();
+                ((_Application)word).Quit();
+            }
         }
 
         public static List<string> GetNames(string fName)
@@ -211,29 +229,41 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
             var doc = new Document();
             object fileName = fName;
             // Define an object to pass to the API for missing parameters
-            object missing = System.Type.Missing;
-            doc = word.Documents.Open(ref fileName,
+            object missing = Type.Missing;
+
+            try
+            {
+                doc = word.Documents.Open(ref fileName,
                     ref missing, ref missing, ref missing, ref missing,
                     ref missing, ref missing, ref missing, ref missing,
                     ref missing, ref missing, ref missing, ref missing,
                     ref missing, ref missing, ref missing);
-            String read = string.Empty;
-            for (int i = 0; i < doc.Paragraphs.Count; i++)
-            {
-                var name = doc.Paragraphs[i + 1].Range.Text.Trim();
-                if (name != string.Empty)
-                    names.Add(name);
-            }
-            doc.Save();
-            ((_Document)doc).Close();
-            ((_Application)word).Quit();
 
+                String read = string.Empty;
+                for (int i = 0; i < doc.Paragraphs.Count; i++)
+                {
+                    var name = doc.Paragraphs[i + 1].Range.Text.Trim();
+                    if (name != string.Empty)
+                        names.Add(name);
+                }
+                doc.Save();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Не удалось открыть файл!\r\n\r\nДетали ошики:{e.Message}",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                ((_Document)doc).Close();
+                ((_Application)word).Quit();
+            }
             return names;
         }
 
         private static List<List<string>> splitNames(List<string> names)
         {
-            if (names?.Count == 0)
+            if ( names == null || names?.Count == 0)
             {
                 return null;
             }

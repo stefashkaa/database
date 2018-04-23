@@ -21,7 +21,7 @@ namespace CreativeWorkshop.View
             serviceTypesView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             var user = AuthForm.User;
-            if (user?.Role != Role.Unknown)
+            if (user != null && user?.Role != Role.Unknown)
             {
                 var isDesigner = user.Role == Role.Designer;
                 addServiceType.Enabled = !isDesigner;
