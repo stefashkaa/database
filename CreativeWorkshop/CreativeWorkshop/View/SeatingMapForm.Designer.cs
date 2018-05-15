@@ -45,6 +45,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.A4_3 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.clientName = new System.Windows.Forms.TextBox();
             this.A4_1.SuspendLayout();
             this.A4_2.SuspendLayout();
             this.A4_4.SuspendLayout();
@@ -60,12 +61,12 @@
             this.save_btn.TabIndex = 19;
             this.save_btn.Text = "Сохранить как";
             this.save_btn.UseVisualStyleBackColor = true;
-            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
+            this.save_btn.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // listInv_btn
             // 
             this.listInv_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listInv_btn.Location = new System.Drawing.Point(320, 42);
+            this.listInv_btn.Location = new System.Drawing.Point(320, 98);
             this.listInv_btn.Name = "listInv_btn";
             this.listInv_btn.Size = new System.Drawing.Size(163, 32);
             this.listInv_btn.TabIndex = 15;
@@ -77,7 +78,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(316, 20);
+            this.label3.Location = new System.Drawing.Point(316, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(167, 19);
             this.label3.TabIndex = 14;
@@ -111,14 +112,14 @@
             this.contractId_txt.FormattingEnabled = true;
             this.contractId_txt.Location = new System.Drawing.Point(121, 17);
             this.contractId_txt.Name = "contractId_txt";
-            this.contractId_txt.Size = new System.Drawing.Size(154, 27);
+            this.contractId_txt.Size = new System.Drawing.Size(129, 27);
             this.contractId_txt.TabIndex = 59;
             this.contractId_txt.SelectedIndexChanged += new System.EventHandler(this.contractId_txt_SelectedIndexChanged);
             // 
             // font_btn
             // 
             this.font_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.font_btn.Location = new System.Drawing.Point(320, 93);
+            this.font_btn.Location = new System.Drawing.Point(320, 149);
             this.font_btn.Name = "font_btn";
             this.font_btn.Size = new System.Drawing.Size(163, 32);
             this.font_btn.TabIndex = 60;
@@ -218,11 +219,23 @@
             this.textBox3.Text = "Имя";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // clientName
+            // 
+            this.clientName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clientName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.clientName.Location = new System.Drawing.Point(256, 17);
+            this.clientName.Name = "clientName";
+            this.clientName.ReadOnly = true;
+            this.clientName.Size = new System.Drawing.Size(227, 26);
+            this.clientName.TabIndex = 65;
+            this.clientName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // SeatingMapForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 352);
+            this.Controls.Add(this.clientName);
             this.Controls.Add(this.A4_4);
             this.Controls.Add(this.A4_3);
             this.Controls.Add(this.A4_2);
@@ -268,5 +281,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Panel A4_3;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox clientName;
     }
 }

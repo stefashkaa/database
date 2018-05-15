@@ -36,16 +36,16 @@ namespace CreativeWorkshop.View
         private void viewData()
         {
             contractsView.Rows.Clear();
-            using (var read = DatabaseService.Select(DbConstants.Contract.title))
+            using (var read = DatabaseService.Select(Db.Contract.title))
             {
                 while (read.Read())
                 {
-                    int purchaseId = Convert.ToInt32(read.GetValue(read.GetOrdinal(DbConstants.Contract.purchaseId)));
+                    int purchaseId = Convert.ToInt32(read.GetValue(read.GetOrdinal(Db.Contract.purchaseId)));
                     contractsView.Rows.Add(new object[] {
-                        read.GetValue(read.GetOrdinal(DbConstants.id)),
+                        read.GetValue(read.GetOrdinal(Db.id)),
                         purchaseId,
-                        read.GetValue(read.GetOrdinal(DbConstants.Contract.summa)),
-                        Contract.ToDateString((long)read.GetValue(read.GetOrdinal(DbConstants.Contract.deliveryDate))),
+                        read.GetValue(read.GetOrdinal(Db.Contract.summa)),
+                        Contract.ToDateString((long)read.GetValue(read.GetOrdinal(Db.Contract.deliveryDate))),
                         getStatus(purchaseId)
                     });
                 }
@@ -54,12 +54,12 @@ namespace CreativeWorkshop.View
 
         private string getStatus(int id)
         {
-            using (var read = DatabaseService.Where(DbConstants.Purchase.title, $"id = {id}"))
+            using (var read = DatabaseService.Where(Db.Purchase.title, $"id = {id}"))
             {
                 Status status = Status.Unfilled;
                 while (read.Read())
                 {
-                    status = (Status)Convert.ToInt32(read.GetValue(read.GetOrdinal(DbConstants.Purchase.status)));
+                    status = (Status)Convert.ToInt32(read.GetValue(read.GetOrdinal(Db.Purchase.status)));
                 }
                 switch (status)
                 {
@@ -99,19 +99,19 @@ namespace CreativeWorkshop.View
 
             var parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.id}", tmp.Cells[0].Value),
+                new SQLiteParameter($"@{Db.id}", tmp.Cells[0].Value),
             };
-            DatabaseService.Execute(DbConstants.Contract.Delete, parameters);
+            DatabaseService.Execute(Db.Contract.Delete, parameters);
             parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.Service.purchaseId}", tmp.Cells[1].Value),
+                new SQLiteParameter($"@{Db.Service.purchaseId}", tmp.Cells[1].Value),
             };
-            DatabaseService.Execute(DbConstants.Service.Delete, parameters);
+            DatabaseService.Execute(Db.Service.Delete, parameters);
             parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.id}", tmp.Cells[1].Value),
+                new SQLiteParameter($"@{Db.id}", tmp.Cells[1].Value),
             };
-            DatabaseService.Execute(DbConstants.Purchase.Delete, parameters);
+            DatabaseService.Execute(Db.Purchase.Delete, parameters);
             viewData();
         }
 
@@ -130,10 +130,10 @@ namespace CreativeWorkshop.View
             }
             var parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.Purchase.status}", Status.Filled),
-                new SQLiteParameter($"@{DbConstants.id}1", tmp.Cells[1].Value.ToString())
+                new SQLiteParameter($"@{Db.Purchase.status}", Status.Filled),
+                new SQLiteParameter($"@{Db.id}1", tmp.Cells[1].Value.ToString())
             };
-            DatabaseService.Execute(DbConstants.Purchase.UpdateStatus, parameters);
+            DatabaseService.Execute(Db.Purchase.UpdateStatus, parameters);
             viewData();
         }
     }

@@ -73,16 +73,16 @@ namespace CreativeWorkshop.View
         private string getNameById(int id)
         {
             Employee emp = null;
-            using (var read = DatabaseService.Where(DbConstants.Employees.title, $"id = {id}"))
+            using (var read = DatabaseService.Where(Db.Employees.title, $"id = {id}"))
             {
                 while (read.Read())
                 {
                     emp = new Employee(
-                        (string)read.GetValue(read.GetOrdinal(DbConstants.Employees.surname)),
-                        (string)read.GetValue(read.GetOrdinal(DbConstants.Employees.name)),
-                        (string)read.GetValue(read.GetOrdinal(DbConstants.Employees.patronymic)),
-                        (string)read.GetValue(read.GetOrdinal(DbConstants.Employees.position)),
-                        Convert.ToInt64(read.GetValue(read.GetOrdinal(DbConstants.Employees.mobile)))
+                        (string)read.GetValue(read.GetOrdinal(Db.Employees.surname)),
+                        (string)read.GetValue(read.GetOrdinal(Db.Employees.name)),
+                        (string)read.GetValue(read.GetOrdinal(Db.Employees.patronymic)),
+                        (string)read.GetValue(read.GetOrdinal(Db.Employees.position)),
+                        Convert.ToInt64(read.GetValue(read.GetOrdinal(Db.Employees.mobile)))
                     );
                 }
             }
@@ -92,13 +92,13 @@ namespace CreativeWorkshop.View
         private int getIdByName(string shortName)
         {
             var employee = employees.First(e => e.GetShortName() == shortName);
-            int id = DatabaseService.GetIdByName(DbConstants.Employees.title,
+            int id = DatabaseService.GetIdByName(Db.Employees.title,
                 $"surname = @surname AND name = @name AND patronymic = @patronymic",
                 new List<SQLiteParameter>()
                 {
-                    new SQLiteParameter($"@{DbConstants.Employees.surname}", employee.Surname),
-                    new SQLiteParameter($"@{DbConstants.Employees.name}", employee.Name),
-                    new SQLiteParameter($"@{DbConstants.Employees.patronymic}", employee.Patronymic)
+                    new SQLiteParameter($"@{Db.Employees.surname}", employee.Surname),
+                    new SQLiteParameter($"@{Db.Employees.name}", employee.Name),
+                    new SQLiteParameter($"@{Db.Employees.patronymic}", employee.Patronymic)
                 });
             return id;
         }
@@ -146,11 +146,11 @@ namespace CreativeWorkshop.View
                     }
                     var parameters = new List<SQLiteParameter>()
                     {
-                        new SQLiteParameter($"@{DbConstants.Service.employeeId}", getIdByName(cell.Value.ToString())),
-                        new SQLiteParameter($"@{DbConstants.Service.purchaseId}1", selectedContract.OrderId),
-                        new SQLiteParameter($"@{DbConstants.Service.serviceTypeName}1", executeView.Rows[i].Cells[0].Value.ToString())
+                        new SQLiteParameter($"@{Db.Service.employeeId}", getIdByName(cell.Value.ToString())),
+                        new SQLiteParameter($"@{Db.Service.purchaseId}1", selectedContract.OrderId),
+                        new SQLiteParameter($"@{Db.Service.serviceTypeName}1", executeView.Rows[i].Cells[0].Value.ToString())
                     };
-                    DatabaseService.Execute(DbConstants.Service.UpdateEmployee, parameters);
+                    DatabaseService.Execute(Db.Service.UpdateEmployee, parameters);
                 }
             }
             catch (Exception)

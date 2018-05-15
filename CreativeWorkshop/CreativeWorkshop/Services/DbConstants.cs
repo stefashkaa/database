@@ -1,6 +1,6 @@
 ﻿namespace CreativeWorkshop.Services
 {
-    public static class DbConstants
+    public static class Db
     {
         public static readonly string id = "id";
         public static readonly string FK_ON = "PRAGMA foreign_keys = ON;";

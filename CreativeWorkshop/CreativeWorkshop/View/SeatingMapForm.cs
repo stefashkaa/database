@@ -2,13 +2,9 @@
 using CreativeWorkshop.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Word;
 using CreativeWorkshop.Services;
 using System.IO;
 
@@ -16,7 +12,7 @@ namespace CreativeWorkshop.View
 {
     public partial class SeatingMapForm : Form
     {
-        private System.Drawing.Font font;
+        private Font font;
         private List<Contract> contracts;
         private List<string> names;
         private List<string> filterNames;
@@ -25,7 +21,7 @@ namespace CreativeWorkshop.View
         public SeatingMapForm()
         {
             InitializeComponent();
-            font = new System.Drawing.Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             changeFont();
             contracts = ContractController.GetAllContracts();
             if (contracts?.Count == 0)
@@ -34,12 +30,14 @@ namespace CreativeWorkshop.View
             }
             names = new List<string>();
             selectedContract = contracts.First();
+            clientName.Text = ContractController.GetClientName(selectedContract);
             AddContracts();
         }
 
         private void contractId_txt_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedContract = contracts.First(c => c.Id == contractId_txt.SelectedItem.ToString());
+            clientName.Text = ContractController.GetClientName(selectedContract);
             names = Utils.GetNames(selectedContract.FileName);
             filterNames = names;
             makeExample();
@@ -54,9 +52,7 @@ namespace CreativeWorkshop.View
                 if (i <= filterNames.Count)
                 {
                     var txtBox = (this.Controls[$"A4_{i}"] as Panel).Controls[$"textBox{i}"] as TextBox;
-                    //var txtBox = this.Controls["textBox" + i.ToString()] as TextBox;
                     txtBox.TextAlign = HorizontalAlignment.Center;
-                    
                     txtBox.Text = $"\r\n\r\n\r\n\r\n\r\n{filterNames[i - 1]}";
                 }
             }
@@ -67,7 +63,7 @@ namespace CreativeWorkshop.View
             for (int i = 1; i <= 4; i++)
             {
                 var txtBox = (this.Controls[$"A4_{i}"] as Panel).Controls[$"textBox{i}"] as TextBox;
-                txtBox.Font = new System.Drawing.Font(font.Name, font.Size / 2, font.Style);
+                txtBox.Font = new Font(font.Name, font.Size / 2, font.Style);
             }
         }
 
@@ -92,7 +88,7 @@ namespace CreativeWorkshop.View
 
         private void listInv_btn_Click(object sender, EventArgs e)
         {
-            if ( names != null && names?.Count != 0)
+            if (names != null && names?.Count != 0)
             {
                 var listInvitationsForm = new ListInvitationsForm(names, filterNames);
                 listInvitationsForm.ShowDialog();
@@ -113,7 +109,7 @@ namespace CreativeWorkshop.View
             }
         }
 
-        private void save_btn_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             saveFileDialog1.InitialDirectory = Path.Combine(projectPath, "Resources");

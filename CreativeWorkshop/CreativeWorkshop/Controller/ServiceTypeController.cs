@@ -11,14 +11,14 @@ namespace CreativeWorkshop.Controller
         {
             var types = new List<ServiceType>();
 
-            using (var read = DatabaseService.Select(DbConstants.ServiceTypes.title))
+            using (var read = DatabaseService.Select(Db.ServiceTypes.title))
             {
                 while (read.Read())
                 {
                     types.Add(
                         new ServiceType(
-                            (string)read.GetValue(read.GetOrdinal(DbConstants.ServiceTypes.name)),
-                            Convert.ToInt32(read.GetValue(read.GetOrdinal(DbConstants.ServiceTypes.price)))
+                            (string)read.GetValue(read.GetOrdinal(Db.ServiceTypes.name)),
+                            Convert.ToInt32(read.GetValue(read.GetOrdinal(Db.ServiceTypes.price)))
                         )
                     );
                 }

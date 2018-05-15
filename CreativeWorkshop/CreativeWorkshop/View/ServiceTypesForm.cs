@@ -41,10 +41,10 @@ namespace CreativeWorkshop.View
             var type = addForm.ServiceType;
             var parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.ServiceTypes.name}", type.Name),
-                new SQLiteParameter($"@{DbConstants.ServiceTypes.price}", type.Price),
+                new SQLiteParameter($"@{Db.ServiceTypes.name}", type.Name),
+                new SQLiteParameter($"@{Db.ServiceTypes.price}", type.Price),
             };
-            DatabaseService.Execute(DbConstants.ServiceTypes.Insert, parameters);
+            DatabaseService.Execute(Db.ServiceTypes.Insert, parameters);
             ViewData();
         }
 
@@ -58,9 +58,9 @@ namespace CreativeWorkshop.View
             }
             var parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.ServiceTypes.name}", tmp.Cells[0].Value)
+                new SQLiteParameter($"@{Db.ServiceTypes.name}", tmp.Cells[0].Value)
             };
-            DatabaseService.Execute(DbConstants.ServiceTypes.Delete, parameters);
+            DatabaseService.Execute(Db.ServiceTypes.Delete, parameters);
             ViewData();
         }
 
@@ -82,11 +82,11 @@ namespace CreativeWorkshop.View
             var type = editForm.ServiceType;
             var parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.ServiceTypes.name}", type.Name),
-                new SQLiteParameter($"@{DbConstants.ServiceTypes.price}", type.Price),
-                new SQLiteParameter($"@{DbConstants.ServiceTypes.name}1", tmp.Cells[0].Value)
+                new SQLiteParameter($"@{Db.ServiceTypes.name}", type.Name),
+                new SQLiteParameter($"@{Db.ServiceTypes.price}", type.Price),
+                new SQLiteParameter($"@{Db.ServiceTypes.name}1", tmp.Cells[0].Value)
             };
-            DatabaseService.Execute(DbConstants.ServiceTypes.Update, parameters);
+            DatabaseService.Execute(Db.ServiceTypes.Update, parameters);
             ViewData();
         }
 
@@ -98,13 +98,13 @@ namespace CreativeWorkshop.View
         private void ViewData()
         {
             serviceTypesView.Rows.Clear();
-            using (var read = DatabaseService.Select(DbConstants.ServiceTypes.title))
+            using (var read = DatabaseService.Select(Db.ServiceTypes.title))
             {
                 while (read.Read())
                 {
                     serviceTypesView.Rows.Add(new object[] {
-                        read.GetValue(read.GetOrdinal(DbConstants.ServiceTypes.name)),
-                        read.GetValue(read.GetOrdinal(DbConstants.ServiceTypes.price))
+                        read.GetValue(read.GetOrdinal(Db.ServiceTypes.name)),
+                        read.GetValue(read.GetOrdinal(Db.ServiceTypes.price))
                     });
                 }
             }

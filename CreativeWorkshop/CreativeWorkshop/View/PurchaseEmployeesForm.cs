@@ -21,20 +21,20 @@ namespace CreativeWorkshop.View
         {
             employeesView.Rows.Clear();
             using (var read = DatabaseService.ExecuteAndReturn(
-$@"SELECT e.{DbConstants.Employees.surname}, e.{DbConstants.Employees.name}, e.{DbConstants.Employees.patronymic}, 
-e.{DbConstants.Employees.position}, e.{DbConstants.Employees.mobile} 
-FROM ({DbConstants.Service.title} s INNER JOIN {DbConstants.Employees.title} e 
-ON e.{DbConstants.id} = s.{DbConstants.Service.employeeId}) a 
-WHERE a.{DbConstants.Service.purchaseId} = {contract.OrderId};"))
+$@"SELECT e.{Db.Employees.surname}, e.{Db.Employees.name}, e.{Db.Employees.patronymic}, 
+e.{Db.Employees.position}, e.{Db.Employees.mobile} 
+FROM ({Db.Service.title} s INNER JOIN {Db.Employees.title} e 
+ON e.{Db.id} = s.{Db.Service.employeeId}) a 
+WHERE a.{Db.Service.purchaseId} = {contract.OrderId};"))
             {
                 while (read.Read())
                 {
                     employeesView.Rows.Add(new object[] {
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.surname)),
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.name)),
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.patronymic)),
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.position)),
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.mobile))
+                        read.GetValue(read.GetOrdinal(Db.Employees.surname)),
+                        read.GetValue(read.GetOrdinal(Db.Employees.name)),
+                        read.GetValue(read.GetOrdinal(Db.Employees.patronymic)),
+                        read.GetValue(read.GetOrdinal(Db.Employees.position)),
+                        read.GetValue(read.GetOrdinal(Db.Employees.mobile))
                     });
                 }
             }

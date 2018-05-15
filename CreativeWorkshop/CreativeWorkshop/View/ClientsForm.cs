@@ -9,7 +9,7 @@ namespace CreativeWorkshop.View
 {
     public partial class ClientsForm : Form
     {
-        private string title = DbConstants.PClients.title;
+        private string title = Db.PClients.title;
 
         public ClientsForm()
         {
@@ -38,7 +38,7 @@ namespace CreativeWorkshop.View
         {
             phisView.Visible = true;
             legalView.Visible = false;
-            title = DbConstants.PClients.title;
+            title = Db.PClients.title;
             viewData();
         }
 
@@ -46,13 +46,13 @@ namespace CreativeWorkshop.View
         {
             phisView.Visible = false;
             legalView.Visible = true;
-            title = DbConstants.LClients.title;
+            title = Db.LClients.title;
             viewData();
         }
 
         private void addClient_Click(object sender, EventArgs e)
         {
-            var isPhys = title == DbConstants.PClients.title;
+            var isPhys = title == Db.PClients.title;
             var addForm = new EditClientsForm(isPhys) { Text = "Добавить" };
             addForm.ShowDialog();
             if (!addForm.IsSaved)
@@ -65,33 +65,33 @@ namespace CreativeWorkshop.View
                 var phys = addForm.pClient;
                 var parameters = new List<SQLiteParameter>()
                 {
-                    new SQLiteParameter($"@{DbConstants.PClients.surname}", phys.Surname),
-                    new SQLiteParameter($"@{DbConstants.PClients.name}", phys.Name),
-                    new SQLiteParameter($"@{DbConstants.PClients.patronymic}", phys.Patronymic),
-                    new SQLiteParameter($"@{DbConstants.Clients.address}", phys.Address),
-                    new SQLiteParameter($"@{DbConstants.Clients.mobile}", phys.Mobile),
-                    new SQLiteParameter($"@{DbConstants.Clients.email}", phys.Email)
+                    new SQLiteParameter($"@{Db.PClients.surname}", phys.Surname),
+                    new SQLiteParameter($"@{Db.PClients.name}", phys.Name),
+                    new SQLiteParameter($"@{Db.PClients.patronymic}", phys.Patronymic),
+                    new SQLiteParameter($"@{Db.Clients.address}", phys.Address),
+                    new SQLiteParameter($"@{Db.Clients.mobile}", phys.Mobile),
+                    new SQLiteParameter($"@{Db.Clients.email}", phys.Email)
                 };
-                DatabaseService.Execute(DbConstants.PClients.Insert, parameters);
+                DatabaseService.Execute(Db.PClients.Insert, parameters);
             }
             else
             {
                 var legal = addForm.lClient;
                 var parameters = new List<SQLiteParameter>()
                 {
-                    new SQLiteParameter($"@{DbConstants.LClients.name}", legal.Name),
-                    new SQLiteParameter($"@{DbConstants.Clients.address}", legal.Address),
-                    new SQLiteParameter($"@{DbConstants.Clients.mobile}", legal.Mobile),
-                    new SQLiteParameter($"@{DbConstants.Clients.email}", legal.Email)
+                    new SQLiteParameter($"@{Db.LClients.name}", legal.Name),
+                    new SQLiteParameter($"@{Db.Clients.address}", legal.Address),
+                    new SQLiteParameter($"@{Db.Clients.mobile}", legal.Mobile),
+                    new SQLiteParameter($"@{Db.Clients.email}", legal.Email)
                 };
-                DatabaseService.Execute(DbConstants.LClients.Insert, parameters);
+                DatabaseService.Execute(Db.LClients.Insert, parameters);
             }
             viewData();
         }
 
         private void deleteClient_Click(object sender, EventArgs e)
         {
-            var isPhys = title == DbConstants.PClients.title;
+            var isPhys = title == Db.PClients.title;
             var view = (isPhys) ? phisView : legalView;
             var tmp = view.SelectedRows.Count != 0 ? view.SelectedRows[0] : null;
             if (tmp == null || tmp.Index == view.Rows.Count - 1)
@@ -102,22 +102,22 @@ namespace CreativeWorkshop.View
             List<SQLiteParameter> parameters = new List<SQLiteParameter>();
             if (isPhys)
             {
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.surname}", tmp.Cells[0].Value));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}", tmp.Cells[1].Value));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.patronymic}", tmp.Cells[2].Value));
-                DatabaseService.Execute(DbConstants.PClients.Delete, parameters);
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.surname}", tmp.Cells[0].Value));
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.name}", tmp.Cells[1].Value));
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.patronymic}", tmp.Cells[2].Value));
+                DatabaseService.Execute(Db.PClients.Delete, parameters);
             }
             else
             {
-                parameters.Add(new SQLiteParameter($"@{DbConstants.LClients.name}", tmp.Cells[0].Value));
-                DatabaseService.Execute(DbConstants.LClients.Delete, parameters);
+                parameters.Add(new SQLiteParameter($"@{Db.LClients.name}", tmp.Cells[0].Value));
+                DatabaseService.Execute(Db.LClients.Delete, parameters);
             }
             viewData();
         }
 
         private void editClient_Click(object sender, EventArgs e)
         {
-            var isPhys = title == DbConstants.PClients.title;
+            var isPhys = title == Db.PClients.title;
             var view = (isPhys) ? phisView : legalView;
             var tmp = view.SelectedRows.Count != 0 ? view.SelectedRows[0] : null;
             if (tmp == null || tmp.Index == view.Rows.Count - 1)
@@ -135,26 +135,26 @@ namespace CreativeWorkshop.View
             if (isPhys)
             {
                 var phys = editForm.pClient;
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.surname}", phys.Surname));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}", phys.Name));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.patronymic}", phys.Patronymic));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.address}", phys.Address));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.mobile}", phys.Mobile));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.email}", phys.Email));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.surname}1", tmp.Cells[0].Value));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}1", tmp.Cells[1].Value));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.patronymic}1", tmp.Cells[2].Value));
-                DatabaseService.Execute(DbConstants.PClients.Update, parameters);
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.surname}", phys.Surname));
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.name}", phys.Name));
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.patronymic}", phys.Patronymic));
+                parameters.Add(new SQLiteParameter($"@{Db.Clients.address}", phys.Address));
+                parameters.Add(new SQLiteParameter($"@{Db.Clients.mobile}", phys.Mobile));
+                parameters.Add(new SQLiteParameter($"@{Db.Clients.email}", phys.Email));
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.surname}1", tmp.Cells[0].Value));
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.name}1", tmp.Cells[1].Value));
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.patronymic}1", tmp.Cells[2].Value));
+                DatabaseService.Execute(Db.PClients.Update, parameters);
             }
             else
             {
                 var legal = editForm.lClient;
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}", legal.Name));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.address}", legal.Address));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.mobile}", legal.Mobile));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.Clients.email}", legal.Email));
-                parameters.Add(new SQLiteParameter($"@{DbConstants.PClients.name}1", tmp.Cells[0].Value));
-                DatabaseService.Execute(DbConstants.LClients.Update, parameters);
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.name}", legal.Name));
+                parameters.Add(new SQLiteParameter($"@{Db.Clients.address}", legal.Address));
+                parameters.Add(new SQLiteParameter($"@{Db.Clients.mobile}", legal.Mobile));
+                parameters.Add(new SQLiteParameter($"@{Db.Clients.email}", legal.Email));
+                parameters.Add(new SQLiteParameter($"@{Db.PClients.name}1", tmp.Cells[0].Value));
+                DatabaseService.Execute(Db.LClients.Update, parameters);
             }
             viewData();
         }
@@ -168,18 +168,18 @@ namespace CreativeWorkshop.View
         {
             using (var read = DatabaseService.Select(title))
             {
-                if (title == DbConstants.PClients.title)
+                if (title == Db.PClients.title)
                 {
                     phisView.Rows.Clear();
                     while (read.Read())
                     {
                         phisView.Rows.Add(new object[] {
-                            read.GetValue(read.GetOrdinal(DbConstants.PClients.surname)),
-                            read.GetValue(read.GetOrdinal(DbConstants.PClients.name)),
-                            read.GetValue(read.GetOrdinal(DbConstants.PClients.patronymic)),
-                            read.GetValue(read.GetOrdinal(DbConstants.Clients.address)),
-                            read.GetValue(read.GetOrdinal(DbConstants.Clients.mobile)),
-                            read.GetValue(read.GetOrdinal(DbConstants.Clients.email))
+                            read.GetValue(read.GetOrdinal(Db.PClients.surname)),
+                            read.GetValue(read.GetOrdinal(Db.PClients.name)),
+                            read.GetValue(read.GetOrdinal(Db.PClients.patronymic)),
+                            read.GetValue(read.GetOrdinal(Db.Clients.address)),
+                            read.GetValue(read.GetOrdinal(Db.Clients.mobile)),
+                            read.GetValue(read.GetOrdinal(Db.Clients.email))
                         });
                     }
                 }
@@ -189,10 +189,10 @@ namespace CreativeWorkshop.View
                     while (read.Read())
                     {
                         legalView.Rows.Add(new object[] {
-                            read.GetValue(read.GetOrdinal(DbConstants.LClients.name)),
-                            read.GetValue(read.GetOrdinal(DbConstants.Clients.address)),
-                            read.GetValue(read.GetOrdinal(DbConstants.Clients.mobile)),
-                            read.GetValue(read.GetOrdinal(DbConstants.Clients.email))
+                            read.GetValue(read.GetOrdinal(Db.LClients.name)),
+                            read.GetValue(read.GetOrdinal(Db.Clients.address)),
+                            read.GetValue(read.GetOrdinal(Db.Clients.mobile)),
+                            read.GetValue(read.GetOrdinal(Db.Clients.email))
                         });
                     }
                 }

@@ -222,6 +222,98 @@ namespace CreativeWorkshop.Services
             }
         }
 
+        public static string GetText(string fName)
+        {
+            var text = "";
+            var word = new Microsoft.Office.Interop.Word.Application();
+            var doc = new Document();
+            object fileName = fName;
+            // Define an object to pass to the API for missing parameters
+            object missing = Type.Missing;
+
+            try
+            {
+                doc = word.Documents.Open(ref fileName,
+                    ref missing, ref missing, ref missing, ref missing,
+                    ref missing, ref missing, ref missing, ref missing,
+                    ref missing, ref missing, ref missing, ref missing,
+                    ref missing, ref missing, ref missing);
+
+                String read = string.Empty;
+                for (int i = 0; i < doc.Paragraphs.Count; i++)
+                {
+                    var paragraph = doc.Paragraphs[i + 1].Range.Text;
+                    if (paragraph != string.Empty)
+                        text += $"{paragraph}\n";
+                }
+                doc.Save();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Не удалось открыть файл!\r\n\r\nДетали ошики:{e.Message}",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                ((_Document)doc).Close();
+                ((_Application)word).Quit();
+            }
+            return text;
+        }
+
+        public static void SaveInvitations(string fName, List<string> pages, System.Drawing.Font font)
+        {
+            var word = new Microsoft.Office.Interop.Word.Application();
+            var doc = new Document();
+            try
+            {
+                object missing = Type.Missing;
+                object gotoNext = WdGoToDirection.wdGoToNext;
+                doc = word.Documents.Add();
+                doc.PageSetup.LeftMargin = doc.PageSetup.RightMargin;
+                doc.PageSetup.BottomMargin = 5;
+
+                ApplyFont(doc.Content.Font, font);
+
+                for (int i = 0; i < pages.Count; i++)
+                {
+                    var text = pages[i].Split('\n');
+
+                    for (int j = 0; j < text.Length; j++)
+                    {
+                        Paragraph p = doc.Content.Paragraphs.Add(ref missing);
+                        Range r = p.Range;
+                        r.Text = text[j];
+
+                        if (j == 0)
+                        {
+                            r.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
+                        }
+                        else
+                        {
+                            r.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                        }
+                    }
+                    if (i != pages.Count - 1)
+                    {
+                        doc.Words.Last.InsertBreak(WdBreakType.wdPageBreak);
+                    }
+                }
+
+                doc.SaveAs2(fName);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Не удалось сохранить файл!\r\n\r\nДетали ошики:{e.Message}",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                ((_Document)doc).Close();
+                ((_Application)word).Quit();
+            }
+        }
+
         public static List<string> GetNames(string fName)
         {
             var names = new List<string>();

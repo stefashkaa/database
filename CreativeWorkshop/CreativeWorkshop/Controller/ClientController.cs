@@ -10,18 +10,18 @@ namespace CreativeWorkshop.Controller
         {
             var clients = new List<PClient>();
 
-            using (var read = DatabaseService.Select(DbConstants.PClients.title))
+            using (var read = DatabaseService.Select(Db.PClients.title))
             {
                 while (read.Read())
                 {
                     clients.Add(
                         new PClient(
-                            (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.surname)),
-                            (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.name)),
-                            (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.patronymic)),
-                            (string)read.GetValue(read.GetOrdinal(DbConstants.Clients.address)),
-                            (long)read.GetValue(read.GetOrdinal(DbConstants.Clients.mobile)),
-                            (string)read.GetValue(read.GetOrdinal(DbConstants.Clients.email))
+                            (string)read.GetValue(read.GetOrdinal(Db.PClients.surname)),
+                            (string)read.GetValue(read.GetOrdinal(Db.PClients.name)),
+                            (string)read.GetValue(read.GetOrdinal(Db.PClients.patronymic)),
+                            (string)read.GetValue(read.GetOrdinal(Db.Clients.address)),
+                            (long)read.GetValue(read.GetOrdinal(Db.Clients.mobile)),
+                            (string)read.GetValue(read.GetOrdinal(Db.Clients.email))
                         )
                     );
                 }
@@ -33,16 +33,16 @@ namespace CreativeWorkshop.Controller
         {
             var clients = new List<LClient>();
 
-            using (var read = DatabaseService.Select(DbConstants.LClients.title))
+            using (var read = DatabaseService.Select(Db.LClients.title))
             {
                 while (read.Read())
                 {
                     clients.Add(
                         new LClient(
-                            (string)read.GetValue(read.GetOrdinal(DbConstants.PClients.name)),
-                            (string)read.GetValue(read.GetOrdinal(DbConstants.Clients.address)),
-                            (long)read.GetValue(read.GetOrdinal(DbConstants.Clients.mobile)),
-                            (string)read.GetValue(read.GetOrdinal(DbConstants.Clients.email))
+                            (string)read.GetValue(read.GetOrdinal(Db.PClients.name)),
+                            (string)read.GetValue(read.GetOrdinal(Db.Clients.address)),
+                            (long)read.GetValue(read.GetOrdinal(Db.Clients.mobile)),
+                            (string)read.GetValue(read.GetOrdinal(Db.Clients.email))
                         )
                     );
                 }

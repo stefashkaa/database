@@ -49,13 +49,13 @@ namespace CreativeWorkshop
             var emp = addForm.Employee;
             var parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.Employees.surname}", emp.Surname),
-                new SQLiteParameter($"@{DbConstants.Employees.name}", emp.Name),
-                new SQLiteParameter($"@{DbConstants.Employees.patronymic}", emp.Patronymic),
-                new SQLiteParameter($"@{DbConstants.Employees.position}", emp.Position),
-                new SQLiteParameter($"@{DbConstants.Employees.mobile}", emp.Mobile)
+                new SQLiteParameter($"@{Db.Employees.surname}", emp.Surname),
+                new SQLiteParameter($"@{Db.Employees.name}", emp.Name),
+                new SQLiteParameter($"@{Db.Employees.patronymic}", emp.Patronymic),
+                new SQLiteParameter($"@{Db.Employees.position}", emp.Position),
+                new SQLiteParameter($"@{Db.Employees.mobile}", emp.Mobile)
             };
-            DatabaseService.Execute(DbConstants.Employees.Insert, parameters);
+            DatabaseService.Execute(Db.Employees.Insert, parameters);
             ViewData();
         }
 
@@ -69,11 +69,11 @@ namespace CreativeWorkshop
             }
             var parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.Employees.surname}", tmp.Cells[0].Value),
-                new SQLiteParameter($"@{DbConstants.Employees.name}", tmp.Cells[1].Value),
-                new SQLiteParameter($"@{DbConstants.Employees.patronymic}", tmp.Cells[2].Value)
+                new SQLiteParameter($"@{Db.Employees.surname}", tmp.Cells[0].Value),
+                new SQLiteParameter($"@{Db.Employees.name}", tmp.Cells[1].Value),
+                new SQLiteParameter($"@{Db.Employees.patronymic}", tmp.Cells[2].Value)
             };
-            DatabaseService.Execute(DbConstants.Employees.Delete, parameters);
+            DatabaseService.Execute(Db.Employees.Delete, parameters);
             ViewData();
         }
 
@@ -94,32 +94,32 @@ namespace CreativeWorkshop
             var emp = editForm.Employee;
             var parameters = new List<SQLiteParameter>()
             {
-                new SQLiteParameter($"@{DbConstants.Employees.surname}", emp.Surname),
-                new SQLiteParameter($"@{DbConstants.Employees.name}", emp.Name),
-                new SQLiteParameter($"@{DbConstants.Employees.patronymic}", emp.Patronymic),
-                new SQLiteParameter($"@{DbConstants.Employees.position}", emp.Position),
-                new SQLiteParameter($"@{DbConstants.Employees.mobile}", emp.Mobile),
-                new SQLiteParameter($"@{DbConstants.Employees.surname}1", tmp.Cells[0].Value),
-                new SQLiteParameter($"@{DbConstants.Employees.name}1", tmp.Cells[1].Value),
-                new SQLiteParameter($"@{DbConstants.Employees.patronymic}1", tmp.Cells[2].Value)
+                new SQLiteParameter($"@{Db.Employees.surname}", emp.Surname),
+                new SQLiteParameter($"@{Db.Employees.name}", emp.Name),
+                new SQLiteParameter($"@{Db.Employees.patronymic}", emp.Patronymic),
+                new SQLiteParameter($"@{Db.Employees.position}", emp.Position),
+                new SQLiteParameter($"@{Db.Employees.mobile}", emp.Mobile),
+                new SQLiteParameter($"@{Db.Employees.surname}1", tmp.Cells[0].Value),
+                new SQLiteParameter($"@{Db.Employees.name}1", tmp.Cells[1].Value),
+                new SQLiteParameter($"@{Db.Employees.patronymic}1", tmp.Cells[2].Value)
             };
-            DatabaseService.Execute(DbConstants.Employees.Update, parameters);
+            DatabaseService.Execute(Db.Employees.Update, parameters);
             ViewData();
         }
 
         private void ViewData()
         {
             employeesView.Rows.Clear();
-            using (var read = DatabaseService.Select(DbConstants.Employees.title))
+            using (var read = DatabaseService.Select(Db.Employees.title))
             {
                 while (read.Read())
                 {
                     employeesView.Rows.Add(new object[] {
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.surname)),
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.name)),
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.patronymic)),
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.position)),
-                        read.GetValue(read.GetOrdinal(DbConstants.Employees.mobile))
+                        read.GetValue(read.GetOrdinal(Db.Employees.surname)),
+                        read.GetValue(read.GetOrdinal(Db.Employees.name)),
+                        read.GetValue(read.GetOrdinal(Db.Employees.patronymic)),
+                        read.GetValue(read.GetOrdinal(Db.Employees.position)),
+                        read.GetValue(read.GetOrdinal(Db.Employees.mobile))
                     });
                 }
             }

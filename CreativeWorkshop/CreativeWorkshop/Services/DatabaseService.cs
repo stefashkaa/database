@@ -36,7 +36,7 @@ namespace CreativeWorkshop.Services
         {
             try
             {
-                Execute(DbConstants.FK_ON);
+                Execute(Db.FK_ON);
             }
             catch (Exception)
             {
@@ -47,17 +47,17 @@ namespace CreativeWorkshop.Services
 
         private static void insertUsersIntoTable(params User[] users)
         {
-            if (GetNextId(DbConstants.Authorization.title) == 1)
+            if (GetNextId(Db.Authorization.title) == 1)
             {
                 foreach (var user in users)
                 {
                     var parameters = new List<SQLiteParameter>()
                     {
-                        new SQLiteParameter($"@{DbConstants.Authorization.username}", user.Name),
-                        new SQLiteParameter($"@{DbConstants.Authorization.password}", user.Password),
-                        new SQLiteParameter($"@{DbConstants.Authorization.role}", (int)user.Role)
+                        new SQLiteParameter($"@{Db.Authorization.username}", user.Name),
+                        new SQLiteParameter($"@{Db.Authorization.password}", user.Password),
+                        new SQLiteParameter($"@{Db.Authorization.role}", (int)user.Role)
                     };
-                    Execute(DbConstants.Authorization.Insert, parameters);
+                    Execute(Db.Authorization.Insert, parameters);
                 }
                 
             }
@@ -75,15 +75,15 @@ namespace CreativeWorkshop.Services
 
         private static void createTablesIfNotExists()
         {
-            CreateTable(DbConstants.Employees.Create);
-            CreateTable(DbConstants.Authorization.Create);
-            CreateTable(DbConstants.Clients.Create);
-            CreateTable(DbConstants.PClients.Create);
-            CreateTable(DbConstants.LClients.Create);
-            CreateTable(DbConstants.ServiceTypes.Create);
-            CreateTable(DbConstants.Purchase.Create);
-            CreateTable(DbConstants.Contract.Create);
-            CreateTable(DbConstants.Service.Create);
+            CreateTable(Db.Employees.Create);
+            CreateTable(Db.Authorization.Create);
+            CreateTable(Db.Clients.Create);
+            CreateTable(Db.PClients.Create);
+            CreateTable(Db.LClients.Create);
+            CreateTable(Db.ServiceTypes.Create);
+            CreateTable(Db.Purchase.Create);
+            CreateTable(Db.Contract.Create);
+            CreateTable(Db.Service.Create);
         }
 
         public static void Init() { /*for creating database*/ }
@@ -161,7 +161,7 @@ namespace CreativeWorkshop.Services
         {
             var command = new SQLiteCommand(connection) { CommandType = CommandType.Text };
             var text = "";
-            if ((title == DbConstants.LClients.title || title == DbConstants.PClients.title) && (condition == null) )
+            if ((title == Db.LClients.title || title == Db.PClients.title) && (condition == null) )
             {
                 text = $@"SELECT {what ?? "*"} FROM {title} b INNER JOIN clients c ON b.client_id = c.id";
             }
