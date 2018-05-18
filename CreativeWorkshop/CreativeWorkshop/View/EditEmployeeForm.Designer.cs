@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditEmployeesForm));
             this.surnameLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.patronymicLabel = new System.Windows.Forms.Label();
@@ -167,8 +168,10 @@
             this.Controls.Add(this.patronymicLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.surnameLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "EditEmployeesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.EditEmployeeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

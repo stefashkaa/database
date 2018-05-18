@@ -73,7 +73,7 @@ namespace CreativeWorkshop.View
             var currentUser = users.FirstOrDefault(u => u.Name == userName && u.Password == password);
             if (currentUser == null)
             {
-                MessageBox.Show(@"Нет такого пользователя, либо был введен не верный пароль! 
+                MessageBox.Show(@"Неверный логин или пароль! 
 Повторите ввод.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }

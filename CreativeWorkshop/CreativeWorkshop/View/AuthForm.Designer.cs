@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthForm));
             this.userNameText = new System.Windows.Forms.TextBox();
             this.passwordText = new System.Windows.Forms.TextBox();
             this.logonButton = new System.Windows.Forms.Button();
@@ -77,6 +78,7 @@
             this.Controls.Add(this.logonButton);
             this.Controls.Add(this.passwordText);
             this.Controls.Add(this.userNameText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "AuthForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

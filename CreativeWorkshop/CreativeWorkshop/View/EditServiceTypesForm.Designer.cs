@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditServiceTypesForm));
             this.price_text = new System.Windows.Forms.TextBox();
             this.name_text = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -96,6 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(556, 160);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.save_btn);
@@ -103,7 +105,10 @@
             this.Controls.Add(this.name_text);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "EditServiceTypesForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.EditServiceTypesForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

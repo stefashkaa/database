@@ -53,7 +53,7 @@ namespace CreativeWorkshop.View
             var tmp = serviceTypesView.SelectedRows.Count != 0 ? serviceTypesView.SelectedRows[0] : null;
             if (tmp == null || tmp.Index == serviceTypesView.Rows.Count - 1)
             {
-                MessageBox.Show("Ничего не выбрано!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ничего не выбрано!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             var parameters = new List<SQLiteParameter>()
@@ -69,7 +69,7 @@ namespace CreativeWorkshop.View
             var tmp = serviceTypesView.SelectedRows.Count != 0 ? serviceTypesView.SelectedRows[0] : null;
             if (tmp == null || tmp.Index == serviceTypesView.Rows.Count - 1)
             {
-                MessageBox.Show("Ничего не выбрано!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ничего не выбрано!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             var editForm = new EditServiceTypesForm(tmp) { Text = "Редактировать" };

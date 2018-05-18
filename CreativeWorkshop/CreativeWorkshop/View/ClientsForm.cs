@@ -96,7 +96,7 @@ namespace CreativeWorkshop.View
             var tmp = view.SelectedRows.Count != 0 ? view.SelectedRows[0] : null;
             if (tmp == null || tmp.Index == view.Rows.Count - 1)
             {
-                MessageBox.Show("Ничего не выбрано!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ничего не выбрано!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             List<SQLiteParameter> parameters = new List<SQLiteParameter>();
@@ -122,7 +122,7 @@ namespace CreativeWorkshop.View
             var tmp = view.SelectedRows.Count != 0 ? view.SelectedRows[0] : null;
             if (tmp == null || tmp.Index == view.Rows.Count - 1)
             {
-                MessageBox.Show("Ничего не выбрано!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ничего не выбрано!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             var editForm = new EditClientsForm(isPhys, tmp) { Text = "Редактировать" };

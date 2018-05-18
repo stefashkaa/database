@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeesForm));
             this.employeesView = new System.Windows.Forms.DataGridView();
             this.surnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +54,7 @@
             this.positionColumn,
             this.mobileColumn});
             this.employeesView.Location = new System.Drawing.Point(13, 13);
-            this.employeesView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.employeesView.Margin = new System.Windows.Forms.Padding(4);
             this.employeesView.MultiSelect = false;
             this.employeesView.Name = "employeesView";
             this.employeesView.Size = new System.Drawing.Size(593, 331);
@@ -94,7 +95,7 @@
             // 
             this.addEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addEmployee.Location = new System.Drawing.Point(13, 354);
-            this.addEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.addEmployee.Name = "addEmployee";
             this.addEmployee.Size = new System.Drawing.Size(192, 34);
             this.addEmployee.TabIndex = 1;
@@ -106,7 +107,7 @@
             // 
             this.deleteEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteEmployee.Location = new System.Drawing.Point(414, 354);
-            this.deleteEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.deleteEmployee.Name = "deleteEmployee";
             this.deleteEmployee.Size = new System.Drawing.Size(192, 34);
             this.deleteEmployee.TabIndex = 2;
@@ -118,7 +119,7 @@
             // 
             this.editEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editEmployee.Location = new System.Drawing.Point(214, 354);
-            this.editEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.editEmployee.Name = "editEmployee";
             this.editEmployee.Size = new System.Drawing.Size(192, 34);
             this.editEmployee.TabIndex = 3;
@@ -137,7 +138,8 @@
             this.Controls.Add(this.addEmployee);
             this.Controls.Add(this.employeesView);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "EmployeesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

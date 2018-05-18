@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrganizationOrderForm));
             this.close_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimeFirst = new System.Windows.Forms.DateTimePicker();
@@ -292,6 +293,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(614, 470);
             this.Controls.Add(this.rub_txt);
             this.Controls.Add(this.servicePanel);
@@ -308,6 +310,8 @@
             this.Controls.Add(this.dateTimeFirst);
             this.Controls.Add(this.close_btn);
             this.Controls.Add(this.label3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "OrganizationOrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Формирование заказа";

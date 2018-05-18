@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvitationsForm));
             this.invitationText = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.listInvButton = new System.Windows.Forms.Button();
@@ -219,6 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(464, 436);
             this.Controls.Add(this.textButton);
             this.Controls.Add(this.countText);
@@ -234,7 +236,10 @@
             this.Controls.Add(this.listInvButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.invitationText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "InvitationsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Приглашения";
             this.ResumeLayout(false);
             this.PerformLayout();

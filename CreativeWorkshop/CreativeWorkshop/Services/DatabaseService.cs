@@ -28,8 +28,8 @@ namespace CreativeWorkshop.Services
             createTablesIfNotExists();
             insertUsersIntoTable(new User("1", "1", Role.Director), 
                                  new User("2", "2", Role.Designer),
-                                 new User("director", "pass", Role.Director),
-                                 new User("designer1", "pass", Role.Designer));
+                                 new User("Olga", "EfimBrabara", Role.Director),
+                                 new User("Marina", "qwaszx1", Role.Designer));
         }
 
         private static void activateFK()

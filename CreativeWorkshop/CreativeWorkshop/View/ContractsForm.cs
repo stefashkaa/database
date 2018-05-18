@@ -83,14 +83,14 @@ namespace CreativeWorkshop.View
             var tmp = contractsView.SelectedRows.Count != 0 ? contractsView.SelectedRows[0] : null;
             if (tmp == null || tmp.Index == contractsView.Rows.Count - 1)
             {
-                MessageBox.Show("Ничего не выбрано!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ничего не выбрано!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             var status = tmp.Cells[4].Value.ToString();
             if (status.ToLower().Contains("не выполнен"))
             {
                 var result = MessageBox.Show(@"Договор, который Вы хотите удалить, не выполнен.
-Желаете продолжить удаление?", "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+Желаете продолжить удаление?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
                     return;
@@ -120,7 +120,7 @@ namespace CreativeWorkshop.View
             var tmp = contractsView.SelectedRows.Count != 0 ? contractsView.SelectedRows[0] : null;
             if (tmp == null || tmp.Index == contractsView.Rows.Count - 1)
             {
-                MessageBox.Show("Ничего не выбрано!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ничего не выбрано!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (tmp.Cells[4].Value.ToString() == "Выполнен")

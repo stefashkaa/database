@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceTypesForm));
             this.serviceTypesView = new System.Windows.Forms.DataGridView();
             this.surnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +48,7 @@
             this.surnameColumn,
             this.nameColumn});
             this.serviceTypesView.Location = new System.Drawing.Point(13, 13);
-            this.serviceTypesView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.serviceTypesView.Margin = new System.Windows.Forms.Padding(4);
             this.serviceTypesView.MultiSelect = false;
             this.serviceTypesView.Name = "serviceTypesView";
             this.serviceTypesView.Size = new System.Drawing.Size(544, 261);
@@ -71,7 +72,7 @@
             // 
             this.editServiceType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editServiceType.Location = new System.Drawing.Point(196, 289);
-            this.editServiceType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editServiceType.Margin = new System.Windows.Forms.Padding(4);
             this.editServiceType.Name = "editServiceType";
             this.editServiceType.Size = new System.Drawing.Size(177, 34);
             this.editServiceType.TabIndex = 6;
@@ -83,7 +84,7 @@
             // 
             this.deleteServiceType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteServiceType.Location = new System.Drawing.Point(380, 289);
-            this.deleteServiceType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteServiceType.Margin = new System.Windows.Forms.Padding(4);
             this.deleteServiceType.Name = "deleteServiceType";
             this.deleteServiceType.Size = new System.Drawing.Size(177, 34);
             this.deleteServiceType.TabIndex = 5;
@@ -95,7 +96,7 @@
             // 
             this.addServiceType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addServiceType.Location = new System.Drawing.Point(13, 289);
-            this.addServiceType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addServiceType.Margin = new System.Windows.Forms.Padding(4);
             this.addServiceType.Name = "addServiceType";
             this.addServiceType.Size = new System.Drawing.Size(177, 34);
             this.addServiceType.TabIndex = 4;
@@ -103,18 +104,21 @@
             this.addServiceType.UseVisualStyleBackColor = true;
             this.addServiceType.Click += new System.EventHandler(this.addType_Click);
             // 
-            // TypeServicesForm
+            // ServiceTypesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(570, 331);
             this.Controls.Add(this.editServiceType);
             this.Controls.Add(this.deleteServiceType);
             this.Controls.Add(this.addServiceType);
             this.Controls.Add(this.serviceTypesView);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "TypeServicesForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.Name = "ServiceTypesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Виды услуг";
             this.Load += new System.EventHandler(this.TypeServicesForm_Load);

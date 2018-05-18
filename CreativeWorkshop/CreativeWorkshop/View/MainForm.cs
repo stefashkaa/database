@@ -1,4 +1,5 @@
-﻿using CreativeWorkshop.Model;
+﻿using CreativeWorkshop.Controller;
+using CreativeWorkshop.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -25,18 +26,13 @@ namespace CreativeWorkshop.View
                 workWithClientsToolStripMenuItem.Enabled = !isDesigner;
                 employeeListToolStripMenuItem.Enabled = !isDesigner;
                 serviceListToolStripMenuItem.Enabled = !isDesigner;
-                statisticReportsToolStripMenuItem.Enabled = !isDesigner;
+                reportsToolStripMenuItem.Enabled = !isDesigner;
             }
         }
 
         private void close_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void view_Click(object sender, EventArgs e)
-        {
-            new ServiceTypeReport(new List<DateTime>(){dateTime.Value}).ShowDialog();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -66,22 +62,11 @@ namespace CreativeWorkshop.View
 
         private void executeServicesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ExecuteServicesForm().ShowDialog();
-        }
-
-        private void invitationsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new InvitationsForm().ShowDialog();
-        }
-
-        private void seatingMapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new SeatingMapForm().ShowDialog();
-        }
-
-        private void statisticReportsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new StatisticReportsForm().ShowDialog();
+            var contracts = ContractController.GetAllContracts();
+            if (contracts?.Count != 0)
+            {
+                new ExecuteServicesForm(contracts).ShowDialog();
+            }
         }
 
         private void contractsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,12 +90,33 @@ namespace CreativeWorkshop.View
 
         private void notExecuteOrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new NotExecutePurchasesForm().ShowDialog();
+            if (ContractController.GetAllContracts()?.Count != 0)
+            {
+                new NotExecutePurchasesForm().ShowDialog();
+            }
         }
 
         private void servicesWithoutExecutorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ServicesWithoutExecutorForm().ShowDialog();
+            if (ContractController.GetAllContracts()?.Count != 0)
+            {
+                new ServicesWithoutExecutorForm().ShowDialog();
+            }
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new StatisticReportsForm().ShowDialog();
+        }
+
+        private void invitationsButton_Click(object sender, EventArgs e)
+        {
+            new InvitationsForm().ShowDialog();
+        }
+
+        private void seatingMapButton_Click(object sender, EventArgs e)
+        {
+            new SeatingMapForm().ShowDialog();
         }
     }
 }

@@ -45,7 +45,8 @@ namespace CreativeWorkshop.Services
                 res >= 90000000000L)
             {
                 MessageBox.Show(@"Заполните поле 'Мобильный телефон' корректно!
-Номер телефона должен содержать 11 цифр без пробелов\r\nи начинаться с '8'.", "Предупреждение",
+Номер телефона должен содержать 11 цифр без пробелов
+и начинаться с '8'.", "Предупреждение",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
@@ -73,8 +74,13 @@ namespace CreativeWorkshop.Services
             {
                 if (!flag)
                 {
-                    MessageBox.Show(@"Поле 'e-mail' заполнено не корректно!\r\nИспользуйте следующие домены:
-@yandex.ru\r\n@mail.ru\r\n@gmail.com\r\n@ssau.ru\r\n@list.ru", "Предупреждение",
+                    MessageBox.Show(@"Поле 'e-mail' заполнено не корректно!
+Используйте следующие домены:
+@yandex.ru
+@mail.ru
+@gmail.com
+@ssau.ru
+@list.ru", "Предупреждение",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -102,13 +108,18 @@ namespace CreativeWorkshop.Services
             }
             else if (mess.Contains("foreign key"))
             {
-                MessageBox.Show(@"Выбранная запись не может быть удалена, \r\nтак как на нее ссылаются другие объекты!\r\n
+                MessageBox.Show(@"Выбранная запись не может быть удалена, 
+так как на нее ссылаются другие объекты!
+
 * для удаления записи необходимо удалить данные о ней из других таблиц", "Предупреждение",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show($@"Неизвестная ошибка!\r\n\r\nПодробности ошибки:\r\n{e.Message}", "Ошибка",
+                MessageBox.Show($@"Неизвестная ошибка!
+
+Подробности ошибки:
+{e.Message}", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -121,12 +132,13 @@ namespace CreativeWorkshop.Services
                 wFont.Italic = Convert.ToInt32(font.Italic);
                 wFont.StrikeThrough = Convert.ToInt32(font.Strikeout);
                 wFont.Size = font.Size;
-                wFont.Name = font.Name;
                 wFont.Underline = font.Underline ? WdUnderline.wdUnderlineSingle : WdUnderline.wdUnderlineNone;
+                wFont.Name = font.Name;
             }
             catch (Exception)
             {
-                MessageBox.Show("Не удалось загрузить шрифт.\r\nДля решения проблемы будет применен шрифт по умолчанию.",
+                MessageBox.Show(@"Не удалось загрузить шрифт.
+Для решения проблемы будет применен шрифт по умолчанию.",
                     "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 wFont.Name = "Times New Roman";
             }
@@ -152,7 +164,8 @@ namespace CreativeWorkshop.Services
             }
             catch (Exception)
             {
-                MessageBox.Show("Не удалось загрузить шрифт.\r\nДля решения проблемы будет применен шрифт по умолчанию.",
+                MessageBox.Show(@"Не удалось загрузить шрифт.
+Для решения проблемы будет применен шрифт по умолчанию.",
                     "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return new System.Drawing.Font("Times New Roman", 14, FontStyle.Regular);
             }
@@ -212,7 +225,9 @@ namespace CreativeWorkshop.Services
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Не удалось сохранить файл!\r\n\r\nДетали ошики:{e.Message}",
+                MessageBox.Show($@"Не удалось сохранить файл!
+
+Детали ошики:{e.Message}",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -250,7 +265,9 @@ namespace CreativeWorkshop.Services
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Не удалось открыть файл!\r\n\r\nДетали ошики:{e.Message}",
+                MessageBox.Show($@"Не удалось открыть файл!
+
+Детали ошики:{e.Message}",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -304,7 +321,9 @@ namespace CreativeWorkshop.Services
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Не удалось сохранить файл!\r\n\r\nДетали ошики:{e.Message}",
+                MessageBox.Show($@"Не удалось сохранить файл!
+
+Детали ошики:{e.Message}",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -342,7 +361,9 @@ namespace CreativeWorkshop.Services
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Не удалось открыть файл!\r\n\r\nДетали ошики:{e.Message}",
+                MessageBox.Show($@"Не удалось открыть файл!
+
+Детали ошики:{e.Message}",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally

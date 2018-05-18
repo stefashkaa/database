@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dictionariesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,24 +40,27 @@
             this.executeServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.queresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notExecuteOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notExecuteOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.invitationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seatingMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statisticReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelNotExecute = new System.Windows.Forms.Label();
-            this.view_btn = new System.Windows.Forms.Button();
             this.close_btn = new System.Windows.Forms.Button();
-            this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.labelAuth = new System.Windows.Forms.Label();
             this.auth_txt = new System.Windows.Forms.Label();
+            this.invitationsButton = new System.Windows.Forms.Button();
+            this.seatingMapButton = new System.Windows.Forms.Button();
+            this.logoPictureBox = new System.Windows.Forms.PictureBox();
+            this.contractsView = new System.Windows.Forms.DataGridView();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.menuStrip1.BackColor = System.Drawing.Color.NavajoWhite;
             this.menuStrip1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dictionariesToolStripMenuItem,
@@ -65,23 +69,27 @@
             this.reportsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(523, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(670, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // dictionariesToolStripMenuItem
             // 
+            this.dictionariesToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
             this.dictionariesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientsToolStripMenuItem,
             this.employeesToolStripMenuItem,
             this.typeServicesToolStripMenuItem,
             this.договорыToolStripMenuItem});
+            this.dictionariesToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.dictionariesToolStripMenuItem.Name = "dictionariesToolStripMenuItem";
             this.dictionariesToolStripMenuItem.Size = new System.Drawing.Size(114, 23);
             this.dictionariesToolStripMenuItem.Text = "Справочники";
             // 
             // clientsToolStripMenuItem
             // 
+            this.clientsToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
+            this.clientsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
             this.clientsToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.clientsToolStripMenuItem.Text = "Клиенты";
@@ -89,6 +97,8 @@
             // 
             // employeesToolStripMenuItem
             // 
+            this.employeesToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
+            this.employeesToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
             this.employeesToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.employeesToolStripMenuItem.Text = "Сотрудники";
@@ -96,6 +106,8 @@
             // 
             // typeServicesToolStripMenuItem
             // 
+            this.typeServicesToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
+            this.typeServicesToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.typeServicesToolStripMenuItem.Name = "typeServicesToolStripMenuItem";
             this.typeServicesToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.typeServicesToolStripMenuItem.Text = "Виды услуг";
@@ -103,6 +115,8 @@
             // 
             // договорыToolStripMenuItem
             // 
+            this.договорыToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
+            this.договорыToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.договорыToolStripMenuItem.Name = "договорыToolStripMenuItem";
             this.договорыToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.договорыToolStripMenuItem.Text = "Договоры";
@@ -113,12 +127,14 @@
             this.workWithClientsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.organizationOrderToolStripMenuItem,
             this.executeServicesToolStripMenuItem});
+            this.workWithClientsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.workWithClientsToolStripMenuItem.Name = "workWithClientsToolStripMenuItem";
             this.workWithClientsToolStripMenuItem.Size = new System.Drawing.Size(155, 23);
             this.workWithClientsToolStripMenuItem.Text = "Работа с клиентами";
             // 
             // organizationOrderToolStripMenuItem
             // 
+            this.organizationOrderToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
             this.organizationOrderToolStripMenuItem.Name = "organizationOrderToolStripMenuItem";
             this.organizationOrderToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
             this.organizationOrderToolStripMenuItem.Text = "Формирование заказа";
@@ -126,6 +142,7 @@
             // 
             // executeServicesToolStripMenuItem
             // 
+            this.executeServicesToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
             this.executeServicesToolStripMenuItem.Name = "executeServicesToolStripMenuItem";
             this.executeServicesToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
             this.executeServicesToolStripMenuItem.Text = "Выполнение услуг";
@@ -135,109 +152,64 @@
             // 
             this.queresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.employeeListToolStripMenuItem,
-            this.notExecuteOrdersToolStripMenuItem,
-            this.serviceListToolStripMenuItem});
+            this.serviceListToolStripMenuItem,
+            this.notExecuteOrdersToolStripMenuItem});
+            this.queresToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.queresToolStripMenuItem.Name = "queresToolStripMenuItem";
             this.queresToolStripMenuItem.Size = new System.Drawing.Size(79, 23);
             this.queresToolStripMenuItem.Text = "Запросы";
             // 
             // employeeListToolStripMenuItem
             // 
+            this.employeeListToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
             this.employeeListToolStripMenuItem.Name = "employeeListToolStripMenuItem";
             this.employeeListToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.employeeListToolStripMenuItem.Text = "Список сотрудников";
             this.employeeListToolStripMenuItem.Click += new System.EventHandler(this.employeeListToolStripMenuItem_Click);
             // 
-            // notExecuteOrdersToolStripMenuItem
-            // 
-            this.notExecuteOrdersToolStripMenuItem.Name = "notExecuteOrdersToolStripMenuItem";
-            this.notExecuteOrdersToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
-            this.notExecuteOrdersToolStripMenuItem.Text = "Невыполненные заказы";
-            this.notExecuteOrdersToolStripMenuItem.Click += new System.EventHandler(this.notExecuteOrdersToolStripMenuItem_Click);
-            // 
             // serviceListToolStripMenuItem
             // 
+            this.serviceListToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
             this.serviceListToolStripMenuItem.Name = "serviceListToolStripMenuItem";
             this.serviceListToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.serviceListToolStripMenuItem.Text = "Услуги без исполнителя";
             this.serviceListToolStripMenuItem.Click += new System.EventHandler(this.servicesWithoutExecutorToolStripMenuItem_Click);
             // 
+            // notExecuteOrdersToolStripMenuItem
+            // 
+            this.notExecuteOrdersToolStripMenuItem.BackColor = System.Drawing.Color.NavajoWhite;
+            this.notExecuteOrdersToolStripMenuItem.Name = "notExecuteOrdersToolStripMenuItem";
+            this.notExecuteOrdersToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
+            this.notExecuteOrdersToolStripMenuItem.Text = "Невыполненные заказы";
+            this.notExecuteOrdersToolStripMenuItem.Click += new System.EventHandler(this.notExecuteOrdersToolStripMenuItem_Click);
+            // 
             // reportsToolStripMenuItem
             // 
-            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.invitationsToolStripMenuItem,
-            this.seatingMapToolStripMenuItem,
-            this.statisticReportsToolStripMenuItem});
+            this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(73, 23);
             this.reportsToolStripMenuItem.Text = "Отчеты";
-            // 
-            // invitationsToolStripMenuItem
-            // 
-            this.invitationsToolStripMenuItem.Name = "invitationsToolStripMenuItem";
-            this.invitationsToolStripMenuItem.Size = new System.Drawing.Size(239, 24);
-            this.invitationsToolStripMenuItem.Text = "Приглашения";
-            this.invitationsToolStripMenuItem.Click += new System.EventHandler(this.invitationsToolStripMenuItem_Click);
-            // 
-            // seatingMapToolStripMenuItem
-            // 
-            this.seatingMapToolStripMenuItem.Name = "seatingMapToolStripMenuItem";
-            this.seatingMapToolStripMenuItem.Size = new System.Drawing.Size(239, 24);
-            this.seatingMapToolStripMenuItem.Text = "Карты рассадки";
-            this.seatingMapToolStripMenuItem.Click += new System.EventHandler(this.seatingMapToolStripMenuItem_Click);
-            // 
-            // statisticReportsToolStripMenuItem
-            // 
-            this.statisticReportsToolStripMenuItem.Name = "statisticReportsToolStripMenuItem";
-            this.statisticReportsToolStripMenuItem.Size = new System.Drawing.Size(239, 24);
-            this.statisticReportsToolStripMenuItem.Text = "Статистические отчеты";
-            this.statisticReportsToolStripMenuItem.Click += new System.EventHandler(this.statisticReportsToolStripMenuItem_Click);
-            // 
-            // labelNotExecute
-            // 
-            this.labelNotExecute.AutoSize = true;
-            this.labelNotExecute.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNotExecute.Location = new System.Drawing.Point(12, 164);
-            this.labelNotExecute.Name = "labelNotExecute";
-            this.labelNotExecute.Size = new System.Drawing.Size(414, 19);
-            this.labelNotExecute.TabIndex = 2;
-            this.labelNotExecute.Text = "На                                       не выполнены следующие услуги:";
-            // 
-            // view_btn
-            // 
-            this.view_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.view_btn.Location = new System.Drawing.Point(16, 210);
-            this.view_btn.Name = "view_btn";
-            this.view_btn.Size = new System.Drawing.Size(234, 32);
-            this.view_btn.TabIndex = 3;
-            this.view_btn.Text = "Показать";
-            this.view_btn.UseVisualStyleBackColor = true;
-            this.view_btn.Click += new System.EventHandler(this.view_Click);
+            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // close_btn
             // 
+            this.close_btn.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.close_btn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.close_btn.Location = new System.Drawing.Point(272, 210);
+            this.close_btn.ForeColor = System.Drawing.Color.Goldenrod;
+            this.close_btn.Location = new System.Drawing.Point(563, 43);
             this.close_btn.Name = "close_btn";
-            this.close_btn.Size = new System.Drawing.Size(235, 32);
+            this.close_btn.Size = new System.Drawing.Size(95, 32);
             this.close_btn.TabIndex = 4;
             this.close_btn.Text = "Выход";
-            this.close_btn.UseVisualStyleBackColor = true;
+            this.close_btn.UseVisualStyleBackColor = false;
             this.close_btn.Click += new System.EventHandler(this.close_Click);
-            // 
-            // dateTime
-            // 
-            this.dateTime.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTime.Location = new System.Drawing.Point(41, 164);
-            this.dateTime.Name = "dateTime";
-            this.dateTime.Size = new System.Drawing.Size(140, 20);
-            this.dateTime.TabIndex = 5;
             // 
             // labelAuth
             // 
             this.labelAuth.AutoSize = true;
             this.labelAuth.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAuth.Location = new System.Drawing.Point(12, 131);
+            this.labelAuth.Location = new System.Drawing.Point(241, 50);
             this.labelAuth.Name = "labelAuth";
             this.labelAuth.Size = new System.Drawing.Size(110, 19);
             this.labelAuth.TabIndex = 6;
@@ -247,30 +219,116 @@
             // 
             this.auth_txt.AutoSize = true;
             this.auth_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.auth_txt.Location = new System.Drawing.Point(128, 131);
+            this.auth_txt.Location = new System.Drawing.Point(357, 50);
             this.auth_txt.Name = "auth_txt";
             this.auth_txt.Size = new System.Drawing.Size(0, 19);
             this.auth_txt.TabIndex = 7;
+            // 
+            // invitationsButton
+            // 
+            this.invitationsButton.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.invitationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.invitationsButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.invitationsButton.ForeColor = System.Drawing.Color.Goldenrod;
+            this.invitationsButton.Location = new System.Drawing.Point(361, 117);
+            this.invitationsButton.Name = "invitationsButton";
+            this.invitationsButton.Size = new System.Drawing.Size(297, 32);
+            this.invitationsButton.TabIndex = 8;
+            this.invitationsButton.Text = "Приглашения";
+            this.invitationsButton.UseVisualStyleBackColor = false;
+            this.invitationsButton.Click += new System.EventHandler(this.invitationsButton_Click);
+            // 
+            // seatingMapButton
+            // 
+            this.seatingMapButton.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.seatingMapButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.seatingMapButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.seatingMapButton.ForeColor = System.Drawing.Color.Goldenrod;
+            this.seatingMapButton.Location = new System.Drawing.Point(361, 169);
+            this.seatingMapButton.Name = "seatingMapButton";
+            this.seatingMapButton.Size = new System.Drawing.Size(297, 32);
+            this.seatingMapButton.TabIndex = 9;
+            this.seatingMapButton.Text = "Карты рассадки";
+            this.seatingMapButton.UseVisualStyleBackColor = false;
+            this.seatingMapButton.Click += new System.EventHandler(this.seatingMapButton_Click);
+            // 
+            // logoPictureBox
+            // 
+            this.logoPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.logoPictureBox.Image = global::CreativeWorkshop.Properties.Resources.logo;
+            this.logoPictureBox.Location = new System.Drawing.Point(12, 87);
+            this.logoPictureBox.Name = "logoPictureBox";
+            this.logoPictureBox.Size = new System.Drawing.Size(330, 281);
+            this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoPictureBox.TabIndex = 10;
+            this.logoPictureBox.TabStop = false;
+            // 
+            // contractsView
+            // 
+            this.contractsView.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.contractsView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.contractsView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.contractsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idColumn,
+            this.deliveryDateColumn});
+            this.contractsView.GridColor = System.Drawing.Color.LightCoral;
+            this.contractsView.Location = new System.Drawing.Point(361, 285);
+            this.contractsView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.contractsView.MultiSelect = false;
+            this.contractsView.Name = "contractsView";
+            this.contractsView.Size = new System.Drawing.Size(294, 174);
+            this.contractsView.TabIndex = 11;
+            // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "ID Договора";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Width = 125;
+            // 
+            // deliveryDateColumn
+            // 
+            this.deliveryDateColumn.HeaderText = "Срок выдачи";
+            this.deliveryDateColumn.Name = "deliveryDateColumn";
+            this.deliveryDateColumn.ReadOnly = true;
+            this.deliveryDateColumn.Width = 125;
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.infoLabel.Location = new System.Drawing.Point(427, 260);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(171, 19);
+            this.infoLabel.TabIndex = 12;
+            this.infoLabel.Text = "Невыполненные заказы";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 257);
-            this.Controls.Add(this.auth_txt);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(670, 474);
+            this.Controls.Add(this.infoLabel);
+            this.Controls.Add(this.contractsView);
             this.Controls.Add(this.labelAuth);
-            this.Controls.Add(this.dateTime);
+            this.Controls.Add(this.seatingMapButton);
+            this.Controls.Add(this.invitationsButton);
+            this.Controls.Add(this.auth_txt);
             this.Controls.Add(this.close_btn);
-            this.Controls.Add(this.view_btn);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.labelNotExecute);
+            this.Controls.Add(this.logoPictureBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Творческая мастерская\"";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractsView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,16 +348,17 @@
         private System.Windows.Forms.ToolStripMenuItem employeeListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem notExecuteOrdersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviceListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem invitationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem seatingMapToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statisticReportsToolStripMenuItem;
-        private System.Windows.Forms.Label labelNotExecute;
-        private System.Windows.Forms.Button view_btn;
         private System.Windows.Forms.Button close_btn;
-        private System.Windows.Forms.DateTimePicker dateTime;
         private System.Windows.Forms.Label labelAuth;
         private System.Windows.Forms.Label auth_txt;
         private System.Windows.Forms.ToolStripMenuItem договорыToolStripMenuItem;
+        private System.Windows.Forms.Button invitationsButton;
+        private System.Windows.Forms.Button seatingMapButton;
+        private System.Windows.Forms.PictureBox logoPictureBox;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.DataGridView contractsView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateColumn;
+        private System.Windows.Forms.Label infoLabel;
     }
 }

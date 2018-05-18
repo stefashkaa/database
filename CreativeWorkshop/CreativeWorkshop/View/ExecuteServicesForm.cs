@@ -15,10 +15,11 @@ namespace CreativeWorkshop.View
         private Contract selectedContract;
         private List<Employee> employees;
 
-        public ExecuteServicesForm()
+        public ExecuteServicesForm(List<Contract> contracts)
         {
-            contracts = ContractController.GetAllContracts();
+            this.contracts = contracts;
             employees = EmployeeController.GetAllEmployees();
+
             selectedContract = contracts.First();
             InitializeComponent();
             AddContracts();

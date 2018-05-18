@@ -62,7 +62,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.reportView.Location = new System.Drawing.Point(18, 93);
-            this.reportView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reportView.Margin = new System.Windows.Forms.Padding(4);
             this.reportView.MultiSelect = false;
             this.reportView.Name = "reportView";
             this.reportView.Size = new System.Drawing.Size(543, 268);
@@ -114,18 +114,21 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "период:";
             // 
-            // TypeServiceReport
+            // ServiceTypeReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(579, 374);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.date_txt);
             this.Controls.Add(this.reportView);
             this.Controls.Add(this.type_txt);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "TypeServiceReport";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.Name = "ServiceTypeReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Отчет по видам услуг";
             ((System.ComponentModel.ISupportInitialize)(this.reportView)).EndInit();
             this.ResumeLayout(false);

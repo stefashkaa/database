@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeatingMapForm));
             this.save_btn = new System.Windows.Forms.Button();
             this.listInv_btn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,8 +39,8 @@
             this.font_btn = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.A4_1 = new System.Windows.Forms.Panel();
-            this.A4_2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.A4_2 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.A4_4 = new System.Windows.Forms.Panel();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -137,16 +138,6 @@
             this.A4_1.Size = new System.Drawing.Size(83, 129);
             this.A4_1.TabIndex = 61;
             // 
-            // A4_2
-            // 
-            this.A4_2.BackColor = System.Drawing.Color.White;
-            this.A4_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.A4_2.Controls.Add(this.textBox2);
-            this.A4_2.Location = new System.Drawing.Point(169, 76);
-            this.A4_2.Name = "A4_2";
-            this.A4_2.Size = new System.Drawing.Size(83, 129);
-            this.A4_2.TabIndex = 62;
-            // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
@@ -159,6 +150,16 @@
             this.textBox1.TabIndex = 63;
             this.textBox1.Text = "Имя";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // A4_2
+            // 
+            this.A4_2.BackColor = System.Drawing.Color.White;
+            this.A4_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.A4_2.Controls.Add(this.textBox2);
+            this.A4_2.Location = new System.Drawing.Point(169, 76);
+            this.A4_2.Name = "A4_2";
+            this.A4_2.Size = new System.Drawing.Size(83, 129);
+            this.A4_2.TabIndex = 62;
             // 
             // textBox2
             // 
@@ -234,6 +235,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(495, 352);
             this.Controls.Add(this.clientName);
             this.Controls.Add(this.A4_4);
@@ -247,7 +249,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "SeatingMapForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Карты рассадки";
             this.A4_1.ResumeLayout(false);
             this.A4_1.PerformLayout();

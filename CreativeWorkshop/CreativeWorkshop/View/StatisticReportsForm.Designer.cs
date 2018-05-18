@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticReportsForm));
             this.dateTimeFirst = new System.Windows.Forms.DateTimePicker();
             this.dateTimeSecond = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -135,6 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(503, 287);
             this.Controls.Add(this.close_btn);
             this.Controls.Add(this.view_btn);
@@ -145,7 +147,10 @@
             this.Controls.Add(this.dateTimeSecond);
             this.Controls.Add(this.dateTimeFirst);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "StatisticReportsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Статистические отчеты";
             this.ResumeLayout(false);
             this.PerformLayout();

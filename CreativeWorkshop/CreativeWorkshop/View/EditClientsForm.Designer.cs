@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditClientsForm));
             this.pMobile = new System.Windows.Forms.TextBox();
             this.pAddress = new System.Windows.Forms.TextBox();
             this.pPatronymic = new System.Windows.Forms.TextBox();
@@ -56,38 +57,38 @@
             this.legalPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pmobile
+            // pMobile
             // 
             this.pMobile.Location = new System.Drawing.Point(117, 150);
-            this.pMobile.Name = "pmobile";
+            this.pMobile.Name = "pMobile";
             this.pMobile.Size = new System.Drawing.Size(412, 20);
             this.pMobile.TabIndex = 21;
             // 
-            // paddress
+            // pAddress
             // 
             this.pAddress.Location = new System.Drawing.Point(117, 115);
-            this.pAddress.Name = "paddress";
+            this.pAddress.Name = "pAddress";
             this.pAddress.Size = new System.Drawing.Size(412, 20);
             this.pAddress.TabIndex = 20;
             // 
-            // ppatronymic
+            // pPatronymic
             // 
             this.pPatronymic.Location = new System.Drawing.Point(117, 80);
-            this.pPatronymic.Name = "ppatronymic";
+            this.pPatronymic.Name = "pPatronymic";
             this.pPatronymic.Size = new System.Drawing.Size(412, 20);
             this.pPatronymic.TabIndex = 19;
             // 
-            // pname
+            // pName
             // 
             this.pName.Location = new System.Drawing.Point(117, 48);
-            this.pName.Name = "pname";
+            this.pName.Name = "pName";
             this.pName.Size = new System.Drawing.Size(412, 20);
             this.pName.TabIndex = 18;
             // 
-            // psurname
+            // pSurname
             // 
             this.pSurname.Location = new System.Drawing.Point(117, 13);
-            this.pSurname.Name = "psurname";
+            this.pSurname.Name = "pSurname";
             this.pSurname.Size = new System.Drawing.Size(412, 20);
             this.pSurname.TabIndex = 17;
             // 
@@ -141,10 +142,10 @@
             this.lNameLabel.TabIndex = 11;
             this.lNameLabel.Text = "Фамилия";
             // 
-            // pemail
+            // pEmail
             // 
             this.pEmail.Location = new System.Drawing.Point(117, 184);
-            this.pEmail.Name = "pemail";
+            this.pEmail.Name = "pEmail";
             this.pEmail.Size = new System.Drawing.Size(412, 20);
             this.pEmail.TabIndex = 23;
             // 
@@ -203,10 +204,10 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Название";
             // 
-            // lemail
+            // lEmail
             // 
             this.lEmail.Location = new System.Drawing.Point(117, 118);
-            this.lEmail.Name = "lemail";
+            this.lEmail.Name = "lEmail";
             this.lEmail.Size = new System.Drawing.Size(412, 20);
             this.lEmail.TabIndex = 23;
             // 
@@ -220,24 +221,24 @@
             this.lEmailLabel.TabIndex = 22;
             this.lEmailLabel.Text = "E-mail";
             // 
-            // lmobile
+            // lMobile
             // 
             this.lMobile.Location = new System.Drawing.Point(117, 84);
-            this.lMobile.Name = "lmobile";
+            this.lMobile.Name = "lMobile";
             this.lMobile.Size = new System.Drawing.Size(412, 20);
             this.lMobile.TabIndex = 21;
             // 
-            // lname
+            // lName
             // 
             this.lName.Location = new System.Drawing.Point(117, 13);
-            this.lName.Name = "lname";
+            this.lName.Name = "lName";
             this.lName.Size = new System.Drawing.Size(412, 20);
             this.lName.TabIndex = 17;
             // 
-            // laddress
+            // lAddress
             // 
             this.lAddress.Location = new System.Drawing.Point(117, 49);
-            this.lAddress.Name = "laddress";
+            this.lAddress.Name = "lAddress";
             this.lAddress.Size = new System.Drawing.Size(412, 20);
             this.lAddress.TabIndex = 20;
             // 
@@ -287,12 +288,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(547, 301);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.legalPanel);
             this.Controls.Add(this.physPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "EditClientsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.EditClientsForm_Load);
             this.physPanel.ResumeLayout(false);
             this.physPanel.PerformLayout();
