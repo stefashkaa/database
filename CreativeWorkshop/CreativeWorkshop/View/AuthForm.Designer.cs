@@ -36,6 +36,7 @@
             // userNameText
             // 
             this.userNameText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.userNameText.ForeColor = System.Drawing.Color.Gray;
             this.userNameText.Location = new System.Drawing.Point(65, 62);
             this.userNameText.MaxLength = 30;
             this.userNameText.Name = "userNameText";
@@ -47,6 +48,7 @@
             // passwordText
             // 
             this.passwordText.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordText.ForeColor = System.Drawing.Color.Gray;
             this.passwordText.Location = new System.Drawing.Point(65, 106);
             this.passwordText.MaxLength = 30;
             this.passwordText.Name = "passwordText";

@@ -25,6 +25,7 @@ namespace CreativeWorkshop.View
             if (String.IsNullOrWhiteSpace(passwordText.Text))
             {
                 passwordText.PasswordChar = '\0';
+                passwordText.ForeColor = System.Drawing.Color.Gray;
                 passwordText.Text = "Пароль";
             }
         }
@@ -33,6 +34,7 @@ namespace CreativeWorkshop.View
         {
             if (String.IsNullOrWhiteSpace(passwordText.Text) || passwordText.Text.Equals("Пароль"))
             {
+                passwordText.ForeColor = System.Drawing.Color.Black;
                 passwordText.Text = "";
                 passwordText.PasswordChar = '*';
             }
@@ -42,6 +44,7 @@ namespace CreativeWorkshop.View
         {
             if (String.IsNullOrWhiteSpace(userNameText.Text))
             {
+                userNameText.ForeColor = System.Drawing.Color.Gray;
                 userNameText.Text = "Имя пользователя";
             }
         }
@@ -50,6 +53,7 @@ namespace CreativeWorkshop.View
         {
             if (userNameText.Text.Equals("Имя пользователя"))
             {
+                userNameText.ForeColor = System.Drawing.Color.Black;
                 userNameText.Text = "";
             }
         }
