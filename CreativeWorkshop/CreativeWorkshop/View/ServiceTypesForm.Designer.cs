@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceTypesForm));
             this.serviceTypesView = new System.Windows.Forms.DataGridView();
-            this.surnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editServiceType = new System.Windows.Forms.Button();
             this.deleteServiceType = new System.Windows.Forms.Button();
             this.addServiceType = new System.Windows.Forms.Button();
+            this.surnameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.serviceTypesView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,20 +53,6 @@
             this.serviceTypesView.Name = "serviceTypesView";
             this.serviceTypesView.Size = new System.Drawing.Size(544, 261);
             this.serviceTypesView.TabIndex = 3;
-            // 
-            // surnameColumn
-            // 
-            this.surnameColumn.HeaderText = "Название вида услуг";
-            this.surnameColumn.Name = "surnameColumn";
-            this.surnameColumn.ReadOnly = true;
-            this.surnameColumn.Width = 250;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.HeaderText = "Цена за единицу услуги";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 250;
             // 
             // editServiceType
             // 
@@ -104,6 +90,20 @@
             this.addServiceType.UseVisualStyleBackColor = true;
             this.addServiceType.Click += new System.EventHandler(this.addType_Click);
             // 
+            // surnameColumn
+            // 
+            this.surnameColumn.HeaderText = "Название вида услуг";
+            this.surnameColumn.Name = "surnameColumn";
+            this.surnameColumn.ReadOnly = true;
+            this.surnameColumn.Width = 250;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.HeaderText = "Цена за единицу услуги, руб.";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 250;
+            // 
             // ServiceTypesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -130,11 +130,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView serviceTypesView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surnameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.Button editServiceType;
         private System.Windows.Forms.Button deleteServiceType;
         private System.Windows.Forms.Button addServiceType;
-
+        private System.Windows.Forms.DataGridViewTextBoxColumn surnameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
     }
 }

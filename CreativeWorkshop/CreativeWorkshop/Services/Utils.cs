@@ -16,7 +16,7 @@ namespace CreativeWorkshop.Services
             {
                 if (string.IsNullOrWhiteSpace(item.Text))
                 {
-                    MessageBox.Show("Заполните поля!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Заполните пустые поля!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return false;
                 }
             }
