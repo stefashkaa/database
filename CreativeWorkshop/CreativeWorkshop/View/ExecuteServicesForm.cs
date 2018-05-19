@@ -28,6 +28,7 @@ namespace CreativeWorkshop.View
             executeView.MultiSelect = false;
             executeView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             addEmployeesList(employeesList);
+            clientName.Text = ContractController.GetClientName(selectedContract);
             ViewData();
         }
 
@@ -131,6 +132,7 @@ namespace CreativeWorkshop.View
         private void contractId_txt_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedContract = contracts.First(c => c.Id == contractId_txt.SelectedItem.ToString());
+            clientName.Text = ContractController.GetClientName(selectedContract);
             ViewData();
         }
 

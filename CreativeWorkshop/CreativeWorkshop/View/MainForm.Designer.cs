@@ -209,7 +209,7 @@
             // 
             this.labelAuth.AutoSize = true;
             this.labelAuth.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAuth.Location = new System.Drawing.Point(241, 50);
+            this.labelAuth.Location = new System.Drawing.Point(336, 50);
             this.labelAuth.Name = "labelAuth";
             this.labelAuth.Size = new System.Drawing.Size(110, 19);
             this.labelAuth.TabIndex = 6;
@@ -219,7 +219,7 @@
             // 
             this.auth_txt.AutoSize = true;
             this.auth_txt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.auth_txt.Location = new System.Drawing.Point(357, 50);
+            this.auth_txt.Location = new System.Drawing.Point(452, 50);
             this.auth_txt.Name = "auth_txt";
             this.auth_txt.Size = new System.Drawing.Size(0, 19);
             this.auth_txt.TabIndex = 7;
@@ -273,7 +273,7 @@
             this.deliveryDateColumn});
             this.contractsView.GridColor = System.Drawing.Color.LightCoral;
             this.contractsView.Location = new System.Drawing.Point(361, 285);
-            this.contractsView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.contractsView.Margin = new System.Windows.Forms.Padding(6);
             this.contractsView.MultiSelect = false;
             this.contractsView.Name = "contractsView";
             this.contractsView.Size = new System.Drawing.Size(294, 174);

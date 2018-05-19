@@ -96,6 +96,13 @@ namespace CreativeWorkshop.View
                     return;
                 }
             }
+            else
+            {
+                if (!Utils.AreYouShureToRemove())
+                {
+                    return;
+                }
+            }
 
             var parameters = new List<SQLiteParameter>()
             {

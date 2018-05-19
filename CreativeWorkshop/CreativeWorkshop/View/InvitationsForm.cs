@@ -12,7 +12,7 @@ namespace CreativeWorkshop.View
 {
     public partial class InvitationsForm : Form
     {
-        private System.Drawing.Font font;
+        private Font font;
         private List<Contract> contracts;
         private Contract selectedContract;
         private List<string> names;

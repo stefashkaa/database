@@ -124,6 +124,16 @@ namespace CreativeWorkshop.Services
             }
         }
 
+        public static bool AreYouShureToRemove()
+        {
+            if (MessageBox.Show("Вы уверены, что хотите удалить выбранную запись", "Подтверждение", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public static void ApplyFont(Microsoft.Office.Interop.Word.Font wFont, System.Drawing.Font font)
         {
             try
@@ -302,14 +312,7 @@ namespace CreativeWorkshop.Services
                         Range r = p.Range;
                         r.Text = text[j];
 
-                        if (j == 0)
-                        {
-                            r.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
-                        }
-                        else
-                        {
-                            r.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-                        }
+                        r.Paragraphs.Alignment = WdParagraphAlignment.wdAlignParagraphCenter;
                     }
                     if (i != pages.Count - 1)
                     {

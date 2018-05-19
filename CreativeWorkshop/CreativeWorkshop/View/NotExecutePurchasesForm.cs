@@ -19,7 +19,7 @@ namespace CreativeWorkshop.View
         {
             notExecutePurchasesView.Rows.Clear();
             using (var read = DatabaseService.ExecuteAndReturn(
-$@"SELECT c.{Db.id}, p.{Db.Purchase.firstDate} 
+$@"SELECT c.{Db.id}, c.{Db.Contract.deliveryDate} 
 FROM ({Db.Contract.title} c INNER JOIN {Db.Purchase.title} p 
 ON c.{Db.Contract.purchaseId} = p.{Db.id}) a
 WHERE a.{Db.Purchase.status} = {(uint)Status.Unfilled};"))
@@ -28,7 +28,7 @@ WHERE a.{Db.Purchase.status} = {(uint)Status.Unfilled};"))
                 {
                     notExecutePurchasesView.Rows.Add(new object[] {
                         read.GetValue(read.GetOrdinal(Db.id)),
-                        Contract.ToDateString(Convert.ToInt64(read.GetValue(read.GetOrdinal(Db.Purchase.firstDate))))
+                        Contract.ToDateString((long)read.GetValue(read.GetOrdinal(Db.Contract.deliveryDate)))
                     });
                 }
             }

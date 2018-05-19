@@ -37,6 +37,7 @@
             this.close_btn = new System.Windows.Forms.Button();
             this.contractId_txt = new System.Windows.Forms.ComboBox();
             this.save_btn = new System.Windows.Forms.Button();
+            this.clientName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.executeView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,12 +120,24 @@
             this.save_btn.UseVisualStyleBackColor = true;
             this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
+            // clientName
+            // 
+            this.clientName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clientName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.clientName.Location = new System.Drawing.Point(329, 13);
+            this.clientName.Name = "clientName";
+            this.clientName.ReadOnly = true;
+            this.clientName.Size = new System.Drawing.Size(227, 26);
+            this.clientName.TabIndex = 66;
+            this.clientName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // ExecuteServicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(568, 371);
+            this.Controls.Add(this.clientName);
             this.Controls.Add(this.save_btn);
             this.Controls.Add(this.contractId_txt);
             this.Controls.Add(this.close_btn);
@@ -153,5 +166,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn employeesList;
         private System.Windows.Forms.Button save_btn;
+        private System.Windows.Forms.TextBox clientName;
     }
 }

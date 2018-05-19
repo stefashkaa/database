@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractsForm));
             this.contractsView = new System.Windows.Forms.DataGridView();
+            this.deleteContract = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.executeButton = new System.Windows.Forms.Button();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.summaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchaseStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteContract = new System.Windows.Forms.Button();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.executeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contractsView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,40 +59,6 @@
             this.contractsView.Name = "contractsView";
             this.contractsView.Size = new System.Drawing.Size(671, 223);
             this.contractsView.TabIndex = 3;
-            // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "ID Договора";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            this.idColumn.Width = 125;
-            // 
-            // purchaseIdColumn
-            // 
-            this.purchaseIdColumn.HeaderText = "ID Заказа";
-            this.purchaseIdColumn.Name = "purchaseIdColumn";
-            this.purchaseIdColumn.ReadOnly = true;
-            this.purchaseIdColumn.Width = 125;
-            // 
-            // summaColumn
-            // 
-            this.summaColumn.HeaderText = "Общая сумма";
-            this.summaColumn.Name = "summaColumn";
-            this.summaColumn.ReadOnly = true;
-            this.summaColumn.Width = 125;
-            // 
-            // deliveryDateColumn
-            // 
-            this.deliveryDateColumn.HeaderText = "Дата";
-            this.deliveryDateColumn.Name = "deliveryDateColumn";
-            this.deliveryDateColumn.ReadOnly = true;
-            this.deliveryDateColumn.Width = 125;
-            // 
-            // purchaseStatus
-            // 
-            this.purchaseStatus.HeaderText = "Статус заказа";
-            this.purchaseStatus.Name = "purchaseStatus";
-            this.purchaseStatus.Width = 125;
             // 
             // deleteContract
             // 
@@ -130,6 +96,40 @@
             this.executeButton.UseVisualStyleBackColor = true;
             this.executeButton.Click += new System.EventHandler(this.executeButton_Click);
             // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "ID Договора";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Width = 125;
+            // 
+            // purchaseIdColumn
+            // 
+            this.purchaseIdColumn.HeaderText = "ID Заказа";
+            this.purchaseIdColumn.Name = "purchaseIdColumn";
+            this.purchaseIdColumn.ReadOnly = true;
+            this.purchaseIdColumn.Width = 125;
+            // 
+            // summaColumn
+            // 
+            this.summaColumn.HeaderText = "Общая сумма";
+            this.summaColumn.Name = "summaColumn";
+            this.summaColumn.ReadOnly = true;
+            this.summaColumn.Width = 125;
+            // 
+            // deliveryDateColumn
+            // 
+            this.deliveryDateColumn.HeaderText = "Дата выдачи";
+            this.deliveryDateColumn.Name = "deliveryDateColumn";
+            this.deliveryDateColumn.ReadOnly = true;
+            this.deliveryDateColumn.Width = 125;
+            // 
+            // purchaseStatus
+            // 
+            this.purchaseStatus.HeaderText = "Статус заказа";
+            this.purchaseStatus.Name = "purchaseStatus";
+            this.purchaseStatus.Width = 125;
+            // 
             // ContractsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -157,11 +157,11 @@
         private System.Windows.Forms.DataGridView contractsView;
         private System.Windows.Forms.Button deleteContract;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button executeButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn purchaseIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn summaColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn purchaseStatus;
-        private System.Windows.Forms.Button executeButton;
     }
 }

@@ -99,6 +99,10 @@ namespace CreativeWorkshop.View
                 MessageBox.Show("Ничего не выбрано!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (!Utils.AreYouShureToRemove())
+            {
+                return;
+            }
             List<SQLiteParameter> parameters = new List<SQLiteParameter>();
             if (isPhys)
             {

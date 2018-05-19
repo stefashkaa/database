@@ -21,7 +21,7 @@ namespace CreativeWorkshop.View
         {
             employeesView.Rows.Clear();
             using (var read = DatabaseService.ExecuteAndReturn(
-$@"SELECT e.{Db.Employees.surname}, e.{Db.Employees.name}, e.{Db.Employees.patronymic}, 
+$@"SELECT DISTINCT e.{Db.Employees.surname}, e.{Db.Employees.name}, e.{Db.Employees.patronymic}, 
 e.{Db.Employees.position}, e.{Db.Employees.mobile} 
 FROM ({Db.Service.title} s INNER JOIN {Db.Employees.title} e 
 ON e.{Db.id} = s.{Db.Service.employeeId}) a 

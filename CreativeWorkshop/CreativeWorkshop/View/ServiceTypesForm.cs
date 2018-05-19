@@ -56,6 +56,10 @@ namespace CreativeWorkshop.View
                 MessageBox.Show("Ничего не выбрано!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (!Utils.AreYouShureToRemove())
+            {
+                return;
+            }
             var parameters = new List<SQLiteParameter>()
             {
                 new SQLiteParameter($"@{Db.ServiceTypes.name}", tmp.Cells[0].Value)
