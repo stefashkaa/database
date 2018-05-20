@@ -16,14 +16,14 @@ namespace CreativeWorkshop.View.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class EmployeeReport : ReportClass {
+    public class ServiceTypeReport : ReportClass {
         
-        public EmployeeReport() {
+        public ServiceTypeReport() {
         }
         
         public override string ResourceName {
             get {
-                return "EmployeeReport.rpt";
+                return "ServiceTypeReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CreativeWorkshop.View.Reports {
         
         public override string FullResourceName {
             get {
-                return "CreativeWorkshop.View.Reports.EmployeeReport.rpt";
+                return "CreativeWorkshop.View.Reports.ServiceTypeReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace CreativeWorkshop.View.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedEmployeeReport : Component, ICachedReport {
+    public class CachedServiceTypeReport : Component, ICachedReport {
         
-        public CachedEmployeeReport() {
+        public CachedServiceTypeReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace CreativeWorkshop.View.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            EmployeeReport rpt = new EmployeeReport();
+            ServiceTypeReport rpt = new ServiceTypeReport();
             rpt.Site = this.Site;
             return rpt;
         }

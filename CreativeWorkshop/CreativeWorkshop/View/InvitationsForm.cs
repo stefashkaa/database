@@ -74,14 +74,10 @@ namespace CreativeWorkshop.View
             invitationText.Clear();
             var temp = pages[num - 1].Split('\n');
 
-            invitationText.Select(invitationText.TextLength, 0);
-            invitationText.SelectionAlignment = HorizontalAlignment.Center;
-            invitationText.AppendText(temp[0]);
-
-            for (int i = 1; i < temp.Length; i++)
+            for (int i = 0; i < temp.Length; i++)
             {
                 invitationText.Select(invitationText.TextLength, 0);
-                invitationText.SelectionAlignment = HorizontalAlignment.Left;
+                invitationText.SelectionAlignment = HorizontalAlignment.Center;
                 invitationText.AppendText(temp[i]);
             }
         }

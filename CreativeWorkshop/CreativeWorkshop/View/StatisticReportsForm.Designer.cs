@@ -110,6 +110,7 @@
             this.radioButton3.TabIndex = 12;
             this.radioButton3.Text = "по видам услуг";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // view_btn
             // 
@@ -131,6 +132,7 @@
             this.close_btn.TabIndex = 14;
             this.close_btn.Text = "Закрыть";
             this.close_btn.UseVisualStyleBackColor = true;
+            this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
             // 
             // StatisticReportsForm
             // 

@@ -111,9 +111,23 @@
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Purchase.cs" />
+    <Compile Include="Model\ExecutedPurchaseReport.cs" />
+    <Compile Include="Model\PriceReport.cs" />
     <Compile Include="Model\Service.cs" />
     <Compile Include="Model\ServiceType.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="View\Reports\PriceReport.cs">
+      <DependentUpon>PriceReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="View\Reports\ExecutedReport.cs">
+      <DependentUpon>ExecutedReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="View\ServicesWithoutExecutorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,10 +221,10 @@
     <Compile Include="View\Reports\ReportViewer.Designer.cs">
       <DependentUpon>ReportViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Reports\EmployeeReport.cs">
+    <Compile Include="View\Reports\ServiceTypeReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EmployeeReport.rpt</DependentUpon>
+      <DependentUpon>ServiceTypeReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\EditEmployeeForm.cs">
@@ -297,12 +311,20 @@
     <EmbeddedResource Include="View\PurchaseEmployeesForm.resx">
       <DependentUpon>PurchaseEmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Reports\PriceReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PriceReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Reports\ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Reports\EmployeeReport.rpt">
+    <EmbeddedResource Include="View\Reports\ExecutedReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>EmployeeReport.cs</LastGenOutput>
+      <LastGenOutput>ExecutedReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Reports\ServiceTypeReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ServiceTypeReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EditEmployeeForm.resx">
       <DependentUpon>EditEmployeeForm.cs</DependentUpon>

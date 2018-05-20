@@ -128,11 +128,5 @@ namespace CreativeWorkshop
                 }
             }
         }
-
-        private void reportButton_Click(object sender, EventArgs e)
-        {
-            var reportViewer = new ReportViewer(EmployeeController.GetAllEmployees());
-            reportViewer.Show();
-        }
     }
 }
