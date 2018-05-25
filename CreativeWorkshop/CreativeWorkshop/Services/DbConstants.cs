@@ -79,23 +79,24 @@ surname char(30) NOT NULL,
 name char(30) NOT NULL, 
 patronymic char(30) NOT NULL, 
 client_id INTEGER NOT NULL, 
-FOREIGN KEY(client_id) REFERENCES clients(id), 
+FOREIGN KEY(client_id) REFERENCES clients(id) ON DELETE CASCADE ON UPDATE CASCADE, 
 CONSTRAINT name_unique UNIQUE(surname, name, patronymic));";
             public static readonly string Insert = @"INSERT INTO clients( 
 address, mobile, email) VALUES(@address , @mobile , @email); 
 INSERT INTO phys_clients(surname, name, patronymic, client_id) 
 VALUES(@surname , @name , @patronymic , (SELECT MAX(id) from clients));";
-            public static readonly string Delete = @"DELETE FROM phys_clients 
-WHERE surname = @surname AND name = @name AND patronymic = @patronymic; 
-DELETE FROM clients WHERE id = 
-(SELECT client_id FROM phys_clients WHERE surname = @surname 
-AND name = @name AND patronymic = @patronymic)";
-            public static readonly string Update = @"UPDATE phys_clients 
-set surname = @surname, name = @name, patronymic = @patronymic 
-WHERE surname = @surname1 AND name = @name1 AND patronymic = @patronymic1; 
-UPDATE clients set address = @address, mobile = @mobile, email = @email 
+            public static readonly string Delete = @"DELETE FROM clients 
+WHERE id = (SELECT client_id FROM phys_clients WHERE surname = @surname 
+AND name = @name AND patronymic = @patronymic); 
+DELETE FROM phys_clients 
+WHERE surname = @surname AND name = @name AND patronymic = @patronymic;";
+            public static readonly string Update = @"UPDATE clients 
+set address = @address, mobile = @mobile, email = @email 
 WHERE id = (SELECT client_id FROM phys_clients WHERE surname = @surname1 
-AND name = @name1 AND patronymic = @patronymic1)";
+AND name = @name1 AND patronymic = @patronymic1); 
+UPDATE phys_clients 
+set surname = @surname, name = @name, patronymic = @patronymic 
+WHERE surname = @surname1 AND name = @name1 AND patronymic = @patronymic1;";
         }
 
         public class LClients
@@ -108,7 +109,7 @@ AND name = @name1 AND patronymic = @patronymic1)";
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
 name char(30) NOT NULL, 
 client_id INTEGER NOT NULL, 
-FOREIGN KEY(client_id) REFERENCES clients(id), 
+FOREIGN KEY(client_id) REFERENCES clients(id) ON DELETE CASCADE ON UPDATE CASCADE, 
 CONSTRAINT name_unique UNIQUE(name));";
             public static readonly string Insert = @"INSERT INTO clients( 
 address, mobile, email) VALUES(@address , @mobile , @email); 
