@@ -232,6 +232,7 @@
             this.dateTimeLast.Name = "dateTimeLast";
             this.dateTimeLast.Size = new System.Drawing.Size(166, 26);
             this.dateTimeLast.TabIndex = 43;
+            this.dateTimeLast.ValueChanged += new System.EventHandler(this.dateTimeLast_ValueChanged);
             // 
             // send_btn
             // 

@@ -16,19 +16,23 @@ namespace CreativeWorkshop.View
         private List<ServiceType> selectedServiceTypes;
         private List<int> selectedCount;
         private bool isPhys;
+        private DateTime executingDate;
         public CreateContractForm()
         {
             InitializeComponent();
         }
 
-        public CreateContractForm(Purchase p, long sum, List<ServiceType> selectedServiceTypes, List<int> selectedCount) : this()
+        public CreateContractForm(Purchase p, long sum, List<ServiceType> selectedServiceTypes, List<int> selectedCount, DateTime executingDate) : this()
         {
             this.sum = sum;
             this.purchase = p;
             this.selectedServiceTypes = selectedServiceTypes;
             this.selectedCount = selectedCount;
+            this.executingDate = executingDate;
+
             sumText.Text = sum.ToString();
             orderId.Text = DatabaseService.GetNextId(Db.Purchase.title).ToString();
+            dateTime.Value = executingDate.AddDays(1);
             var pClient = p.Client as PClient;
             var lClient = p.Client as LClient;
             isPhys = pClient != null;
@@ -54,6 +58,11 @@ namespace CreativeWorkshop.View
             if (string.IsNullOrWhiteSpace(fileNameText.Text))
             {
                 MessageBox.Show("Выберите файл клиента со списком приглашенных!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+            if (dateTime.Value < executingDate)
+            {
+                MessageBox.Show("Дата выдачи не может быть раньше даты срока исполнения!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             saveNewPurchase();

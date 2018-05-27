@@ -15,6 +15,7 @@ namespace CreativeWorkshop.View
         public OrganizationOrderForm()
         {
             InitializeComponent();
+            dateTimeLast.Value = DateTime.Now.AddDays(1);
             AddItems<ServiceType>(service_txt1);
             AddClients();
         }
@@ -49,12 +50,19 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (dateTimeLast.Value.Ticks < dateTimeFirst.Value.Ticks)
+            {
+                MessageBox.Show("Дата срока исполнения не может быть раньше даты приема заказа!", "Предупреждение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             new CreateContractForm(
                 new Purchase(client, firstPay, dateTimeFirst.Value, dateTimeLast.Value, Status.Unfilled),
                 sum,
                 selectedTypes,
-                selectedCount).ShowDialog();
+                selectedCount,
+                dateTimeLast.Value).ShowDialog();
         }
 
         private long getSumForSelectedServices(out List<ServiceType> selectedServices, out List<int> selectedCount)
@@ -188,6 +196,16 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
         private void close_btn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void dateTimeLast_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimeLast.Value.Ticks < dateTimeFirst.Value.Ticks)
+            {
+                MessageBox.Show("Дата срока исполнения не может быть раньше даты приема заказа!", "Предупреждение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dateTimeLast.Value = dateTimeFirst.Value.AddDays(1);
+            }
         }
     }
 }
