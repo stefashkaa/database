@@ -47,6 +47,7 @@
             this.dateTimeFirst.Name = "dateTimeFirst";
             this.dateTimeFirst.Size = new System.Drawing.Size(140, 20);
             this.dateTimeFirst.TabIndex = 6;
+            this.dateTimeFirst.ValueChanged += new System.EventHandler(this.dateTimeFirst_ValueChanged);
             // 
             // dateTimeSecond
             // 
@@ -55,6 +56,7 @@
             this.dateTimeSecond.Name = "dateTimeSecond";
             this.dateTimeSecond.Size = new System.Drawing.Size(140, 20);
             this.dateTimeSecond.TabIndex = 7;
+            this.dateTimeSecond.ValueChanged += new System.EventHandler(this.dateTimeSecond_ValueChanged);
             // 
             // label1
             // 

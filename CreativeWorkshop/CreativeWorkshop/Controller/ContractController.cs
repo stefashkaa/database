@@ -66,5 +66,28 @@ WHERE {Db.id} = {contract.OrderId});";
 
             return null;
         }
+
+        public static string GetClientName(string id)
+        {
+            return GetClientName(GetContract(id));
+        }
+
+        public static Contract GetContract(string id)
+        {
+            using (var read = DatabaseService.Where(Db.Contract.title, $"{Db.id} = {id}"))
+            {
+                if (read.Read())
+                {
+                    return new Contract(
+                        (string)read.GetValue(read.GetOrdinal(Db.id)),
+                        Contract.ToDate(Convert.ToInt64(read.GetValue(read.GetOrdinal(Db.Contract.deliveryDate)))),
+                        Convert.ToInt64(read.GetValue(read.GetOrdinal(Db.Contract.summa))),
+                        Convert.ToInt32(read.GetValue(read.GetOrdinal(Db.Contract.purchaseId))),
+                        (string)read.GetValue(read.GetOrdinal(Db.Contract.fileName))
+                    );
+                }
+            }
+            return null;
+        }
     }
 }

@@ -48,5 +48,10 @@ namespace CreativeWorkshop.Model
         {
             return ToDate(ticks).ToShortDateString();
         }
+
+        public static bool IsPhClient(string id)
+        {
+            return id.ToLower().Contains("ph");
+        }
     }
 }

@@ -232,6 +232,8 @@ namespace CreativeWorkshop.Services
                     objParagraph.Range.Text = Environment.NewLine;
                 }
                 doc.SaveAs2(fileName);
+                MessageBox.Show("Файл сохранен!", "Сохранение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch (Exception e)
             {
@@ -321,6 +323,8 @@ namespace CreativeWorkshop.Services
                 }
 
                 doc.SaveAs2(fName);
+                MessageBox.Show("Файл сохранен!", "Сохранение",
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch (Exception e)
             {

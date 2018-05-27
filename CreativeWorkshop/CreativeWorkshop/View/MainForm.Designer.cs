@@ -271,7 +271,7 @@
             this.contractsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
             this.deliveryDateColumn});
-            this.contractsView.GridColor = System.Drawing.Color.LightCoral;
+            this.contractsView.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.contractsView.Location = new System.Drawing.Point(361, 285);
             this.contractsView.Margin = new System.Windows.Forms.Padding(6);
             this.contractsView.MultiSelect = false;
@@ -325,6 +325,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ООО \"Творческая мастерская\"";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();

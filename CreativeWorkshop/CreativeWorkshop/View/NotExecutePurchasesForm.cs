@@ -21,7 +21,7 @@ namespace CreativeWorkshop.View
             using (var read = DatabaseService.ExecuteAndReturn(
 $@"SELECT c.{Db.id}, c.{Db.Contract.deliveryDate} 
 FROM ({Db.Contract.title} c INNER JOIN {Db.Purchase.title} p 
-ON c.{Db.Contract.purchaseId} = p.{Db.id}) a
+ON c.{Db.Contract.purchaseId} = p.{Db.id}) a 
 WHERE a.{Db.Purchase.status} = {(uint)Status.Unfilled};"))
             {
                 while (read.Read())

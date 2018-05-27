@@ -35,14 +35,17 @@ namespace CreativeWorkshop
                     {
                         report = new View.Reports.ExecutedReport();
                         report.Refresh();
-                        report.SetDataSource((IEnumerable<ServiceType>)objects);
+                        report.SetDataSource((IEnumerable<ExecutedPurchaseReport>)objects);
                     }
                     else
                     {
+                        var priceReportData = (List<PriceReport>)objects;
+                        long total = 0;
+                        priceReportData.ForEach(d => total += d.Summa);
                         report = new View.Reports.PriceReport();
                         report.Refresh();
-                        report.SetDataSource((IEnumerable<ServiceType>)objects);
-                        report.SetParameterValue("Total", "0 руб.");
+                        report.SetDataSource((IEnumerable<PriceReport>)objects);
+                        report.SetParameterValue("Total", $"{total} руб.");
                     }
                     report.SetParameterValue("First", first.Value.ToShortDateString());
                     report.SetParameterValue("Second", second.Value.ToShortDateString());
