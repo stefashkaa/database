@@ -136,7 +136,7 @@ namespace CreativeWorkshop.View
             if (ContractController.GetAllContracts()?.Count != 0)
             {
                 using (var read = DatabaseService.Where(Db.Contract.title,
-                    $"{Db.Contract.deliveryDate} BETWEEN {DateTime.Now.AddDays(-3).Ticks} AND {DateTime.Now.Ticks} ORDER BY {Db.Contract.deliveryDate} DESC"))
+                    $"{Db.Contract.deliveryDate} BETWEEN {DateTime.Now.Ticks} AND {DateTime.Now.AddDays(3).Ticks} ORDER BY {Db.Contract.deliveryDate} DESC"))
                 {
                     while (read.Read())
                     {

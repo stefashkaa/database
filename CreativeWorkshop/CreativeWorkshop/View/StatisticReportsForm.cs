@@ -88,7 +88,9 @@ namespace CreativeWorkshop.View
 $@"SELECT c.{Db.id}, p.{Db.Purchase.firstDate}, c.{Db.Contract.deliveryDate}, c.{Db.Contract.summa} 
 FROM ({Db.Contract.title} c INNER JOIN {Db.Purchase.title} p 
 ON c.{Db.Contract.purchaseId} = p.{Db.id}) a 
-WHERE a.{Db.Purchase.firstDate} BETWEEN {first.Ticks - first.TimeOfDay.Ticks} AND {second.Ticks - second.TimeOfDay.Ticks + TimeSpan.TicksPerDay - 1};"))
+WHERE (a.{Db.Purchase.firstDate} BETWEEN {first.Ticks - first.TimeOfDay.Ticks} 
+AND {second.Ticks - second.TimeOfDay.Ticks + TimeSpan.TicksPerDay - 1}) 
+AND (p.{Db.Purchase.status}={(uint)Status.Filled});"))
             {
                 while (read.Read())
                 {

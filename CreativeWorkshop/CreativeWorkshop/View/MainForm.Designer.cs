@@ -50,9 +50,9 @@
             this.seatingMapButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.contractsView = new System.Windows.Forms.DataGridView();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deliveryDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.infoLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractsView)).BeginInit();
@@ -276,22 +276,9 @@
             this.contractsView.Margin = new System.Windows.Forms.Padding(6);
             this.contractsView.MultiSelect = false;
             this.contractsView.Name = "contractsView";
+            this.contractsView.RowHeadersVisible = false;
             this.contractsView.Size = new System.Drawing.Size(294, 174);
             this.contractsView.TabIndex = 11;
-            // 
-            // idColumn
-            // 
-            this.idColumn.HeaderText = "ID Договора";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            this.idColumn.Width = 125;
-            // 
-            // deliveryDateColumn
-            // 
-            this.deliveryDateColumn.HeaderText = "Срок выдачи";
-            this.deliveryDateColumn.Name = "deliveryDateColumn";
-            this.deliveryDateColumn.ReadOnly = true;
-            this.deliveryDateColumn.Width = 125;
             // 
             // infoLabel
             // 
@@ -302,6 +289,20 @@
             this.infoLabel.Size = new System.Drawing.Size(171, 19);
             this.infoLabel.TabIndex = 12;
             this.infoLabel.Text = "Невыполненные заказы";
+            // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "Номер договора";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Width = 146;
+            // 
+            // deliveryDateColumn
+            // 
+            this.deliveryDateColumn.HeaderText = "Срок выдачи заказов";
+            this.deliveryDateColumn.Name = "deliveryDateColumn";
+            this.deliveryDateColumn.ReadOnly = true;
+            this.deliveryDateColumn.Width = 146;
             // 
             // MainForm
             // 
@@ -358,8 +359,8 @@
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.DataGridView contractsView;
+        private System.Windows.Forms.Label infoLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn idColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deliveryDateColumn;
-        private System.Windows.Forms.Label infoLabel;
     }
 }

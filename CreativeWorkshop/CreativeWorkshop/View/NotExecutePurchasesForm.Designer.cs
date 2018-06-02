@@ -53,7 +53,7 @@
             // 
             // idColumn
             // 
-            this.idColumn.HeaderText = "ID Договора";
+            this.idColumn.HeaderText = "Номер договора";
             this.idColumn.Name = "idColumn";
             this.idColumn.ReadOnly = true;
             this.idColumn.Width = 175;

@@ -98,14 +98,14 @@
             // 
             // idColumn
             // 
-            this.idColumn.HeaderText = "ID Договора";
+            this.idColumn.HeaderText = "Номер договора";
             this.idColumn.Name = "idColumn";
             this.idColumn.ReadOnly = true;
             this.idColumn.Width = 125;
             // 
             // purchaseIdColumn
             // 
-            this.purchaseIdColumn.HeaderText = "ID Заказа";
+            this.purchaseIdColumn.HeaderText = "Номер заказа";
             this.purchaseIdColumn.Name = "purchaseIdColumn";
             this.purchaseIdColumn.ReadOnly = true;
             this.purchaseIdColumn.Width = 125;
@@ -119,7 +119,7 @@
             // 
             // deliveryDateColumn
             // 
-            this.deliveryDateColumn.HeaderText = "Дата выдачи";
+            this.deliveryDateColumn.HeaderText = "Дата выдачи заказа";
             this.deliveryDateColumn.Name = "deliveryDateColumn";
             this.deliveryDateColumn.ReadOnly = true;
             this.deliveryDateColumn.Width = 125;

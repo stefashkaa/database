@@ -17,6 +17,7 @@ namespace CreativeWorkshop.View
             InitializeComponent();
             dateTimeLast.Value = DateTime.Now.AddDays(1);
             AddItems<ServiceType>(service_txt1);
+            addTooltip(service_txt1);
             AddClients();
         }
 
@@ -112,7 +113,9 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Name = $"serviceName{i}", Text = "Название вида услуги:" };
 
             var name = new ComboBox() { Font = font, Location = new Point(169, 12), Name = $"service_txt{i}",
-                Size = new Size(117, 27), DropDownWidth = 200, DropDownStyle = ComboBoxStyle.DropDownList };
+                Size = new Size(117, 27), DropDownWidth = 200, DropDownStyle = ComboBoxStyle.DropDownList,
+                DropDownHeight = 200 };
+            addTooltip(name);
             AddItems<ServiceType>(name);
 
             var countLabel = new Label() { AutoSize = true, Font = font, Location = new Point(305, 15),
@@ -127,6 +130,24 @@ MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             currentRow.Controls.AddRange(new Control[] { labelName, name, countLabel, count, delete });
             servicePanel.Controls.Add(currentRow);
+        }
+
+        private void addTooltip(ComboBox name)
+        {
+            var toolTip = new ToolTip() { AutoPopDelay = 0, InitialDelay = 0, ReshowDelay = 0, ShowAlways = true };
+            name.DrawMode = DrawMode.OwnerDrawFixed;
+            name.DrawItem += (s, e) =>
+            {
+                e.DrawBackground();
+                string text = name.GetItemText(name.Items[e.Index]);
+                using (SolidBrush br = new SolidBrush(e.ForeColor))
+                    e.Graphics.DrawString(text, e.Font, br, e.Bounds);
+                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected && name.DroppedDown)
+                    toolTip.Show(text, name, e.Bounds.Right, e.Bounds.Bottom + 4);
+                e.DrawFocusRectangle();
+            };
+            name.DropDownClosed += (s, e) =>
+                toolTip.Hide(name);
         }
 
         private void AddItems<T>(object sender)
